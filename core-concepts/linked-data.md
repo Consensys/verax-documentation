@@ -2,7 +2,7 @@
 
 One of the major benefits of using an attestation registry such as Verax for storing data, is that it consolidates public data points from various dapps into a unified on-chain datastore.  This reduces the proliferation of fragmented data-siloes of dapps using their own individual on-chain storage.
 
-Using a consolidated data store makes it much easier to index the data and derive valuable insights.  However, there remains challenge when we start composing attestations from multiple different sources, that each have their own naming conventions and semantic definitions for the attestation data.
+Using a consolidated data store makes it much easier to index the data and derive valuable insights.  However, there remains challenge when we start composing attestations from multiple different sources that each have their own naming conventions and semantic definitions for the attestation data.
 
 To illustrate this with an example, consider an attestation for a person.
 
@@ -17,12 +17,12 @@ homepage: http://example.com/bobspage
 Attestation from Issuer B:
 
 ```
-name: Bobcat
+name: Alice
 address: 0x174bb5ca2...
-homepage: http://example.com/bobspage
+homepage: http://example.com/alicespage
 ```
 
-We don't know if those attestation are the using the property "name" in the same way, or if they are using the property "address" in the same exact way, or "homepage" in the same way. This introduces ambiguity which creates frcition for the developer that is trying to consume and compose attestations from different sources.
+We don't know if those attestation are the using the property "name" in the same way, or if they are using the property "address" in the same exact way, or "homepage" in the same way. This introduces ambiguity which creates friction for the developer that is trying to consume and compose attestations from different sources.
 
 To makes matters worse, attestation issuers may use different naming conventions when referring to the same thing.  Consider the two following examples:
 
@@ -37,12 +37,12 @@ home_page: http://example.com/bobspage
 Attestation from Issuer B:
 
 ```
-firstName: Bob
-lastName: Cat
-homePage: http://example.com/bobspage
+firstName: Alice
+lastName: Cooper
+homePage: http://example.com/alicespage
 ```
 
-Even though both attestation issuers are using fields that the same semantic meaning, one of them is using camelCase while the other is using under\_scores.  This becomes a major headache for consumer of the attestations as they have to account for the naming conventions of different issuers.
+Even if both attestation issuers are using fields that have the same semantic meaning, one of them is using camelCase while the other is using under\_scores.  This becomes a major headache for consumers of the attestations as they have to account for the naming conventions of different issuers.
 
 ### Contexts to the rescue
 
@@ -68,37 +68,37 @@ url: http://example.com/bobspage
 Attestation from Issuer B:
 
 ```
-givenName: Bob
-familyName: Cat
-url: http://example.com/bobspage
+givenName: Alice
+familyName: Cooper
+url: http://example.com/alicespage
 ```
 
-Now both issuers are using the same naming convention, which makes it way easier to consume and copose the attestations.
+Now both issuers are using the same naming convention, which makes it way easier to consume and compose the attestations.
 
 ## Custom Naming Conventions
 
-Of course the example above doesn't always work.  It's often the case that an attestation issuer already has an established naming convention, and it's not feasible for them change this naming convention to align with other shared vocabularies.  That's ok, we can use custom contexts!
+Of course the example above doesn't always work in real life.  It's often the case that an attestation issuer already has an established naming convention, and it's not feasible for them change this naming convention to align with other shared vocabularies.  That's ok, because we can use custom contexts!
 
 Custom contexts are based on a custom schema that allows an issuer to create an attestation which links their custom fields to properties in a shared vocabulary.  Lets take the example above, but this time the `context` property in the schema metadata points to an attestation that looks like this:
 
-```
-context: "https://schema.org/Person"
+```json
+context: "https://schema.org/Person" // ← stored in the metadata
 first_name: "givenName"
 last_name: "familyName"
 home_page: "url"
 address: "Ethereum mainnet address"
 ```
 
-So now a consumer of any attestation that is based on a schema with the above context knows that the field `last_name` actually refers to [https://schema.org/familyName](https://schema.org/familyName).  Now developers can programmatically detect when an attestation's context points to a "context attestation" and can automatically map the issuers naming convention back to that of our a shared vocabulary, and they don't need to hardcode it (or event know anything about it).
+So now a consumer of any attestation that is based on a schema with the above context knows that the field `last_name` actually refers to [https://schema.org/familyName](https://schema.org/familyName).  Now developers can programmatically detect when an attestation's context points to a "context attestation", and can automatically map the issuer's idiomatic naming convention back to that of a shared vocabulary, without needing to hardcode it (or ever knowing anything about it).
 
 ## Shared Vocabularies
 
-We've borrowed the context property from the [JSON-LD specification](https://json-ld.org) but we haven't taken anythign else from the specification as we are trying to emphasize simplicity over complexity, and the context property is powerful enough to give rich semantic meaning to attesations.
+We've borrowed the context property from the [JSON-LD specification](https://json-ld.org) but we haven't taken anything else from that specification as we are trying to emphasize simplicity over complexity, and the context property is powerful enough to give rich semantic meaning to attestations.
 
-For the same reason, we are encouraging the use of schema.org as a shared vocabulary, (also commonly referred to as an ontology). However, there are many other ontologies that may be better suited to other use casesm for example:
+For the same reason, we are encouraging the use of [schema.org](https://schema.org/) as a shared vocabulary, (also commonly referred to as an _ontology_). However, there are many other vocabularies / ontologies that may be better suited to other use cases, for example:
 
 * [SIOC](http://sioc-project.org) - The _Semantically Interlinked Online Communities_ ontology is an ontology of terms that can be used to describe online communities.
-* [FIBO](https://edmconnect.edmcouncil.org/fibointerestgroup/fibo-products/fibo-viewer) - The _Financial Industry Business Ontology_ defines the sets of things that are of interest in financial business applications and the ways that those things can relate to one another.
+* [FIBO](https://edmconnect.edmcouncil.org/fibointerestgroup/fibo-products/fibo-viewer) - The _Financial Industry Business Ontology_ defines the sets of things that are of interest in financial applications and the ways that those things can relate to one another.
 
 There are many other ontologies available and you can discover ones that may be better suited to your specific use case using the following directories:
 
@@ -111,7 +111,4 @@ There are many other ontologies available and you can discover ones that may be 
 
 Using shared vocabulares / ontologies is an extremely powerful way for dapps to allow easy access to their data, making it much more likely for other dapp developers to consume those attestations.  Adopting shared ontologies will allow us to develop semantically rich on-chain reputations and will allow for sophisticated permissionless discoverability of services and dapps that drive real value to users.
 
-
-
-
-
+Schemas and Linked Data are the foundational components of the attestation registry, but actually issuing attestations based on these schemas involved two other simple concepts, [Portals](portals.md) and [Modules](modules.md).

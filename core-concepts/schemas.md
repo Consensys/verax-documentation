@@ -2,7 +2,7 @@
 
 A schema is a blueprint for an attestation.  It describes the various fields an attestation contains and what their datatypes are.  It also describes any canonical links to other attestations that an attestation should have.  Anyone can create a schema in the registry, and once created, schemas can be re-used by anyone else.
 
-Schemas are stored in the registry as a string value that describes the various fields, for example, to create attestations that describe a person, we can create a schema as follows:\
+Schemas are stored in the registry as a string value that describes the various fields.  For example, to create attestations that describe a person, we can create a schema as follows:\
 \
 `string firstName, string lastName`
 
@@ -12,7 +12,7 @@ This describes a schema with two fields, both of type string.  Any attestation b
 
 ## Nested Data vs. Linked Data
 
-The convention in Verax is to use linked data rather than nested data, so for for example, to create an attestation of a "person" that lives at a "place", one would first create a **Place** schema, and then you would create a **Person** schema with a canoncial relationship field (denoted by curly braces:
+The convention in Verax is to use linked data rather than nested data, so for for example, to create an attestation of a "person" that lives at a "place", one would first create a **Place** schema, and then you would create a **Person** schema with a canoncial relationship field, denoted by curly braces:
 
 `string firstName, string lastName, ( isResidentAt Place 0xa1b2c3 )`&#x20;
 
@@ -34,11 +34,11 @@ or:
 
 ### Relationship Attestations
 
-The examples above use what is called a "_relationship attestation_", which is any attestation based on the special "relationship" schema.  The relationship schema conforms to the following structure:
+The examples above use what is called a "_relationship attestation_", which is any attestation based on the special `Relationship` schema.  The relationship schema conforms to the following structure:
 
 `bytes32 subject, string predicate, bytes32 object`
 
-This "relationship" schema exists as a first class citizen of the registry and attestations that are based on this schema are used for linking other attestations together.  The `subject` field is that attestation that is being linked to another attestation, the `predicate` field is a name that describes the _type_ of relationship and the `subject` is that attestation being linked to.
+This `Relationship` schema exists as a first class citizen of the registry, and attestations that are based on this schema are used for linking other attestations together.  The `subject` field is the attestation that is being linked to another attestation, the `predicate` field is a name that describes the _type_ of relationship and the `subject` is the attestation being linked to.
 
 Examples of relationship attestations are:
 
@@ -46,13 +46,13 @@ Examples of relationship attestations are:
 * `0xf9b32...` "hasVotedFor" `0xd5a991...`
 * `0xb9b51...` "isAlumniOf" `0x3110fb...`
 
-Anyone can create any type of relationship between any attestation and any other number of attestations, allowing for the emergence of a organic [folksonomy](https://en.wikipedia.org/wiki/Folksonomy).  However, it also makes canonical relationships important to define in the schema, as otherwise there will be ambiguity between which relationships attestations were intended by the attestation issuer, and which were relationships were arbitrarily added later by third parties.
+Anyone can create any type of relationship between any attestation and any number of other attestations, allowing for the emergence of a organic [folksonomy](https://en.wikipedia.org/wiki/Folksonomy).  However, it also makes canonical relationships important to define in the schema, as otherwise there will be ambiguity between which relationship attestations were intended by the attestation issuer, and which were relationship attestations were arbitrarily added later by third parties.
 
 ## Triples, Quads and Named Graphs
 
-Many readers will have recognised that the Relationship schema is actually just an RDF triple.  The fact that RDF triples are used to link attestations to each other means that the on-chain attestation data can easily be indexed into a GraphDB and can be serialized using RDFS, OWL, Turtle etc.
+Many readers will have recognised that the Relationship schema is actually just an RDF triple.  The fact that RDF triples are used to link attestations to each other means that the on-chain attestation data can easily be indexed into a graph DB and can be serialized using RDFS, OWL, Turtle etc.
 
-Certain use cases may require that relationships be grouped together into a named graph.  In this case there is a special named graph relationship schema that can be utilized, and looks like this:
+Certain use cases may require that relationships be grouped together into a named graph.  In this case there is a special `namedGraphRelationship` schema that can be utilized, which looks like:
 
 `string namedGraph, bytes32 subject, string predicate, bytes32 object`
 

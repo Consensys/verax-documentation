@@ -12,6 +12,6 @@ If you'd prefer an in-person chat, you're more than welcome to drop into our [bi
 
 ### Mailing List
 
-We also have an intermittent newsletter that we send out when we have important updates, so if you'd like to be added to the list, simply enter your email address below:
+We also have an ad-hoc newsletter that we send out when we have important updates, so if you'd like to be added to the list, simply enter your email address below:
 
 {% @mailchimp/mailchimpSubscribe %}
