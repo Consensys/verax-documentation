@@ -1,10 +1,10 @@
-# ✨ Getting Started
+# High Level Overview
 
 Verax is a set of smart contracts that allows dapps and protocols to register public datapoints known as attestations, that can be easily read and composed by other dapps, either directly via their own on-chain smart contracts, or via an off-chain indexer.
 
 The real value emerges from the rich ecosystem of dapps that leverage the Verax to share attestations.  This ecosystem involves several classes of actors that we can view as being organised in a stack of layers, as visualized in the following diagram:
 
-<figure><img src=".gitbook/assets/Verax_Overview.png" alt=""><figcaption><p>Layered Model of Verax Ecosystem</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/Verax_Overview.png" alt=""><figcaption><p>Layered Model of Verax Ecosystem</p></figcaption></figure>
 
 * **Infrastructure Layer:** these are the core smart contracts that allow dapps to issue and read attestations on-chain.
 * **Data Layer:** these are actors that index the on-chain attestations from the registry into an off-chain database so that complex queries can be run against the data.  Eventually we hope that people can query the on-chain data using a number of different independent sources, such as Dune, or The Graph etc.  However, the community is also planning on creating an open source indexer that anyone can run.
@@ -18,4 +18,4 @@ The real value emerges from the rich ecosystem of dapps that leverage the Verax 
 
 ***
 
-As Verax is composed of on-chain smart contracts that dapps issue attestations to, the first thing to learn about is how these smart contract are organized and how attestations are issued. Fortunately the core concepts are all relatively simple, so getting started is quick and easy.
+As Verax is composed of on-chain smart contracts that dapps issue attestations to, the first thing to learn about is how these smart contract are organized and how attestations are issued. Fortunately the core concepts are all relatively simple, so getting started is quick and easy.  The first concept to learn about is attestations themselves.
