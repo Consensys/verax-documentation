@@ -21,7 +21,6 @@
   * [Revoke an Attestation](developer-guides/issuers/revoke-an-attestation.md)
   * [Link Attestations](developer-guides/issuers/link-attestations.md)
   * [Bulk Create Attestations](developer-guides/issuers/bulk-create-attestations.md)
-  * [Update a Portal](developer-guides/issuers/update-a-portal.md)
   * [Delegate Attestations](developer-guides/issuers/delegate-attestations.md)
 * [Indexers](developer-guides/indexers.md)
 * [Consumers](developer-guides/consumers.md)
