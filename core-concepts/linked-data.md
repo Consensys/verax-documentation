@@ -46,12 +46,12 @@ Even if both attestation issuers are using fields that have the same semantic me
 
 ### Contexts to the rescue
 
-Verax borrws a concept from [JSON-LD](https://json-ld.org) called the "context".  Every schema that is registered has a field in it's metadata called `context` which has a string value that is a either URL or an attestation id.  The `context` field tells consumers how to interpret the fields in the schema / attestation, and they can point to well known shared vocabularies such as [schema.org](https://schema.org) so that consumers can easily understand the attestations they're consuming.
+Verax borrws a concept from [JSON-LD](https://json-ld.org) called the "context".  Every schema that is registered has a field in it's metadata called `context` which has a string value that is either a URL or an attestation id.  The `context` field tells consumers how to interpret the fields in the schema / attestation, and they can point to well known shared vocabularies such as [schema.org](https://schema.org) so that consumers can easily understand the attestations they're consuming.
 
-Let's look at the example above with but this time both attestations are based on schemas that have the same context value:
+Let's look at the example above but this time both attestations are based on schemas that have the same context value:
 
 ```
-context: https://schema.org/Person
+context: https://schema.org/Person // ⬅︎ specified in schema's metadata
 givenName: string
 familyName: string
 url: string
@@ -82,14 +82,14 @@ Of course the example above doesn't always work in real life.  It's often the ca
 Custom contexts are based on a custom schema that allows an issuer to create an attestation which links their custom fields to properties in a shared vocabulary.  Lets take the example above, but this time the `context` property in the schema metadata points to an attestation that looks like this:
 
 ```json
-context: "https://schema.org/Person" // ← stored in the metadata
-first_name: "givenName"
-last_name: "familyName"
-home_page: "url"
+context: "https://schema.org/Person" // ⬅︎ stored in the attestation's schema metadata
+first_name: "@givenName"
+last_name: "@familyName"
+home_page: "@url"
 address: "Ethereum mainnet address"
 ```
 
-So now a consumer of any attestation that is based on a schema with the above context knows that the field `last_name` actually refers to [https://schema.org/familyName](https://schema.org/familyName).  Now developers can programmatically detect when an attestation's context points to a "context attestation", and can automatically map the issuer's idiomatic naming convention back to that of a shared vocabulary, without needing to hardcode it (or ever knowing anything about it).
+So now a consumer of any attestation that is based on a schema with the above context knows that the field `last_name` actually refers to [https://schema.org/familyName](https://schema.org/familyName).  Now developers can programmatically detect when a schema's context points to a "context attestation", and can automatically map the issuer's idiomatic naming convention back to that of a shared vocabulary, without needing to hardcode it (or ever even knowing anything about it).
 
 ## Shared Vocabularies
 

@@ -13,7 +13,7 @@ The real value emerges from the rich ecosystem of dapps that leverage the Verax 
   * information about the reputation of smart contracts or tokens which helps to prevent scams
   * analysis about smart contract address to filter out sophisticated bot activity
   * fair and transparent credit scores for under-collateralized loans
-  * fair and transparent recommendation engines that deliver relevant, high quality content to users without intermediaries with biased and mis-aligned incentives.
+  * fair and transparent recommendation engines that deliver relevant, high quality content to users without intermediaries with biased and mis-aligned incentives
 * **Adoption Layer:** these are the points at which users interact with the ecosystem, and if eveything is working as it should, this is the only layer the users should be aware of.  This is where users can take advantage of the value that is unlocked from having a shared, public datalake of attestations that dapps can leverage to derive valuable insights and robust permissionless reputation.  Users can discover a range of high quality dapps / services / content and be sure that is that it is all verifiable on-chain, and dapps can easily find the users that they can bring value to.
 
 ***

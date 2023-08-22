@@ -1,6 +1,6 @@
 # Modules
 
-Modules are smart contracts that implement the `Module` interface and are registered in the registry.  They allow for attestation creators to run custom logic in order to do things like:
+Modules are smart contracts that inherit the [`AbstractModule`](https://github.com/Consensys/linea-attestation-registry/blob/dev/src/interface/AbstractModule.sol) contract and are registered in the registry.  They allow for attestation creators to run custom logic in order to do things like:
 
 * verify that attestations conform to some business logic
 * optionally transform the attestation data according to some pre-determined logic
@@ -11,7 +11,7 @@ Modules are specified in a [portal](portals.md) and all attestations created by 
 
 Each module exposes a public function called `run`:
 
-`function run(bytes attestationPayload, bytes verificationPayload, uint256 value, address msgSender) public`
+`function run(bytes attestationPayload, bytes verificationPayload, bytes32 schemaId, address msgSender) public`
 
 The function executes whatever logic it needs to, and returns the same four parameters as it received so that the next module can run it's own processing on them.
 
@@ -23,4 +23,4 @@ Once the module smart contract is deployed, it can be registered with the follow
 
 <table><thead><tr><th width="179">Field</th><th width="120">Type</th><th>Description</th></tr></thead><tbody><tr><td>name</td><td>string</td><td>(required) A descriptive name for the module</td></tr><tr><td>description</td><td>string (URI)</td><td>(optional) A link to documentation about the module, it’s intended use etc.</td></tr><tr><td>moduleAddress</td><td>address</td><td>(required) The address of the module smart contract</td></tr></tbody></table>
 
-The metadata above is intended to help to discover modules that can be reused once created.  Modues are chained together and executed in [portals](portals.md).  The next seciton dives into portals, what they are, and how to create them.
+The metadata above is intended to help to discover modules that can be reused once created.  Modules are chained together and executed in [portals](portals.md).  The next section dives into portals, what they are, and how to create them.
