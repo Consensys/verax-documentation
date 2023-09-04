@@ -9,9 +9,9 @@ To illustrate this with an example, consider an attestation for a person.
 Attestation from Issuer A:
 
 ```
-name: Bob
+name: 沐宸
 address: 0xa74b509f...
-homepage: http://example.com/bobspage
+homepage: http://example.com/mypage
 ```
 
 Attestation from Issuer B:
@@ -29,9 +29,9 @@ To makes matters worse, attestation issuers may use different naming conventions
 Attestation from Issuer A:
 
 ```
-first_name: Bob
-last_name: Cat
-home_page: http://example.com/bobspage
+first_name: 沐宸
+last_name: 王
+home_page: http://example.com/mypage
 ```
 
 Attestation from Issuer B:
@@ -46,7 +46,7 @@ Even if both attestation issuers are using fields that have the same semantic me
 
 ### Contexts to the rescue
 
-Verax borrws a concept from [JSON-LD](https://json-ld.org) called the "context".  Every schema that is registered has a field in it's metadata called `context` which has a string value that is either a URL or an attestation id.  The `context` field tells consumers how to interpret the fields in the schema / attestation, and they can point to well known shared vocabularies such as [schema.org](https://schema.org) so that consumers can easily understand the attestations they're consuming.
+Verax borrows a concept from [JSON-LD](https://json-ld.org) called the "_context_".  Every schema that is registered has a field in it's metadata called `context` which has a string value that is either a URL or an attestation id.  The `context` field tells consumers how to interpret the fields in the schema / attestation, and they can point to well known shared vocabularies such as [schema.org](https://schema.org) so that consumers can easily understand the attestations they're consuming.
 
 Let's look at the example above but this time both attestations are based on schemas that have the same context value:
 
@@ -60,9 +60,9 @@ url: string
 Attestation from Issuer A:
 
 ```
-givenName: Bob
-familyName: Cat
-url: http://example.com/bobspage
+givenName: 沐宸
+familyName: 王
+url: http://example.com/mypage
 ```
 
 Attestation from Issuer B:
@@ -89,7 +89,7 @@ home_page: "@url"
 address: "Ethereum mainnet address"
 ```
 
-So now a consumer of any attestation that is based on a schema with the above context knows that the field `last_name` actually refers to [https://schema.org/familyName](https://schema.org/familyName).  Now developers can programmatically detect when a schema's context points to a "context attestation", and can automatically map the issuer's idiomatic naming convention back to that of a shared vocabulary, without needing to hardcode it (or ever even knowing anything about it).
+So now a consumer of any attestation that is based on a schema with the above context knows that the field `last_name` actually refers to [https://schema.org/familyName](https://schema.org/familyName).  Now developers can programmatically detect when a schema's context points to a "_context attestation_", and can automatically map the issuer's idiomatic naming convention back to that of a shared vocabulary, without needing to hardcode it (or ever even knowing anything about it).
 
 ## Shared Vocabularies
 
@@ -111,4 +111,4 @@ There are many other ontologies available and you can discover ones that may be 
 
 Using shared vocabulares / ontologies is an extremely powerful way for dapps to allow easy access to their data, making it much more likely for other dapp developers to consume those attestations.  Adopting shared ontologies will allow us to develop semantically rich on-chain reputations and will allow for sophisticated permissionless discoverability of services and dapps that drive real value to users.
 
-Schemas and Linked Data are the foundational components of the attestation registry, but actually issuing attestations based on these schemas involved two other simple concepts, [Portals](portals.md) and [Modules](modules.md).
+Schemas and Linked Data are the foundational components of the attestation registry, but actually issuing attestations based on these schemas involves two other simple concepts, [Portals](portals.md) and [Modules](modules.md).
