@@ -2,19 +2,21 @@
 
 A schema is a blueprint for an attestation.  It describes the various fields an attestation contains and what their datatypes are.  It also describes any canonical links to other attestations that an attestation should have.  Anyone can create a schema in the registry, and once created, schemas can be re-used by anyone else.
 
-Schemas are stored in the registry as a string value that describes the various fields.  For example, to create attestations that describe a person, we can create a schema as follows:\
+Schemas are stored in the registry as a string value that describes the various field.  For example, to create attestations that describe a person, we can create a schema as follows:\
 \
-`string firstName, string lastName`
+`firstName string, lastName string`
 
 This describes a schema with two fields, both of type string.  Any attestation based on this schema can be decoded in Solidity as follows:
 
 `(firstName, lastName) = abi.decode(attestationData, (string, string)`)
 
+As you can see from this example, a schema is more or less a comma-separated list of tuples of datatype and property name.
+
 ## Nested Data vs. Linked Data
 
 The convention in Verax is to use linked data rather than nested data, so for for example, to create an attestation of a "_person_" that lives at a "_place_", one would first create a **Place** schema, and then you would create a **Person** schema with a canoncial relationship field, denoted by round braces:
 
-`string firstName, string lastName, ( isResidentAt Place 0xa1b2c3 )`&#x20;
+`firstName string, lastName string, ( isResidentAt Place 0xa1b2c3 )`&#x20;
 
 ... where `isResidentAt` is the relationship type, `Place` is the schema name, and `0xa1b2c3` is the schema id.  This indicates that any attestation based on the **Person** schema is expected to be linked to some other **Place** attestation via a relationship attestation that links them together.
 
@@ -22,29 +24,29 @@ This approach reduces redundant attestations, and allows for more fine-grained a
 
 Similarly, in order to create a one-to-many canonical relationship field, you would use the syntax:
 
-`string firstName, string lastName, [( isResidentAt Place 0xa1b2c3 )]`&#x20;
+`firstName string, lastName string, [( isResidentAt Place 0xa1b2c3 )]`&#x20;
 
 If you do decide that your schema requires nested data instead of linked data, you can use the nested data syntax, which uses curly braces instead of round braces:\
 \
-`string firstName, string lastName, isResidentAt {string Street, string City}`
+`firstName string, lastName string, isResidentAt {Street string, City string}`
 
 or:
 
-`string firstName, string lastName, isResidentAt [{string Street,string City}]`
+`firstName string, lastName string, isResidentAt [{Street string,City string}]`
 
 ### Relationship Attestations
 
 The examples above use what is called a "_relationship attestation_", which is any attestation based on the special `Relationship` schema.  The relationship schema conforms to the following structure:
 
-`uint256 subject, string predicate, uint256 object`
+`subject bytes32, predicate string, object bytes32`
 
 This `Relationship` schema exists as a first class citizen of the registry, and attestations that are based on this schema are used for linking other attestations together.  The `subject` field is the attestation that is being linked to another attestation, the `predicate` field is a name that describes the _type_ of relationship, and the `subject` is the attestation being linked to.
 
 Examples of relationship attestations are:
 
-* `46582...` "isFollowerOf" `10345...`
-* `31235...` "hasVotedFor" `52991...`
-* `74851...` "isAlumniOf" `31122...`
+* `0x46582...` "isFollowerOf" `0x10345...`
+* `0x31235...` "hasVotedFor" `0x52991...`
+* `0x74851...` "isAlumniOf" `0x31122...`
 
 Anyone can create any type of relationship between any attestation and any number of other attestations, allowing for the emergence of an organic [folksonomy](https://en.wikipedia.org/wiki/Folksonomy).  However, it also makes canonical relationships important to define in the schema, as otherwise there will be ambiguity between which relationship attestations were intended by the attestation issuer, and which were relationship attestations that were arbitrarily added later by third parties.
 
@@ -54,7 +56,7 @@ Many readers will have recognised that the Relationship schema is actually just 
 
 Certain use cases may require that relationships be grouped together into a named graph.  In this case there is a special `namedGraphRelationship` schema that can be utilized, which looks like:
 
-`string namedGraph, bytes32 subject, string predicate, bytes32 object`
+`namedGraph string, subject bytes32, predicate string, object bytes32`
 
 ## Counterfactual Schemas
 
@@ -64,7 +66,7 @@ Schema ids are unique to the schema content, and are created from the keccak has
 
 As well as the schema string, schemas have some metadata that is stored with them:
 
-<table><thead><tr><th width="162.33333333333331">Property</th><th width="108">Datatype</th><th>Description</th></tr></thead><tbody><tr><td>name</td><td>string</td><td>(r<em>equired)</em> The name of schema, stored on-chain</td></tr><tr><td>description</td><td>string</td><td>A link to off-chain description / documentation</td></tr><tr><td>context</td><td>string</td><td>(r<em>equired)</em> A link to some shared vocabulary / ontology</td></tr><tr><td>schemaString</td><td>string</td><td><em>(required)</em> The raw schema string as described above</td></tr></tbody></table>
+<table><thead><tr><th width="162.33333333333331">Property</th><th width="108">Datatype</th><th>Description</th></tr></thead><tbody><tr><td>name</td><td>string</td><td>(r<em>equired)</em> The name of schema, stored on-chain</td></tr><tr><td>description</td><td>string</td><td>A link to off-chain description / documentation</td></tr><tr><td>context</td><td>string</td><td>(r<em>equired)</em> A link to some shared vocabulary / ontology</td></tr><tr><td>schema</td><td>string</td><td><em>(required)</em> The raw schema string as described above</td></tr></tbody></table>
 
 ## Schema Contexts / Shared Vocabularies
 
