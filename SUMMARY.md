@@ -27,7 +27,8 @@
 
 ## Discover
 
-* [Standard Library](discover/standard-library.md)
+* [Standard Library](discover/standard-library/README.md)
+  * [NFT Portal](discover/standard-library/nft-portal.md)
 * [Integrations](discover/integrations/README.md)
   * [Attestation Issuers](discover/integrations/attestation-issuers.md)
   * [Reputation Protocols](discover/integrations/reputation-protocols.md)
