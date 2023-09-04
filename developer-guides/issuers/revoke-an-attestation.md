@@ -18,6 +18,20 @@ The attestation registry will check that the portal actual allows revocations, a
 
 The other property to be aware of is the `replacedBy` property, which should be set to the id of some attestation that is meant to replace the one being revoked.  If you wish to revoke an attestation without actually replacing it with another one, you can simply set this to `bytes32(0)`.
 
+Note that the `replacedBy` flag, the `revocationDate` and the `replacedBy` field are all stored on-chain in the attestation's metadata so that they are easily legible to anyone who is looking up an attestation directly from the smart contract.
+
+## Lifecycle Hooks
+
 You can also place custom logic in the `_onRevoke` lifecycle hook to run any additional verification before the revocation takes place, or perform any other action that you wish.
 
-Note that you can't revoke an attestation made by another portal, even if that portal allows revocation.
+## Verification Checks
+
+Note that you can't revoke an attestation made by another portal, even if that portal allows revocation.  The full list of verification checks that the attestation registry makes before revocation an attestation are as follows:
+
+* Checks that the attestation being revoked exists / is registered.
+* Checks that it is not already revoked.
+* Checks that the Portal that is revoking the attestation is the one that created it initially.
+* Checks that the address that first create the attestation through the portal is the same one that is revoking it.
+* Checks that the portal through which the attestation was issued actually allows revocations in the first place.
+
+Once all these verification checks have passed, the attestation can be created in the registry.
