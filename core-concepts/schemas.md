@@ -62,6 +62,16 @@ Certain use cases may require that relationships be grouped together into a name
 
 Schema ids are unique to the schema content, and are created from the keccak hash of the schema string.  This means that schemas can be created counterfactually, allowing for things like circular relationships between schemas.  It also means that two people can't create the exact same schema, which in turn, promotes re-usability within the registry.
 
+## Inheritance
+
+Schemas can also inherit fron other schema, which is another way that Verax reduces redundant schema data and promotes reusability.  To inherit from another schema, simply add the parent schema id at the very start of the schema string preceded by the `@extends` keyword, e.g.:
+
+`@extends 0xa1b2c3... firstName string, lastName string`
+
+This will tell indexers to look up the schema referenced by the `extends` keyword, and concatentate it's schema string with the schema string in this schema.  Note that any conflicting field names will be overridden by the last previous definition, so for example, if a field name exist in a parent schema and a child schema, the field definition from the child schema will be used.  Also, schemas can only inherit from one parent at a time.
+
+**NOTE:** caution should be taken with this feature as it it somewhat experimental and may not be supported by all indexers!
+
 ## Schema MetaData
 
 As well as the schema string, schemas have some metadata that is stored with them:
