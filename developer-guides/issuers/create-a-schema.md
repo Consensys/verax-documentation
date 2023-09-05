@@ -19,7 +19,7 @@ The four parameters are defined as follows:
 
 A schema string is a comma separated list of data type / field name tuples, for example:
 
-`firstName string, lastName string`
+`string firstName, string lastName`
 
 The data types can be any valid solidity datatype:
 
@@ -39,31 +39,31 @@ Mappings can be defined as they are normally defined in Solidity, but they can o
 
 Defining a struct in a schema string is done using curly braces.  For example, defining a **struct** that contains `Street` and `City` properties can be done like so:
 
-`firstName string, lastName string, isResidentAt {Street string, City string}`
+`string firstName, string lastName, isResidentAt {string Street, string City}`
 
 Note that the name of the field in the attestation is `isResidentAt` but the name of the actual struct isn't defined in the schema string.
 
 **Arrays** can be defined using square brackets, in one of two ways:
 
-`firstName string, lastName string, homeAddress [{Street string, City string}]`
+`string firstName, string lastName, homeAddress [{string Street, string City}]`
 
 or:
 
-`firstName string, lastName string, homeAddress[] {Street string, City string}`
+`string firstName string, string lastName, homeAddress[] {string Street, string City}`
 
 Arrays can also be defined with primtive datatypes, e.g.:
 
-`nickNames string[], inititals string`
+`string[] nickNames, string initials`
 
 A fixed length array is defined as follows:
 
-`previousAddresses[4] {Street string, City string}`
+`previousAddresses[4] {string Street, string City}`
 
 ## Defining canonical relationships
 
 If the attestations that are issued against a schema are designed to have links to other attestations, this can be defined in the schema.  These intended links are referred to as "_canonical relationships_" and are defined using the round brackets syntax:
 
-`firstName string, lastName string, ( isResidentAt Place 0xa1b2c3 )`
+`string firstName, string lastName, ( isResidentAt Place 0xa1b2c3 )`
 
 This schema string indicates that for any attestation that is based on this schema, there exists a relationship attestation that links it to another attestation based on the `Place` schema, of which the schema id is `0xa1b2c3`.
 

@@ -4,19 +4,19 @@ A schema is a blueprint for an attestation.  It describes the various fields an 
 
 Schemas are stored in the registry as a string value that describes the various field.  For example, to create attestations that describe a person, we can create a schema as follows:\
 \
-`firstName string, lastName string`
+`string firstName, string lastName`
 
 This describes a schema with two fields, both of type string.  Any attestation based on this schema can be decoded in Solidity as follows:
 
 `(firstName, lastName) = abi.decode(attestationData, (string, string)`)
 
-As you can see from this example, a schema is more or less a comma-separated list of tuples of datatype and property name.
+As you can see from this example, a schema is more or less a comma-separated list of tuples of property name and datatype.
 
 ## Nested Data vs. Linked Data
 
 The convention in Verax is to use linked data rather than nested data, so for for example, to create an attestation of a "_person_" that lives at a "_place_", one would first create a **Place** schema, and then you would create a **Person** schema with a canoncial relationship field, denoted by round braces:
 
-`firstName string, lastName string, ( isResidentAt Place 0xa1b2c3 )`&#x20;
+`string firstName, string lastName, ( isResidentAt Place 0xa1b2c3 )`&#x20;
 
 ... where `isResidentAt` is the relationship type, `Place` is the schema name, and `0xa1b2c3` is the schema id.  This indicates that any attestation based on the **Person** schema is expected to be linked to some other **Place** attestation via a relationship attestation that links them together.
 
@@ -24,21 +24,21 @@ This approach reduces redundant attestations, and allows for more fine-grained a
 
 Similarly, in order to create a one-to-many canonical relationship field, you would use the syntax:
 
-`firstName string, lastName string, [( isResidentAt Place 0xa1b2c3 )]`&#x20;
+`string firstName, string lastName, [( isResidentAt Place 0xa1b2c3 )]`&#x20;
 
 If you do decide that your schema requires nested data instead of linked data, you can use the nested data syntax, which uses curly braces instead of round braces:\
 \
-`firstName string, lastName string, isResidentAt {Street string, City string}`
+`string firstName, string lastName, isResidentAt {string Street, string City}`
 
 or:
 
-`firstName string, lastName string, isResidentAt [{Street string,City string}]`
+`string firstName, string lastName, isResidentAt [{string Street,string City}]`
 
 ### Relationship Attestations
 
 The examples above use what is called a "_relationship attestation_", which is any attestation based on the special `Relationship` schema.  The relationship schema conforms to the following structure:
 
-`subject bytes32, predicate string, object bytes32`
+`bytes32 subject, string predicate, bytes32 object`
 
 This `Relationship` schema exists as a first class citizen of the registry, and attestations that are based on this schema are used for linking other attestations together.  The `subject` field is the attestation that is being linked to another attestation, the `predicate` field is a name that describes the _type_ of relationship, and the `subject` is the attestation being linked to.
 
@@ -56,7 +56,7 @@ Many readers will have recognised that the Relationship schema is actually just 
 
 Certain use cases may require that relationships be grouped together into a named graph.  In this case there is a special `namedGraphRelationship` schema that can be utilized, which looks like:
 
-`namedGraph string, subject bytes32, predicate string, object bytes32`
+`string namedGraph, bytes32 subject, string predicate, bytes32 object`
 
 ## Counterfactual Schemas
 
@@ -66,7 +66,7 @@ Schema ids are unique to the schema content, and are created from the keccak has
 
 Schemas can also inherit fron other schema, which is another way that Verax reduces redundant schema data and promotes reusability.  To inherit from another schema, simply add the parent schema id at the very start of the schema string preceded by the `@extends` keyword, e.g.:
 
-`@extends 0xa1b2c3... firstName string, lastName string`
+`@extends 0xa1b2c3... string firstName, string lastName`
 
 This will tell indexers to look up the schema referenced by the `extends` keyword, and concatentate it's schema string with the schema string in this schema.  Note that any conflicting field names will be overridden by the last previous definition, so for example, if a field name exist in a parent schema and a child schema, the field definition from the child schema will be used.  Also, schemas can only inherit from one parent at a time.
 

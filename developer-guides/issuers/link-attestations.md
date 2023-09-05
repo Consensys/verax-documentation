@@ -4,7 +4,7 @@ Linking two attestations together is relatively straightforward.  It involves cr
 
 The `Relationship` schema looks like the following:
 
-`subject bytes32, predicate string, object bytes32`
+`bytes subject, string predicate, bytes32 object`
 
 The schema id for the relationship schema is:
 
@@ -28,7 +28,7 @@ You can create as many `Relationship` attestations as you want, so that one atte
 
 Certain use cases may require that relationships to be grouped together into a "named graph".  This allows for ring-fencing a certain group of links, in order to single them out, or label / identify them among the many other relationships that may exist between two or more attestations.  In this case there is a special `namedGraphRelationship` schema that can be utilized, which looks like:
 
-`namedGraph string, subject bytes32, predicate string, object bytes32`
+`string namedGraph, bytes32 subject, string predicate, bytes32 object`
 
 The schema id for the named graph relationship schema is:
 
