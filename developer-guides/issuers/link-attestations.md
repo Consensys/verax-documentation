@@ -8,7 +8,7 @@ The `Relationship` schema looks like the following:
 
 The schema id for the relationship schema is:
 
-`0xce2647ed39aa89e6d1528a56deb6c30667ed2aae1ec2378ec3140c0c5d98a61e`
+`0x89bd76e17fd84df8e1e448fa1b46dd8d97f7e8e806552b003f8386a5aebcb9f0`
 
 This `Relationship` schema exists as a first class citizen of the registry, and attestations that are based on this schema are used for linking other attestations together.  The `subject` field is the attestation that is being linked to another attestation, the `predicate` field is a name that describes the _type_ of relationship, and the `subject` is the attestation being linked to.
 
@@ -32,4 +32,4 @@ Certain use cases may require that relationships to be grouped together into a "
 
 The schema id for the named graph relationship schema is:
 
-`0xcef5bf8ad0c26e06ece99156b529d7b473e14e9fbd6e69c342ec9acadca19628`
+`0x5003a7832fa2734780a5bf6a1f3940b84c0c66a398e62dd4e7f183fdbc7da6ee`
