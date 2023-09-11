@@ -22,8 +22,8 @@ Each portal can specify optional lifecycle hooks that are executed at specific p
 
 ## Customization
 
-It's worth noting that the portal contract is entirely under the issuer's control and that the issuer is free to add any logic they want to portal and customize it in any way!
+It's worth noting that the portal contract is entirely under the issuer's control and that the issuer is free to add any logic they want to the portal and customize it in any way!
 
 ***
 
-To find out how to how to create a portal, see the [Create a Portal](../developer-guides/issuers/create-a-portal.md) page for more information.
+To find out how to create a portal, see the [Create a Portal](../developer-guides/issuers/create-a-portal.md) page for more information.

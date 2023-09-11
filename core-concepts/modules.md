@@ -13,7 +13,7 @@ Each module exposes a public function called `run`:
 
 `function run(AttestationPayload attestationPayload, bytes[] validationPayload, address txSender)`
 
-The function executes whatever logic it needs to, and reverts if the incoming transaction doesn't conform to the required logic.  The `attestationPayload` is the raw data of the incoming attestation, and the `validationPayload` is any qualifying data that is required for verification, but that doens't make it into the on-chain attestation, e.g. a snark proof, merkle proof or signature etc.
+The function executes whatever logic it needs to, and reverts if the incoming transaction doesn't conform to the required logic.  The `attestationPayload` is the raw data of the incoming attestation, and the `validationPayload` is any qualifying data that is required for verification, but that doesn't make it into the on-chain attestation, e.g. a snark proof, merkle proof or signature etc.
 
 As well as implementing the `Module` interface, a module must also implement [ERC-165](https://eips.ethereum.org/EIPS/eip-165) to ensure that it can be verified properly when being registered.
 
@@ -21,6 +21,6 @@ As well as implementing the `Module` interface, a module must also implement [ER
 
 Once the module smart contract is deployed, it can be registered with the following metadata:
 
-<table><thead><tr><th width="179">Field</th><th width="120">Type</th><th>Description</th></tr></thead><tbody><tr><td>moduleAddress</td><td>address</td><td>(required) The address of the module smart contract</td></tr><tr><td>name</td><td>string</td><td>(required) A descriptive name for the module</td></tr><tr><td>description</td><td>string (URI)</td><td>(optional) A link to documentation about the module, it’s intended use etc.</td></tr></tbody></table>
+<table><thead><tr><th width="179">Field</th><th width="120">Type</th><th>Description</th></tr></thead><tbody><tr><td>moduleAddress</td><td>address</td><td>(required) The address of the module smart contract</td></tr><tr><td>name</td><td>string</td><td>(required) A descriptive name for the module</td></tr><tr><td>description</td><td>string (URI)</td><td>(optional) A link to documentation about the module, its intended use etc.</td></tr></tbody></table>
 
 The metadata above is intended to help to discover modules that can be reused once created.  Modules are chained together and executed in [portals](portals.md).  The next section dives into portals, what they are, and how to create them.

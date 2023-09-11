@@ -1,8 +1,8 @@
 # Schemas
 
-A schema is a blueprint for an attestation.  It describes the various fields an attestation contains and what their datatypes are.  It also describes any canonical links to other attestations that an attestation should have.  Anyone can create a schema in the registry, and once created, schemas can be re-used by anyone else.
+A schema is a blueprint for an attestation.  It describes the various fields an attestation contains and what their data types are.  It also describes any canonical links to other attestations that an attestation should have.  Anyone can create a schema in the registry, and once created, schemas can be re-used by anyone else.
 
-Schemas are stored in the registry as a string value that describes the various field.  For example, to create attestations that describe a person, we can create a schema as follows:\
+Schemas are stored in the registry as a string value that describes the various fields.  For example, to create attestations that describe a person, we can create a schema as follows:\
 \
 `string firstName, string lastName`
 
@@ -14,7 +14,7 @@ As you can see from this example, a schema is more or less a comma-separated lis
 
 ## Nested Data vs. Linked Data
 
-The convention in Verax is to use linked data rather than nested data, so for for example, to create an attestation of a "_person_" that lives at a "_place_", one would first create a **Place** schema, and then you would create a **Person** schema with a canoncial relationship field, denoted by round braces:
+The convention in Verax is to use linked data rather than nested data, so for for example, to create an attestation of a "_person_" that lives at a "_place_", one would first create a **Place** schema, and then you would create a **Person** schema with a canonical relationship field, denoted by round braces:
 
 `string firstName, string lastName, ( isResidentAt Place 0xa1b2c3 )`&#x20;
 
@@ -60,17 +60,17 @@ Certain use cases may require that relationships be grouped together into a name
 
 ## Counterfactual Schemas
 
-Schema ids are unique to the schema content, and are created from the keccak hash of the schema string.  This means that schemas can be created counterfactually, allowing for things like circular relationships between schemas.  It also means that two people can't create the exact same schema, which in turn, promotes re-usability within the registry.
+Schema ids are unique to the schema content, and are created from the keccak hash of the schema string.  This means that schemas can be created counterfactually, allowing for things like circular relationships between schemas.  It also means that two people can't create the exact same schema, which in turn, promotes reusability within the registry.
 
 ## Inheritance
 
-Schemas can also inherit fron other schema, which is another way that Verax reduces redundant schema data and promotes reusability.  To inherit from another schema, simply add the parent schema id at the very start of the schema string preceded by the `@extends` keyword, e.g.:
+Schemas can also inherit from other schemas, which is another way that Verax reduces redundant schema data and promotes reusability.  To inherit from another schema, simply add the parent schema id at the very start of the schema string preceded by the `@extends` keyword, e.g.:
 
 `@extends 0xa1b2c3... string firstName, string lastName`
 
-This will tell indexers to look up the schema referenced by the `extends` keyword, and concatentate it's schema string with the schema string in this schema.  Note that any conflicting field names will be overridden by the last previous definition, so for example, if a field name exist in a parent schema and a child schema, the field definition from the child schema will be used.  Also, schemas can only inherit from one parent at a time.
+This will tell indexers to look up the schema referenced by the `extends` keyword, and concatenate it's schema string with the schema string in this schema.  Note that any conflicting field names will be overridden by the last previous definition, so for example, if a field name exist in a parent schema and a child schema, the field definition from the child schema will be used.  Also, schemas can only inherit from one parent at a time.
 
-**NOTE:** caution should be taken with this feature as it it somewhat experimental and may not be supported by all indexers!
+**NOTE:** caution should be taken with this feature as it is somewhat experimental and may not be supported by all indexers!
 
 ## Schema MetaData
 
