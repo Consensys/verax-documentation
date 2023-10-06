@@ -14,6 +14,7 @@
 
 ## Developer Guides
 
+* [Using the SDK](developer-guides/using-the-sdk.md)
 * [Issuers](developer-guides/issuers/README.md)
   * [Create a Schema](developer-guides/issuers/create-a-schema.md)
   * [Create a Module](developer-guides/issuers/create-a-module.md)
@@ -23,8 +24,8 @@
   * [Revoke an Attestation](developer-guides/issuers/revoke-an-attestation.md)
   * [Link Attestations](developer-guides/issuers/link-attestations.md)
   * [Bulk Create Attestations](developer-guides/issuers/bulk-create-attestations.md)
-* [Indexers](developer-guides/indexers.md)
-* [Consumers](developer-guides/consumers.md)
+* [Consumers](developer-guides/consumers/README.md)
+  * [Using the Subgraph](developer-guides/consumers/using-the-subgraph.md)
 
 ## Discover
 

@@ -6,7 +6,7 @@ Attestation data is encoded according to the schema the attestation is associate
 We are currently developing an SDK which will make it much easier to encode a JSON object into attestation data.  Until the SDK is completed you can use the following approach:
 {% endhint %}
 
-## Modelling a Sceham as a Solidity Struct
+## Modelling a Schema as a Solidity Struct
 
 The easiest way to think of a schema is like a Solidity struct. Take for example a very simple schema:
 
