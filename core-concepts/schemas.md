@@ -1,5 +1,7 @@
 # Schemas
 
+## Simple Schemas
+
 A schema is a blueprint for an attestation.  It describes the various fields an attestation contains and what their data types are.  Anyone can create a schema in the registry, and once created, schemas can be re-used by anyone else.
 
 Schemas are stored in the registry as a string value that describes the various fields.  For example, to create attestations that describe a person, we can create a schema as follows:\
@@ -19,7 +21,7 @@ As you can see from this example, a schema is more or less a comma-separated lis
 
 ***
 
-## Nested Data
+## Schemas with Nested Data
 
 Many schemas will involve some sort of nested data.  In order to create a schmea with nested data, you simply include the property name, followed by the property's data structure in curly braces, so example:
 
@@ -48,11 +50,11 @@ struct Profile {
 
 ***
 
-## Nested Data vs. Linked Data
+## How to describe relationships to other schemas
 
-The convention in Verax is to use linked data rather than nested data, so for for example, to create an attestation of a "_person_" that lives at a "_place_", one would first create a **Place** schema, and then you would create a **Person** schema with a canonical relationship field, denoted by round braces:
+Sometimes you may wish the consumers of your attestation to know how the attestations relate to other attestations, To do this you create a relationship.  So for for example, to create an attestation of a "_player_" that is a member of a "_team_", one would first create a **Team** schema, and then you would create a **Player** schema with a _canonical relationship field_, denoted by round braces:
 
-`string username, string points, ( isMemberOf Team 0xa1b2c3 )`&#x20;
+`string pseudonym, string dateJoined, ( isResidentAt Team 0xa1b2c3 )`&#x20;
 
 ... where `isMemberOf` is the relationship type, `Team` is the schema name, and `0xa1b2c3` is the schema id.  This indicates that any attestation based on the above schema is expected to be linked to some other **Team** attestation via a relationship attestation that links them together.
 
@@ -61,14 +63,6 @@ This approach reduces redundant attestations, and allows for more fine-grained a
 Similarly, in order to create a one-to-many canonical relationship field, you would use the syntax:
 
 `string firstName, string lastName, [( isResidentAt Place 0xa1b2c3 )]`&#x20;
-
-If you do decide that your schema requires nested data instead of linked data, you can use the nested data syntax, which uses curly braces instead of round braces:\
-\
-`string firstName, string lastName, isResidentAt {string Street, string City}`
-
-or:
-
-`string firstName, string lastName, isResidentAt [{string Street,string City}]`
 
 ### Relationship Attestations
 
