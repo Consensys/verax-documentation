@@ -1,24 +1,60 @@
 # Schemas
 
-A schema is a blueprint for an attestation.  It describes the various fields an attestation contains and what their data types are.  It also describes any canonical links to other attestations that an attestation should have.  Anyone can create a schema in the registry, and once created, schemas can be re-used by anyone else.
+A schema is a blueprint for an attestation.  It describes the various fields an attestation contains and what their data types are.  Anyone can create a schema in the registry, and once created, schemas can be re-used by anyone else.
 
 Schemas are stored in the registry as a string value that describes the various fields.  For example, to create attestations that describe a person, we can create a schema as follows:\
 \
-`string firstName, string lastName`
+`string username, string teamname, uint16 points, bool active`
 
-This describes a schema with two fields, both of type string.  Any attestation based on this schema can be decoded in Solidity as follows:
+This describes a schema with four fields.  Any attestation based on this schema can be decoded in Solidity as follows:
 
-`(firstName, lastName) = abi.decode(attestationData, (string, string)`)
+```solidity
+(username, teamname, points, active) = abi.decode(
+    attestationData,
+    (string, string, uint16, bool)
+);
+```
 
 As you can see from this example, a schema is more or less a comma-separated list of tuples of property name and datatype.
+
+***
+
+## Nested Data
+
+Many schemas will involve some sort of nested data.  In order to create a schmea with nested data, you simply include the property name, followed by the property's data structure in curly braces, so example:
+
+{% code overflow="wrap" %}
+```
+string username, string teamname, uint16 points, bool active, preferences { string gametype, string gamemode }
+```
+{% endcode %}
+
+You can consider this type schema as corresponding to the following Solidity struct:
+
+```solidity
+struct Preferences {
+    string gametype;
+    string gamemode;
+}
+
+struct Profile {
+    string username;
+    string teamname;
+    uint16 points;
+    bool active;
+    Preferences setup;
+}
+```
+
+***
 
 ## Nested Data vs. Linked Data
 
 The convention in Verax is to use linked data rather than nested data, so for for example, to create an attestation of a "_person_" that lives at a "_place_", one would first create a **Place** schema, and then you would create a **Person** schema with a canonical relationship field, denoted by round braces:
 
-`string firstName, string lastName, ( isResidentAt Place 0xa1b2c3 )`&#x20;
+`string username, string points, ( isMemberOf Team 0xa1b2c3 )`&#x20;
 
-... where `isResidentAt` is the relationship type, `Place` is the schema name, and `0xa1b2c3` is the schema id.  This indicates that any attestation based on the **Person** schema is expected to be linked to some other **Place** attestation via a relationship attestation that links them together.
+... where `isMemberOf` is the relationship type, `Team` is the schema name, and `0xa1b2c3` is the schema id.  This indicates that any attestation based on the above schema is expected to be linked to some other **Team** attestation via a relationship attestation that links them together.
 
 This approach reduces redundant attestations, and allows for more fine-grained and reusable schemas, contributing to a growing standard library of well known and widely used schemas.
 
