@@ -2,7 +2,7 @@
 
 ## Overview
 
-Verax is a shared, public attestation registry that can deployed to EVM chains.  It designed as a community maintained public good that can be used by dapps to store data that is of public interest, aka "attestations", that can be easily accessed and composed together by anyone that's interested.
+Verax is a shared, public attestation registry that can deployed to EVM chains.  It can be used by dapps to store data that is of public interest, aka "attestations", that can be easily accessed and composed together by anyone that's interested.
 
 Attestations are usually statements made by an attestation issuer about something specific. Examples of attestations could include:
 
