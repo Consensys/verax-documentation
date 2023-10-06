@@ -19,6 +19,7 @@
   * [Create a Module](developer-guides/issuers/create-a-module.md)
   * [Create a Portal](developer-guides/issuers/create-a-portal.md)
   * [Create an Attestation](developer-guides/issuers/create-an-attestation.md)
+  * [Encoding Attestation Data](developer-guides/issuers/encoding-attestation-data.md)
   * [Revoke an Attestation](developer-guides/issuers/revoke-an-attestation.md)
   * [Link Attestations](developer-guides/issuers/link-attestations.md)
   * [Bulk Create Attestations](developer-guides/issuers/bulk-create-attestations.md)

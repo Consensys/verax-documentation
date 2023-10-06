@@ -11,7 +11,14 @@ Modules are specified in a [portal](portals.md) and all attestations created by 
 
 Each module exposes a public function called `run`:
 
-`function run(AttestationPayload attestationPayload, bytes[] validationPayload, address txSender)`
+```solidity
+function run(
+    AttestationPayload memory attestationPayload,
+    bytes memory validationPayload,
+    address txSender,
+    uint256 value
+  ) public pure override {}
+```
 
 The function executes whatever logic it needs to, and reverts if the incoming transaction doesn't conform to the required logic.  The `attestationPayload` is the raw data of the incoming attestation, and the `validationPayload` is any qualifying data that is required for verification, but that doesn't make it into the on-chain attestation, e.g. a snark proof, merkle proof or signature etc.
 
