@@ -50,19 +50,25 @@ struct Profile {
 
 ***
 
-## How to describe relationships to other schemas
+## Schemas that are related to other Schemas
 
-Sometimes you may wish the consumers of your attestation to know how the attestations relate to other attestations, To do this you create a relationship.  So for for example, to create an attestation of a "_player_" that is a member of a "_team_", one would first create a **Team** schema, and then you would create a **Player** schema with a _canonical relationship field_, denoted by round braces:
+Sometimes you may wish the consumers of your attestation to know how the attestations relate to other attestations, to do this you create a relationship.  So for for example, to create an attestation of a "_player_" that is a member of a "_team_", one would first create a **Team** schema, and then you would create a **Player** schema with a _canonical relationship field_, denoted by round braces:
 
-`string pseudonym, string dateJoined, ( isResidentAt Team 0xa1b2c3 )`&#x20;
+`string pseudonym, string dateJoined, ( isMemberOf Team 0xa1b2c3 )`&#x20;
 
-... where `isMemberOf` is the relationship type, `Team` is the schema name, and `0xa1b2c3` is the schema id.  This indicates that any attestation based on the above schema is expected to be linked to some other **Team** attestation via a relationship attestation that links them together.
+... where `isMemberOf` is the relationship type, `Team` is the schema name, and `0xa1b2c3` is the schema id.  This indicates that any attestation based on the above schema is expected to be linked to some other **Team** attestation via a [relationship attestation](schemas.md#relationship-attestations) that links them together.
 
 This approach reduces redundant attestations, and allows for more fine-grained and reusable schemas, contributing to a growing standard library of well known and widely used schemas.
 
 Similarly, in order to create a one-to-many canonical relationship field, you would use the syntax:
 
 `string firstName, string lastName, [( isResidentAt Place 0xa1b2c3 )]`&#x20;
+
+As anyone can create links between different attestations, including a canonical relationship in your schema can help the consumers of your attestations understand which relationships you intended on being there, as opposed to relationships that may be created by othiord parties.
+
+See the page on [Linking Attestations](../developer-guides/issuers/link-attestations.md) to understand how to link attestations after they are created.
+
+***
 
 ### Relationship Attestations
 
@@ -79,6 +85,8 @@ Examples of relationship attestations are:
 * `0x74851...` "isAlumniOf" `0x31122...`
 
 Anyone can create any type of relationship between any attestation and any number of other attestations, allowing for the emergence of an organic [folksonomy](https://en.wikipedia.org/wiki/Folksonomy).  However, it also makes canonical relationships important to define in the schema, as otherwise there will be ambiguity between which relationship attestations were intended by the attestation issuer, and which were relationship attestations that were arbitrarily added later by third parties.
+
+***
 
 ## Triples, Quads and Named Graphs
 
