@@ -14,7 +14,6 @@
 
 ## Developer Guides
 
-* [Using the SDK](developer-guides/using-the-sdk.md)
 * [Issuers](developer-guides/issuers/README.md)
   * [Create a Schema](developer-guides/issuers/create-a-schema.md)
   * [Create a Module](developer-guides/issuers/create-a-module.md)
@@ -26,6 +25,7 @@
   * [Bulk Create Attestations](developer-guides/issuers/bulk-create-attestations.md)
 * [Consumers](developer-guides/consumers/README.md)
   * [Using the Subgraph](developer-guides/consumers/using-the-subgraph.md)
+* [Using the SDK](developer-guides/using-the-sdk.md)
 
 ## Discover
 
