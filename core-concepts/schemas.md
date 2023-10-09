@@ -23,11 +23,11 @@ As you can see from this example, a schema is more or less a comma-separated lis
 
 ## Schemas with Nested Data
 
-Many schemas will involve some sort of nested data.  In order to create a schmea with nested data, you simply include the property name, followed by the property's data structure in curly braces, so example:
+Many schemas will involve some sort of nested data.  In order to create a schema with nested data,  the property's data structure in round braces, followed by the property name, for example:
 
 {% code overflow="wrap" %}
 ```
-string username, string teamname, uint16 points, bool active, preferences { string gametype, string gamemode }
+string username, string teamname, uint16 points, bool active, ( string gametype, string gamemode )[] preferences
 ```
 {% endcode %}
 
@@ -44,17 +44,23 @@ struct Profile {
     string teamname;
     uint16 points;
     bool active;
-    Preferences setup;
+    Preferences[] setup;
 }
 ```
 
 ***
 
-## How to create related schemas
+## Advanced Schemas
+
+These features are more advanced and experimental schema features that allow you to create schemas with sophisticated properties. Feel free to get in contact if you have any questions.
 
 {% hint style="warning" %}
-**NOTE:** caution should be taken with this feature as it is experimental and likely to change
+**NOTE:** caution should be taken with these features as they are experimental and likely to change, and may not be supported by all indexers!
 {% endhint %}
+
+<details>
+
+<summary>How to create related schemas</summary>
 
 Sometimes you may wish the consumers of your attestation to know how the attestations relate to other attestations, to do this you create a relationship.  So for for example, to create an attestation of a "_player_" that is a member of a "_team_", one would first create a **Team** schema, and then you would create a **Player** schema with a _canonical relationship field_, denoted by round braces:
 
@@ -71,6 +77,8 @@ Similarly, in order to create a one-to-many canonical relationship field, you wo
 As anyone can create links between different attestations, so including a canonical relationship in your schema can help the consumers of your attestations understand which relationships you intended on being there, as opposed to relationships that may be created by third parties.
 
 See the page on [Linking Attestations](../developer-guides/for-attestation-issuers/link-attestations.md) to understand how to link attestations after they are created.
+
+</details>
 
 <details>
 
@@ -92,19 +100,19 @@ Anyone can create any type of relationship between any attestation and any numbe
 
 </details>
 
-***
+<details>
 
-## How to extend other schemas
-
-{% hint style="warning" %}
-**NOTE:** caution should be taken with this feature as it is somewhat experimental and may not be supported by all indexers!
-{% endhint %}
+<summary>How to extend other schemas</summary>
 
 Schemas can also inherit from other schemas, which is another way that Verax reduces redundant schema data and promotes reusability.  To inherit from another schema, simply add the parent schema id at the very start of the schema string preceded by the `@extends` keyword, e.g.:
 
 `@extends 0xa1b2c3... string firstName, string lastName`
 
 This will tell indexers to look up the schema referenced by the `extends` keyword, and concatenate it's schema string with the schema string in this schema.  Note that any conflicting field names will be overridden by the last previous definition, so for example, if a field name exist in a parent schema and a child schema, the field definition from the child schema will be used.  Also, schemas can only inherit from one parent at a time.
+
+</details>
+
+***
 
 ***
 
