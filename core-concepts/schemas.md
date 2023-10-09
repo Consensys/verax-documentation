@@ -70,7 +70,7 @@ Similarly, in order to create a one-to-many canonical relationship field, you wo
 
 As anyone can create links between different attestations, so including a canonical relationship in your schema can help the consumers of your attestations understand which relationships you intended on being there, as opposed to relationships that may be created by third parties.
 
-See the page on [Linking Attestations](../developer-guides/issuers/link-attestations.md) to understand how to link attestations after they are created.
+See the page on [Linking Attestations](../developer-guides/for-attestation-issuers/link-attestations.md) to understand how to link attestations after they are created.
 
 <details>
 

@@ -1,4 +1,4 @@
-# Getting Started
+# ⚒ Getting Started
 
 If you're a dapp and you wnt to publish attestations, here are the steps to get up and running:
 

@@ -14,27 +14,24 @@
 
 ## Developer Guides
 
-* [Issuers](developer-guides/issuers/README.md)
-  * [Walkthrough using Remix](developer-guides/issuers/walkthrough-using-remix.md)
-  * [Create a Schema](developer-guides/issuers/create-a-schema.md)
-  * [Create a Module](developer-guides/issuers/create-a-module.md)
-  * [Create a Portal](developer-guides/issuers/create-a-portal.md)
-  * [Create an Attestation](developer-guides/issuers/create-an-attestation.md)
-  * [Encoding Attestation Data](developer-guides/issuers/encoding-attestation-data.md)
-  * [Revoke an Attestation](developer-guides/issuers/revoke-an-attestation.md)
-  * [Link Attestations](developer-guides/issuers/link-attestations.md)
-  * [Bulk Create Attestations](developer-guides/issuers/bulk-create-attestations.md)
-* [Consumers](developer-guides/consumers/README.md)
-  * [Using the Subgraph](developer-guides/consumers/using-the-subgraph.md)
+* [For Attestation Issuers](developer-guides/for-attestation-issuers/README.md)
+  * [Walkthrough using Remix](developer-guides/for-attestation-issuers/walkthrough-using-remix.md)
+  * [Create a Schema](developer-guides/for-attestation-issuers/create-a-schema.md)
+  * [Create a Module](developer-guides/for-attestation-issuers/create-a-module.md)
+  * [Create a Portal](developer-guides/for-attestation-issuers/create-a-portal.md)
+  * [Create an Attestation](developer-guides/for-attestation-issuers/create-an-attestation.md)
+  * [Encoding Attestation Data](developer-guides/for-attestation-issuers/encoding-attestation-data.md)
+  * [Revoke an Attestation](developer-guides/for-attestation-issuers/revoke-an-attestation.md)
+  * [Link Attestations](developer-guides/for-attestation-issuers/link-attestations.md)
+  * [Bulk Create Attestations](developer-guides/for-attestation-issuers/bulk-create-attestations.md)
+* [Using the Subgraph](developer-guides/using-the-subgraph.md)
 * [Using the SDK](developer-guides/using-the-sdk.md)
 
 ## Discover
 
 * [Standard Library](discover/standard-library/README.md)
   * [NFT Portal](discover/standard-library/nft-portal.md)
-* [Integrations](discover/integrations/README.md)
-  * [Attestation Issuers](discover/integrations/attestation-issuers.md)
-  * [Reputation Protocols](discover/integrations/reputation-protocols.md)
+* [Integrations](discover/integrations.md)
 
 ## Get Involved
 
