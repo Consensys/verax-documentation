@@ -1,7 +1,7 @@
 # Table of contents
 
 * [👋 Introduction](README.md)
-* [Getting Started](getting-started.md)
+* [⚒ Getting Started](getting-started.md)
 
 ## Core Concepts
 
@@ -15,6 +15,7 @@
 ## Developer Guides
 
 * [Issuers](developer-guides/issuers/README.md)
+  * [Walkthrough using Remix](developer-guides/issuers/walkthrough-using-remix.md)
   * [Create a Schema](developer-guides/issuers/create-a-schema.md)
   * [Create a Module](developer-guides/issuers/create-a-module.md)
   * [Create a Portal](developer-guides/issuers/create-a-portal.md)

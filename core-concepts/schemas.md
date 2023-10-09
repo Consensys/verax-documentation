@@ -52,6 +52,10 @@ struct Profile {
 
 ## How to create related schemas
 
+{% hint style="warning" %}
+**NOTE:** caution should be taken with this feature as it is experimental and likely to change
+{% endhint %}
+
 Sometimes you may wish the consumers of your attestation to know how the attestations relate to other attestations, to do this you create a relationship.  So for for example, to create an attestation of a "_player_" that is a member of a "_team_", one would first create a **Team** schema, and then you would create a **Player** schema with a _canonical relationship field_, denoted by round braces:
 
 `string pseudonym, string dateJoined, ( isMemberOf Team 0xa1b2c3 )`&#x20;
@@ -92,15 +96,15 @@ Anyone can create any type of relationship between any attestation and any numbe
 
 ## How to extend other schemas
 
+{% hint style="warning" %}
+**NOTE:** caution should be taken with this feature as it is somewhat experimental and may not be supported by all indexers!
+{% endhint %}
+
 Schemas can also inherit from other schemas, which is another way that Verax reduces redundant schema data and promotes reusability.  To inherit from another schema, simply add the parent schema id at the very start of the schema string preceded by the `@extends` keyword, e.g.:
 
 `@extends 0xa1b2c3... string firstName, string lastName`
 
 This will tell indexers to look up the schema referenced by the `extends` keyword, and concatenate it's schema string with the schema string in this schema.  Note that any conflicting field names will be overridden by the last previous definition, so for example, if a field name exist in a parent schema and a child schema, the field definition from the child schema will be used.  Also, schemas can only inherit from one parent at a time.
-
-{% hint style="warning" %}
-**NOTE:** caution should be taken with this feature as it is somewhat experimental and may not be supported by all indexers!
-{% endhint %}
 
 ***
 

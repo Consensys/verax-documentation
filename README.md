@@ -10,8 +10,8 @@ Attestations are usually statements made by an attestation issuer about somethin
 * Contract at address `0x666bea5f…` is a malicious erc-20 token
 * Owner of address `0xd00daa…` is a human being (i.e. not a bot)
 * Owner of address `0xdeadbeef…` is a member of DimSumDAO
-* Attestation `12345` is a (in)valid attestation
-* Attestation `98765` is a “like” for content stored at `0xa1b2c3d4…`
+* Attestation `0xa2345` is a (in)valid attestation
+* Attestation `0x98765` is a “like” for content stored at `0xa1b2c3d4…`
 
 ***
 

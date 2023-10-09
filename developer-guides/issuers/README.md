@@ -2,9 +2,11 @@
 
 The pages in this section contain all the relevant information that need in order to get set up as an issuer and start issuing attestations directly into the Verax attestation Registry.
 
-We are currently developing an SDK, which will make it much easier and faster to get up and running, but for the time being you can watch this video walkthrough which takes you through how to interact with Verax on the Linea testnet, and how you can create a schema, a module, a portal that uses that module, and finally how to create an attestation.
+The overall steps for getting up and running include the following:
 
-{% embed url="https://www.youtube.com/watch?v=TBNsKLWGmIs" %}
-Verax Remix Walkthrough on Linea Testnet
-{% endembed %}
+1. [Design and register a schema](create-a-schema.md)
+2. [Optionally create one or more modules](create-a-module.md)
+3. [Deploy your portal contract](create-a-portal.md)
+4. [Start creating your attestations!](create-an-attestation.md)
 
+There is also a video walkthrough you can look at, which takes you through going from zero, to getting set up and issuing a attestations in 20 minutes using only Remix.
