@@ -6,7 +6,7 @@ A schema is a blueprint for an attestation.  It describes the various fields an 
 
 Schemas are stored in the registry as a string value that describes the various fields.  For example, to create attestations that describe a person, we can create a schema as follows:\
 \
-`string username, string teamname, uint16 points, bool active`
+`(string username, string teamname, uint16 points, bool active)`
 
 This describes a schema with four fields.  Any attestation based on this schema can be decoded in Solidity as follows:
 
@@ -27,7 +27,7 @@ Many schemas will involve some sort of nested data.  In order to create a schema
 
 {% code overflow="wrap" %}
 ```
-string username, string teamname, uint16 points, bool active, ( string gametype, string gamemode )[] preferences
+(string username, string teamname, uint16 points, bool active, ( string gametype, string gamemode )[] preferences)
 ```
 {% endcode %}
 
