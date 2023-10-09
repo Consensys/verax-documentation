@@ -30,44 +30,27 @@ The data types can be any valid solidity datatype:
 5. **Bytes**: Represents a fixed-size array of bytes. For example, `bytes32` represents a 32-byte array, and `bytes` represents a dynamic-sized byte array.
 6. **String**: Represents a sequence of characters, similar to strings in other programming languages. Identified by the keyword `string`.
 7. **Array**: Represents a fixed-size or dynamic-size array of elements of the same type, e.g. `string[]`.
-8. **Mapping**: Represents a key-value data structure, similar to associative arrays or dictionaries, e.g. `mapping(address => uint32) points`.
-9. **Struct**: Represents a user-defined data structure that can hold multiple variables of different types. To define a struct, simply incude the field name, following by the struct definition in curly braces, see below for an example.
+8. **Struct**: Represents a user-defined data structure that can hold multiple variables of different types. To define a struct, simply incude the field name, following by the struct definition in curly braces, see below for an example.
 
-The only Solidity data type that isn't supported is `enum`.  Also, arrays, mapping and structs are defined slightly differently than you would think.
+The only Solidity data types that aren't supported are `mapping` and `enum`.  Also, arrays are defined slightly differently than you would think.
 
-Mappings can be defined as they are normally defined in Solidity, but they can only contain primitive types, e.g. `mapping(address => uint32) points` is fine but `mapping(address => MyCustomStruct)` won't work.
+Defining a struct in a schema string is done using round braces.  For example, defining a **struct** that contains `Street` and `City` properties can be done like so:
 
-Defining a struct in a schema string is done using curly braces.  For example, defining a **struct** that contains `Street` and `City` properties can be done like so:
-
-`string firstName, string lastName, isResidentAt {string Street, string City}`
+`string firstName, string lastName, (string Street, string City) isResidentAt`
 
 Note that the name of the field in the attestation is `isResidentAt` but the name of the actual struct isn't defined in the schema string.
 
 **Arrays** can be defined using square brackets, in one of two ways:
 
-`string firstName, string lastName, homeAddress [{string Street, string City}]`
+`string firstName, string lastName, (string Street, string City)[] homeAddress`
 
 or:
 
-`string firstName string, string lastName, homeAddress[] {string Street, string City}`
+`string firstName string, string lastName, (string Street, string City)[] homeAddress`
 
 Arrays can also be defined with primtive datatypes, e.g.:
 
 `string[] nickNames, string initials`
-
-A fixed length array is defined as follows:
-
-`previousAddresses[4] {string Street, string City}`
-
-## Defining canonical relationships
-
-If the attestations that are issued against a schema are designed to have links to other attestations, this can be defined in the schema.  These intended links are referred to as "_canonical relationships_" and are defined using the round brackets syntax:
-
-`string firstName, string lastName, ( isResidentAt Place 0xa1b2c3 )`
-
-This schema string indicates that for any attestation that is based on this schema, there exists a relationship attestation that links it to another attestation based on the `Place` schema, of which the schema id is `0xa1b2c3`.
-
-Canonical relationships are not natively enforced or marked as required in the schema string, but they can be enforced through the use of [modules](../../core-concepts/modules.md), and can be identified as being required in the documentation that is linked to from the `description` metadata field.
 
 ## Getting a schema id from a schema string
 
