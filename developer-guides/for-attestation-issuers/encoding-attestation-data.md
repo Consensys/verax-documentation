@@ -66,7 +66,7 @@ Sometime a schema is a bit more complicated, in that it contains more than just 
 
 {% code overflow="wrap" %}
 ```
-string username, string teamname, uint16 points, bool active, preferences { string gametype, string gamemode }
+string username, string teamname, uint16 points, bool active, ( string gametype, string gamemode ) preferences
 ```
 {% endcode %}
 
@@ -102,7 +102,7 @@ Encoding arrays within attestation data is also very straightforward, lets use t
 
 {% code overflow="wrap" %}
 ```
-string username, string teamname, uint16 points, bool active, preferences { string[] gametype, string[] gamemode }
+string username, string teamname, uint16 points, bool active, ( string[] gametype, string[] gamemode ) preferences
 ```
 {% endcode %}
 
