@@ -2,9 +2,9 @@
 
 ## Overview
 
-Verax is a shared, public attestation registry that can deployed to EVM chains.  It can be used by dapps to store data that is of public interest, aka "attestations", that can be easily accessed and composed together by anyone that's interested.
+Verax is a shared, public attestation registry that can deployed to EVM chains.  It can be used by dapps to store data that is of public interest, aka "attestations", that can be easily accessed and composed together by anyone that's interested. It is designed to be deployed as a single instance per network, so that all dapps on that network can issue their attestations to the same place, so that they can be easily discovered and consumed.
 
-Attestations are usually statements made by an attestation issuer about something specific. Examples of attestations could include:
+Attestations are usually statements made by an attestation issuer about something specific. They are also sometimes known as claims or credentials. Examples of attestations could include:
 
 * Owner of address `0xbabe1999…` has completed a course on Solidity
 * Contract at address `0x666bea5f…` is a malicious erc-20 token
@@ -15,9 +15,11 @@ Attestations are usually statements made by an attestation issuer about somethin
 
 ***
 
+## How is Verax used?
+
 **For issuers of attestations:**
 
-Issuing to Verax gives access to your attestations to any dapp that can read from Verax.  Your attestation data becomes widely discoverable and easily consumed, as well as being easily composed with other attestation sources.  Your attestations can start receiving attestations themselves, allowing you to accrue reputation as a trusted datasource.
+If you are a dapp that offers credentials / attestations, you can choose to issue them to an existing Verax instance on a network.  Issuing to Verax gives access to your attestations to any dapp that reads from Verax.  Your attestation data becomes widely discoverable and easily consumed, as well as being easily composed with other attestations.  Your attestations can start receiving attestations themselves, allowing you to accrue reputation as a trusted datasource.
 
 **For consumers of attestations:**
 
