@@ -11,6 +11,7 @@
 * [Linked Data](core-concepts/linked-data.md)
 * [Modules](core-concepts/modules.md)
 * [Portals](core-concepts/portals.md)
+* [The Attestation Ecosystem](core-concepts/the-attestation-ecosystem.md)
 
 ## Developer Guides
 

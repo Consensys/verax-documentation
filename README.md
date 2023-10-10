@@ -31,7 +31,7 @@ Start leveraging linked data and shared ontologies to easily create rich and pow
 
 ***
 
-Dive in to the relevant section or go through the [High Level Overview](core-concepts/high-level-overview.md) section to start learning more.
+Dive in to the relevant section or go through the [High Level Overview](core-concepts/the-attestation-ecosystem.md) section to start learning more.
 
 You can find out more information or contact any of the contributors on any of these channels:
 
