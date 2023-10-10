@@ -23,15 +23,15 @@ As you can see from this example, a schema is more or less a comma-separated lis
 
 ## Schemas with Nested Data
 
-Many schemas will involve some sort of nested data.  In order to create a schema with nested data,  the property's data structure in round braces, followed by the property name, for example:
+Many schemas will involve some sort of nested data.  In order to create a schema with nested data, place the nested data in round braces, followed by the property name, for example:
 
 {% code overflow="wrap" %}
 ```
-(string username, string teamname, uint16 points, bool active, ( string gametype, string gamemode )[] preferences)
+(string username, string teamname, uint16 points, bool active, ( string gametype, string gamemode )[] setup)
 ```
 {% endcode %}
 
-You can consider this type schema as corresponding to the following Solidity struct:
+You can consider this type of schema as corresponding to the following Solidity structs:
 
 ```solidity
 struct Preferences {
@@ -54,7 +54,7 @@ struct Profile {
 
 As well as the schema string, schemas have some metadata that is stored with them:
 
-<table><thead><tr><th width="162.33333333333331">Property</th><th width="113">Datatype</th><th>Description</th></tr></thead><tbody><tr><td>name</td><td>string</td><td>(r<em>equired)</em> The name of schema, stored on-chain</td></tr><tr><td>description</td><td>string</td><td>A link to off-chain description / documentation</td></tr><tr><td>context</td><td>string</td><td>(r<em>equired)</em> A link to some shared vocabulary / ontology</td></tr><tr><td>schema</td><td>string</td><td><em>(required)</em> The raw schema string as described above</td></tr></tbody></table>
+<table><thead><tr><th width="162.33333333333331">Property</th><th width="113">Datatype</th><th>Description</th></tr></thead><tbody><tr><td>name</td><td>string</td><td>(r<em>equired)</em> The name of schema, stored on-chain</td></tr><tr><td>description</td><td>string</td><td>A link to off-chain description / documentation</td></tr><tr><td>context</td><td>string</td><td>A link to some shared vocabulary / ontology</td></tr><tr><td>schema</td><td>string</td><td><em>(required)</em> The raw schema string as described above</td></tr></tbody></table>
 
 ### Schema Contexts / Shared Vocabularies
 
@@ -66,13 +66,11 @@ For more information on this property and how important it is, see the [Linked D
 
 Schema ids are unique to the schema content, and are created from the keccak hash of the schema string.  This means that schemas can be created counterfactually, allowing for things like circular relationships between schemas.  It also means that two people can't create the exact same schema, which in turn, promotes reusability within the registry.
 
-
-
 ***
 
 ## Experimental Features for Advanced Schemas
 
-These features are more advanced and experimental schema features that allow you to create schemas with sophisticated properties. Feel free to get in contact if you have any questions.
+These features are advanced and experimental schema features that allow you to create schemas with sophisticated properties. Feel free to get in contact if you have any questions.
 
 {% hint style="warning" %}
 **NOTE:** caution should be taken with these features as they are experimental and likely to change, and may not be supported by all indexers!
@@ -82,9 +80,9 @@ These features are more advanced and experimental schema features that allow you
 
 <summary>How to create related schemas</summary>
 
-Sometimes you may wish the consumers of your attestation to know how the attestations relate to other attestations, to do this you create a relationship.  So for for example, to create an attestation of a "_player_" that is a member of a "_team_", one would first create a **Team** schema, and then you would create a **Player** schema with a _canonical relationship field_, denoted by round braces:
+Sometimes you may wish the consumers of your attestation to know how the attestations relate to other attestations, to do this you create a relationship.  So for for example, to create an attestation of a "_player_" that is a member of a "_team_", one would first create a **Team** schema, and then you would create a **Player** schema with a _canonical relationship field_, denoted by curly braces:
 
-`string pseudonym, string dateJoined, ( isMemberOf Team 0xa1b2c3 )`&#x20;
+`string pseudonym, string dateJoined, { isMemberOf Team 0xa1b2c3 }`&#x20;
 
 ... where `isMemberOf` is the relationship type, `Team` is the schema name, and `0xa1b2c3` is the schema id.  This indicates that any attestation based on the above schema is expected to be linked to some other **Team** attestation via a [relationship attestation](schemas.md#relationship-attestations) that links them together.
 
@@ -92,7 +90,7 @@ This approach reduces redundant attestations, and allows for more fine-grained a
 
 Similarly, in order to create a one-to-many canonical relationship field, you would use the syntax:
 
-`string firstName, string lastName, [( isResidentAt Place 0xa1b2c3 )]`&#x20;
+`string firstName, string lastName, [{ isResidentAt Place 0xa1b2c3 }]`&#x20;
 
 As anyone can create links between different attestations, so including a canonical relationship in your schema can help the consumers of your attestations understand which relationships you intended on being there, as opposed to relationships that may be created by third parties.
 
@@ -102,7 +100,7 @@ See the page on [Linking Attestations](../developer-guides/for-attestation-issue
 
 <details>
 
-<summary>A note on relationship attestations...</summary>
+<summary>A note on relationship attestations</summary>
 
 The examples above use what is called a "_relationship attestation_", which is any attestation based on the special `Relationship` schema.  The relationship schema conforms to the following structure:
 
@@ -117,6 +115,8 @@ Examples of relationship attestations are:
 * `0x74851...` "isAlumniOf" `0x31122...`
 
 Anyone can create any type of relationship between any attestation and any number of other attestations, allowing for the emergence of an organic [folksonomy](https://en.wikipedia.org/wiki/Folksonomy).  However, it also makes canonical relationships important to define in the schema, as otherwise there will be ambiguity between which relationship attestations were intended by the attestation issuer, and which were relationship attestations that were arbitrarily added later by third parties.
+
+See the page on [**linking attestations**](../developer-guides/for-attestation-issuers/link-attestations.md) for more details.
 
 </details>
 
