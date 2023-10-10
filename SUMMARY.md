@@ -15,7 +15,7 @@
 
 ## Developer Guides
 
-* [For Attestation Issuers](developer-guides/for-attestation-issuers/README.md)
+* [♒ For Attestation Issuers](developer-guides/for-attestation-issuers/README.md)
   * [Walkthrough using Remix](developer-guides/for-attestation-issuers/walkthrough-using-remix.md)
   * [Create a Schema](developer-guides/for-attestation-issuers/create-a-schema.md)
   * [Create a Module](developer-guides/for-attestation-issuers/create-a-module.md)
@@ -25,14 +25,14 @@
   * [Revoke an Attestation](developer-guides/for-attestation-issuers/revoke-an-attestation.md)
   * [Link Attestations](developer-guides/for-attestation-issuers/link-attestations.md)
   * [Bulk Create Attestations](developer-guides/for-attestation-issuers/bulk-create-attestations.md)
-* [Using the Subgraph](developer-guides/using-the-subgraph.md)
-* [Using the SDK](developer-guides/using-the-sdk.md)
+* [🌐 Using the Subgraph](developer-guides/using-the-subgraph.md)
+* [🛠 Using the SDK](developer-guides/using-the-sdk.md)
 
 ## Discover
 
-* [Standard Library](discover/standard-library/README.md)
+* [📚 Standard Library](discover/standard-library/README.md)
   * [NFT Portal](discover/standard-library/nft-portal.md)
-* [Integrations](discover/integrations.md)
+* [🤝 Integrations](discover/integrations.md)
 
 ## Get Involved
 
