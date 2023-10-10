@@ -1,4 +1,4 @@
-# The Attestation Ecosystem
+# Ecosystem
 
 ## A Layered Model of the Attestation Ecosystem
 
@@ -29,7 +29,3 @@ Users can accrue reputation based on collecting attestations.  A user may have s
 Reputation protocols can help users to discover useful dapps, and for dapps to find product-market-fit and establish a loyal user base, but they rely on being able to derive insights from public data aka attestations.
 
 <figure><img src="../.gitbook/assets/high-level-flow-03.drawio.png" alt=""><figcaption></figcaption></figure>
-
-***
-
-As Verax is composed of on-chain smart contracts that dapps issue attestations to, the first thing to learn about is how these smart contracts are organized and how attestations are issued. Fortunately the core concepts are all relatively simple, so getting started is quick and easy.  The first concept to learn about is attestations themselves.
