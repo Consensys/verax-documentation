@@ -32,25 +32,17 @@ The data types can be any valid solidity datatype:
 7. **Array**: Represents a fixed-size or dynamic-size array of elements of the same type, e.g. `string[]`.
 8. **Struct**: Represents a user-defined data structure that can hold multiple variables of different types. To define a struct, simply incude the field name, following by the struct definition in curly braces, see below for an example.
 
-The only Solidity data types that aren't supported are `mapping` and `enum`.  Also, arrays are defined slightly differently than you would think.
+The only Solidity data types that aren't supported are `mapping` and `enum`.  If you want to store a mapping, you can instead choose to store an array of keay <> value pairs, e.g. `mapping(address => uint32) points` becomes `` (address user, uint32 score)[] points` ``
 
-Defining a struct in a schema string is done using round braces.  For example, defining a **struct** that contains `Street` and `City` properties can be done like so:
+Defining a **struct** in a schema string is done using round braces.  For example, defining a struct that contains `Street` and `City` properties can be done like so:
 
 `string firstName, string lastName, (string Street, string City) isResidentAt`
 
 Note that the name of the field in the attestation is `isResidentAt` but the name of the actual struct isn't defined in the schema string.
 
-**Arrays** can be defined using square brackets, in one of two ways:
+Arrays of structs can be defined using square brackets, e.g.:
 
 `string firstName, string lastName, (string Street, string City)[] homeAddress`
-
-or:
-
-`string firstName string, string lastName, (string Street, string City)[] homeAddress`
-
-Arrays can also be defined with primtive datatypes, e.g.:
-
-`string[] nickNames, string initials`
 
 ## Getting a schema id from a schema string
 

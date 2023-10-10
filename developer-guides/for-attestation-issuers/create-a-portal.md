@@ -65,6 +65,6 @@ Once you have deployed your portal contract, you simply call the `registerPortal
 While you can put whatever logic you want to in your portal contracts, it is strongly advised that you keep you portal as modular as possible, which means keeping your logic in modules.  In the future, we _may_ pivot to no-code portals, which have no contract, and which simply execute a specific chain of modules!
 {% endhint %}
 
-One important caveat is that initially creating a portal requires that you have a "_issuer_" attestation in the registry.  To acquire one of these attestations, you simply need to reach out to any of the core contributors.  In the early stages of the project, we will be in a closed beta, which means you'll need to get one of these attestations before deploying a portal. Getting an issuer attestation is as easy as getting in touch using any of our [communication channels](../../get-involved/get-in-touch.md).
+One important caveat is that initially creating a portal requires that you need to be listed as an "issuer" in the registry.  To be listed as an issuer, you simply need to reach out to any of the core contributors.  In the early stages of the project, we will be in a closed beta, which means you'll need to get listed before deploying a portal or registering a schema. Getting listed as an issuer is as easy as getting in touch using any of our [communication channels](../../get-involved/get-in-touch.md).
 
 Once you have deployed you portal, you are ready to issue your first attestation!
