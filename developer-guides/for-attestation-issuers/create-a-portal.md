@@ -42,19 +42,18 @@ Descriptions for each of the parameters are as follow:
 
 <table><thead><tr><th width="149.33333333333331">Parameter</th><th width="114">Datatype</th><th>Description</th></tr></thead><tbody><tr><td>modules</td><td>address[]</td><td>address of the modules to execute for all attestations</td></tr><tr><td>name</td><td>string</td><td>a descriptive name for the portal</td></tr><tr><td>description</td><td>string</td><td>a description of the portal's functionality</td></tr><tr><td>isRevocable</td><td>bool</td><td>whether attestations issued by the portal can be revoked</td></tr><tr><td>ownerName</td><td>string</td><td>The name of the owner of the portal</td></tr></tbody></table>
 
-It is recommended to deploy and registry at least the `MsgSenderModule` module contract and pass it's address in the first parameter.  This module will allow you to lock down the portal so that only you can issue attestations through it.
+It is recommended to deploy and registry at least the `MsgSenderModule` module contract and pass it's address in the first parameter.  This module will allow you to lock down the portal so that only you can issue attestations through it.  Alternatively, you can create a module that checks a signature, or a module that checks that the attestations coming through your portal are based on specific schemas.
 
 ## Lifecycle Hooks
 
 The `AbstractPortal` contract defines the following life cycle hooks:
 
-`function _beforeAttest(AttestationPayload memory attestation, uint256 value)`
-
-`function _afterAttest()`
-
-`function _onRevoke(bytes32 attestationId, bytes32 replacedBy)`
-
-`function _onBulkRevoke(bytes32[] memory attestationIds, bytes32[] memory replacedBy)`
+* onAttest
+* onReplace
+* onBulkAttest
+* onBulkReplace
+* onRevoke
+* onBulkRevoke
 
 These lifecycle hooks can be overridden in the concrete implementation of the Portal, and can be used to implement additional logic and specific points in the lifecycle of an attestation.
 
