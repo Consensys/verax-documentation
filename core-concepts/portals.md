@@ -14,8 +14,8 @@ All portals contain certain metadata that is associated with them when they are 
 
 Each portal can specify optional lifecycle hooks that are executed at specific points in an attestations lifecycle.  Hooks are specific functions called at specific points, which include:
 
-* **onBeforeAttest** - executed just before an attestation is first created
-* **onAfterAttest** - executed just after an attestation is first created
+* **onAttest** - executed just before an attestation is first created
+* **onReplace** - executed just before an attestation is replaced by another attestation
 * **onRevoke** - executed when an attestation is first revoked
 * **onBulkAttest** - executed when attestations are created in bulk
 * **onBulkRevoke** - executed when an attestations are revoked in bulk

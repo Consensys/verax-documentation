@@ -32,5 +32,9 @@ In order for an attestation to reference a schema, that schema needs to be regis
 
 ***
 
+To get more of an overview of how the attestation regsitry is used and how it fits into the ecosystem, see the [**ecosystem page**](ecosystem.md) for information of the various actors and the roles they play.
+
+***
+
 As Verax is composed of on-chain smart contracts that dapps issue attestations to, the first thing to learn about is how these smart contracts are organized and how attestations are issued. Fortunately the core concepts are all relatively simple, so getting started is quick and easy.  The first concept to learn about is attestations themselves.
 
