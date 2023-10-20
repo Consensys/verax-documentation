@@ -1,4 +1,4 @@
-# Using the SDK
+# 🛠 Using the SDK
 
 {% hint style="danger" %}
 Please advised that the SDK is currently under development is not currently available.  This documentation is a work in progress and is being continually revised.
@@ -10,12 +10,12 @@ VeraxSDK is a [npm package](https://www.npmjs.com/package/verax-sdk/).
 
 ```
 # npm
-npm install --save verax-sdk
+npm install --save verax-attestation-registry
 ```
 
 ```
 # yarn
-yarn add verax-sdk
+yarn add verax-attestation-registry
 ```
 
 ***
@@ -26,12 +26,12 @@ yarn add verax-sdk
 
 ```
 // CommonJS
-var VeraxSdk = require("verax-sdk");
+var VeraxSdk = require("verax-attestation-registry");
 ```
 
 ```
 // ES6
-import VeraxSdk from "verax-sdk";
+import VeraxSdk from "verax-attestation-registry";
 ```
 
 ### 2. Instantiate VeraxSdk <a href="#user-content-2-instantiate-veraxsdk" id="user-content-2-instantiate-veraxsdk"></a>
