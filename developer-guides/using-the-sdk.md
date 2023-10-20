@@ -10,12 +10,12 @@ VeraxSDK is a [npm package](https://www.npmjs.com/package/verax-sdk/).
 
 ```
 # npm
-npm install --save verax-attestation-registry
+npm i --save @verax-attestation-registry/verax-sdk
 ```
 
 ```
 # yarn
-yarn add verax-attestation-registry
+yarn add @verax-attestation-registry/verax-sdk
 ```
 
 ***
@@ -26,12 +26,12 @@ yarn add verax-attestation-registry
 
 ```
 // CommonJS
-var VeraxSdk = require("verax-attestation-registry");
+var VeraxSdk = require("@verax-attestation-registry/verax-sdk");
 ```
 
 ```
 // ES6
-import VeraxSdk from "verax-attestation-registry";
+import VeraxSdk from "@verax-attestation-registry/verax-sdk";
 ```
 
 ### 2. Instantiate VeraxSdk <a href="#user-content-2-instantiate-veraxsdk" id="user-content-2-instantiate-veraxsdk"></a>
