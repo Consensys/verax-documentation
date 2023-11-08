@@ -1,4 +1,4 @@
-# Using the Subgraph
+# 🌐 Using the Subgraph
 
 There is a public subgraph that is currently maintained by the Linea team, and it can be accessed from the following URL:
 

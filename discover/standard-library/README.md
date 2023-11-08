@@ -1,4 +1,4 @@
-# Standard Library
+# 📚 Standard Library
 
 This section outlines the standard library and examples of modules, portals and schemas that you can use and customize to suit your needs.
 

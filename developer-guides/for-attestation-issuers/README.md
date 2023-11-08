@@ -1,4 +1,4 @@
-# Issuers
+# ♒ For Attestation Issuers
 
 The pages in this section contain all the relevant information that need in order to get set up as an issuer and start issuing attestations directly into the Verax attestation Registry.
 
