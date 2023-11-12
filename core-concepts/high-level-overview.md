@@ -20,11 +20,11 @@ Most dapps will probably want to do a few basic things, like verify a signature,
 
 <figure><img src="../.gitbook/assets/high-level-flow.drawio.png" alt=""><figcaption><p>A dapp that uses a chain of modules to perform verification checks on incoming attestations</p></figcaption></figure>
 
-Its worth pointing out that dapps don't have to use modules, they can customise the portal contract and put all their logic in there, but the benefit of using modules is that dapps can use the modules that other dapps created before.  For example, if one dapp decides it needs a module to verify a merkle proof, then any other dapp that needs to verify a merkle proof can just reuse that module.
+It's worth pointing out that dapps don't have to use modules, they can customise the portal contract and put all their logic in there, but the benefit of using modules is that dapps can use the modules that other dapps created before.  For example, if one dapp decides it needs a module to verify a merkle proof, then any other dapp that needs to verify a merkle proof can just reuse that module.
 
 ### Schemas
 
-Attestations are only really useful if people can reference them and understand what they are attesting to.  In order to do this, there needs to be a way to describe the data structure of the attestation data.  To do this, every attestation references a [**schema**](schemas.md).  A schema is a basically a description of the properties in an attestation and what their respective data types are.  Dapps can use any existing schema or create their own. They can use as many schemas as they want, but only one per attestion.
+Attestations are only really useful if people can reference them and understand what they are attesting to.  In order to do this, there needs to be a way to describe the data structure of the attestation data.  To do this, every attestation references a [**schema**](schemas.md).  A schema is basically a description of the properties in an attestation and what their respective data types are.  Dapps can use any existing schema or create their own. They can use as many schemas as they want, but only one per attestation.
 
 In order for an attestation to reference a schema, that schema needs to be registered in the schema registry.  Portals and modules also need to be registered.  When a new attestation is made, the attestation registry checks if the portal that is submitting the attestation is registered, and also checks if schema the attestation is based on is also registered.
 
@@ -32,7 +32,7 @@ In order for an attestation to reference a schema, that schema needs to be regis
 
 ***
 
-To get more of an overview of how the attestation regsitry is used and how it fits into the ecosystem, see the [**ecosystem page**](ecosystem.md) for information of the various actors and the roles they play.
+To get more of an overview of how the attestation registry is used and how it fits into the ecosystem, see the [**ecosystem page**](ecosystem.md) for information on the various actors and the roles they play.
 
 ***
 
