@@ -1,7 +1,7 @@
 # 🛠 Using the SDK
 
 {% hint style="danger" %}
-Please advised that the SDK is currently under development is not currently available.  This documentation is a work in progress and is being continually revised.
+Please be advised that the SDK is currently under development is not currently available.  This documentation is a work in progress and is being continually revised.
 {% endhint %}
 
 ## Installation
@@ -72,7 +72,7 @@ const veraxSdk = new VeraxSdk(myVeraxConfiguration);
 ### 1. Get DataMappers <a href="#user-content-1-get-datamappers" id="user-content-1-get-datamappers"></a>
 
 ```javascript
-// Each Verax classes has its DataMapper
+// Each Verax class has its DataMapper
 // Get them from the SDK instance
 const portalDataMapper = veraxSdk.portalDataMapper; // RW Portals
 const schemaDataMapper = veraxSdk.schemaDataMapper; // RW Schemas
