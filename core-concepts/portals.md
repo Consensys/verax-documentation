@@ -8,7 +8,7 @@ A portal is a smart contract that executes specific verification logic through a
 
 All portals contain certain metadata that is associated with them when they are registered:
 
-<table><thead><tr><th width="170">Field</th><th width="120">Type</th><th>Description</th></tr></thead><tbody><tr><td>id</td><td>address</td><td>The portal id which is the address of portal contract</td></tr><tr><td>ownerAddress</td><td>address</td><td>The address of the owner of this portal</td></tr><tr><td>modules</td><td>address[]</td><td>Addresses of modules implemented by the portal</td></tr><tr><td>isRevocable</td><td>bool</td><td>Whether attestations issued can be revoked</td></tr><tr><td>name</td><td>string</td><td>(required) A descriptive name for the module</td></tr><tr><td>description</td><td>string (URI)</td><td>(optional) A link to documentation about the module, it’s intended use etc.</td></tr><tr><td>ownerName</td><td>string</td><td>The name of the owner of this portal</td></tr></tbody></table>
+<table><thead><tr><th width="170">Field</th><th width="120">Type</th><th>Description</th></tr></thead><tbody><tr><td>id</td><td>address</td><td>The portal id which is the address of portal contract</td></tr><tr><td>ownerAddress</td><td>address</td><td>The address of the owner of this portal</td></tr><tr><td>modules</td><td>address[]</td><td>Addresses of modules implemented by the portal</td></tr><tr><td>isRevocable</td><td>bool</td><td>Whether attestations issued can be revoked</td></tr><tr><td>name</td><td>string</td><td>(required) A descriptive name for the module</td></tr><tr><td>description</td><td>string (URI)</td><td>(optional) A link to documentation about the module, its intended use etc.</td></tr><tr><td>ownerName</td><td>string</td><td>The name of the owner of this portal</td></tr></tbody></table>
 
 ## Lifecycle Hooks
 
@@ -18,7 +18,7 @@ Each portal can specify optional lifecycle hooks that are executed at specific p
 * **onReplace** - executed just before an attestation is replaced by another attestation
 * **onRevoke** - executed when an attestation is first revoked
 * **onBulkAttest** - executed when attestations are created in bulk
-* **onBulkRevoke** - executed when an attestations are revoked in bulk
+* **onBulkRevoke** - executed when attestations are revoked in bulk
 
 ## Customization
 

@@ -15,7 +15,7 @@ The real value emerges from the rich ecosystem of dapps that leverage Verax to s
   * information about the reputation of smart contracts or tokens which helps to prevent scams
   * analysis about smart contract addresses to filter out sophisticated bot activity
   * fair and transparent credit scores for under-collateralized loans
-  * fair and transparent recommendation engines that deliver relevant, high quality content to users without intermediaries that may be biased or have mis-aligned incentives
+  * fair and transparent recommendation engines that deliver relevant, high quality content to users without intermediaries that may be biased or have misaligned incentives
 * **Adoption Layer:** these are the points at which users interact with the ecosystem, and if everything is working as it should, this is the only layer the users should be aware of.  This is where users can take advantage of the value that dapps offer them, that comes from having a shared, public datalake of attestations from which those dapps can derive valuable insights and robust permissionless reputation.  Users can discover a range of high quality dapps / services / content and be sure that it is all verifiable on-chain, and dapps can easily find the users that they can bring value to.
 
 ***
@@ -24,7 +24,7 @@ The real value emerges from the rich ecosystem of dapps that leverage Verax to s
 
 The above layered model is a useful way to think about the ecosystem that is built on a shared public attestation registry.  Another useful mental model for thinking about an attestation registry is as the basis for a market in reputation.
 
-Users can accrue reputation based on collecting attestations.  A user may have several reputations contexts, none of which need to be linked to their real world identity, but can prove things about them, such as their contributions to DAOs, their interests in art, music, or gaming, their professional skills, their on-chain activity, their credit history etc.   These pseudonymous reputation contexts have value because they allow dapps to find loyal users, and they allow users to find dapps that are relevant and trustyworthy and from which they can some utility value.
+Users can accrue reputation based on collecting attestations.  A user may have several reputations contexts, none of which need to be linked to their real world identity, but can prove things about them, such as their contributions to DAOs, their interests in art, music, or gaming, their professional skills, their on-chain activity, their credit history etc.   These pseudonymous reputation contexts have value because they allow dapps to find loyal users, and they allow users to find dapps that are relevant and trustworthy and from which they can some utility value.
 
 Reputation protocols can help users to discover useful dapps, and for dapps to find product-market-fit and establish a loyal user base, but they rely on being able to derive insights from public data aka attestations.
 

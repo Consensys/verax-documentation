@@ -1,6 +1,6 @@
 # ⚒ Getting Started
 
-If you're a dapp and you wnt to publish attestations, here are the steps to get up and running:
+If you're a dapp and you want to publish attestations, here are the steps to get up and running:
 
 1. Decide on your [_**schema**_](core-concepts/schemas.md), which is a description of what your attestations will look like.
 2. Deploy your [_**portal**_](core-concepts/portals.md), which is a contract through which you push attestations into the registry\
