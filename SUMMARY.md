@@ -38,4 +38,9 @@
 
 * [Get in Touch](get-involved/get-in-touch.md)
 * [Contribute to Development](get-involved/contribute-to-development.md)
-* [Contribute to Governance](get-involved/contribute-to-governance.md)
+
+## Governance
+
+* [Governance Charter](governance/governance-charter.md)
+* [Overview of Governance](governance/overview-of-governance.md)
+* [Governance Parameters](governance/governance-parameters.md)
