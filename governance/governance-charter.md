@@ -8,23 +8,23 @@ As Verax is developed by the community, one of the goals of the project is to de
 
 ## Guiding Principles
 
-### 1 | Transparency
+### Transparency
 
 The governance system will establish a series of processes that will help to maintain transparency in how Verax is developed and how it evolves.  It recognises that governance will need to evolve as the community grows.  One of the core values that governance adheres to is to give all stakeholders a say in how the project develops over time.  As Verax is built for use by dapps, governance should give dapps that have fully integrated with Verax a say in how it is developed.
 
-### 2 | Inclusivity
+### Inclusivity
 
-The governance system will establish a series of processes that will help to maintain transparency in how Verax is developed and how it evolves.  It recognises that governance will need to evolve as the community grows.  One of the core values that governance adheres to is to give all stakeholders a say in how the project develops over time.  As Verax is built for use by dapps, governance should give dapps that have fully integrated with Verax a say in how it is developed.  As attestation registries will likely play an important role within a network’s ecosystem, representatives of networks that Verax is deployed to will also be invited to participate in governance.
+The governance system will establish a series of processes that will help to maintain transparency in how Verax is developed and how it evolves.  It recognises that governance will need to evolve as the community grows.  One of the core values that governance adheres to, is to give all stakeholders a say in how the project develops over time.  As Verax is built for use by dapps, governance should give dapps that have fully integrated with Verax a say in how it is developed.  As attestation registries will likely play an important role within a network’s ecosystem, representatives of networks that Verax is deployed to will also be invited to participate in governance.
 
-### 3 | Adaptability and Evolution
+### Adaptability and Evolution
 
 The governance structure will evolve with the growth of the Verax community and adaptability is a key principle.  Other methods of voting and governance design have been explored, including proof-of-contribution, reputation weighted voting, quadratic voting, connection oriented cluster matching and Voting-Bloc Entropy.  These are complex designs that will take to evolve towards, and we welcome contributions from the community in researching these governance ideas.
 
-### 4 | Commitment to Community
+### Commitment to Community
 
 Verax is designed as an open source, public good.  Anyone is free to fork it, deploy it on other chains, or submit an improvement proposal.  The governance system aims to help coordinate these various efforts so that various instances of Verax can work as a cohesive whole.  Verax also aims to provide public forums where the community can openly discuss ideas, pose questions, raise concerns and generally share their thoughts.
 
-### 5 | Responsibility
+### Responsibility
 
 There are a number of teams that are actively contributing to the development of the project.  In the initial stages of the project, development efforts will be significant as the core infrastructure is built out.  Once the core infrastructure has been developed to a sufficient standard, including the contract, subgraph, SDK, explorer dapp, and the various public forums etc.  the project will need to be maintained by all core contributors equally.\
 \

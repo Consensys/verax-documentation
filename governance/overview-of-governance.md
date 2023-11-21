@@ -10,7 +10,7 @@ Verax aims to employ a unique governance model, Proof of Contribution, that leve
 
 The protocol's governance is engineered to evolve from a small-scale model into a fully self-sustaining governance system. By focusing on open and transparent protocol development, and then evolving the system through the use of attestations as a measure of contribution and stakeholder interest, Verax sets the stage for a governance model that is both scalable and equitable.&#x20;
 
-### 1 | Verax Governance
+### 1. Verax Governance
 
 The governance structure outlined in this document is specifically designed for the bootstrapping phase of the protocol. Governance in decentralized protocols is not static; it should evolve as the protocol matures and moves towards complete decentralization. However, during the initial stages, the focus is on creating a governance model that maximizes transparency and the ability to develop in an open-source environment rapidly.
 
@@ -18,18 +18,13 @@ The bootstrapping phase is an essential period where the foundational elements o
 
 The multi-tiered governance structure, featuring the Core Council, Advisory Board, and Community Contributors, is designed to meet these dual objectives. It allows for quick, informed decision-making through mechanisms like the Adaptive Quorum while ensuring a wide range of perspectives are considered. This balance is crucial for the protocol's long-term success and paves the way for a more decentralized governance structure as the protocol matures.
 
-### 2 | Fractured Interests in Protocol Governance
+### 2. Fractured Interests in Protocol Governance
 
 Protocol governance systems often diverge goals among key stakeholders. For example, those with significant financial interests tend to prioritize sustainability and brand equity since these goals align with the financial performance of a protocol investment. On the other hand, founding teams and core contributors prioritize technological advancements and feature implementation as their interests lie more with the protocol's overall adoption and technological progress.
 
 Navigating the complexity of these divergent interests requires a systematic approach. Three essential elements - Innovation (I), Oversight (O), and Adaptability (A)- can serve as the pillars of a balanced governance system (BGS) and must be maximized by the number of active participants (P). This is simply expressed as:
 
-* Innovation (I)&#x20;
-* Oversight (O)
-* Adaptability (A)
-* Max # of participants (Pmax):
-
-BGS =MaxI+O+AP
+$$BGS=max\left\{ \frac{I+O+A}{P} \right\}$$
 
 above encapsulates the idea that a governance system should strive to find the optimal balance of these three elements among the most significant number of active participants. By doing so, the governance model aims to reconcile the fractured interests of various stakeholders, thereby fostering a more effective and equitable governance system.
 
@@ -41,9 +36,9 @@ In the initial stages of a protocol, the absence of a governance token allows fo
 
 To address the need for rapid decision-making among contributors, we introduce the "Adaptive Quorum." This governance mechanism expedites decision-making processes while maintaining a balanced governance system. Unlike traditional quorums, which often require a majority or supermajority to pass a decision, the Adaptive Quorum is calibrated to maximize agility—i.e., the ability to make quick, yet informed, decisions.
 
-The formula for the Adaptive Quorum, which accommodates both basic and significant scenarios, is:
+The formula for the Adaptive Quorum, which accommodates both basic and significant scenarios:
 
-Adaptive Quorum = Number of Core Stakeholders21+C 0.32
+$$\text{adaptive quorum}=\left( \frac{\text{number of core stakeholders}}{2} \right)(1+C \cdot 0.32)$$
 
 C represents the "Critical Factor," ranging from 0 to 1. At C=0, the quorum defaults to half of the core stakeholders, aligning with basic decision-making requirements. At C=1, indicating maximum importance, the quorum rises to 66% of the core stakeholders. This quorum enables adaptability to situational urgency. The Critical Factor can be adjusted in real-time, allowing the quorum to flex between 50% and 66% of the core stakeholders.
 
