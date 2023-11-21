@@ -74,7 +74,7 @@ This approach is aligned with the protocol's broader goals of rapid development 
 
 Custom ERC-721 tokens enable a "one person, one vote" system within the Core Council. These NFTs are time-bound, enabling voting only within specific blocks determined by the (broader governance structure). The broader Core Council and Advisory Committee will determine and control the time-bound variable. The core council and advisory Committee can also control the minting and burning of NFTs, but this control mechanism must be reevaluated based on the size of the council. Using NFTs ensures that each voter represents a core identified stakeholder, adding a layer of verification and accountability to the voting process.
 
-<figure><img src="https://lh7-us.googleusercontent.com/YG2ZorBmTqcl9sK3eceG_BlJpMDP03cmHgDWJCNhBW7rNHWaERecssbwi5bENmSfrUOGLZTiR44x2x4bEljOXVJVKwCU5iyyRjQmo4oaZ99p4AhmASTso9GrBgPOv5EQZaBQJO2gLG-R98Z4xLdRGvQ" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/NFT_issuance.drawio.png" alt=""><figcaption><p>Governing body governs the time-bound ability to vote and the addition or removal of NFTs</p></figcaption></figure>
 
 The participation of the Core Council and the broader community is documented within the attestation registry. This registry records contributions and activities, providing a transparent and verifiable record that can be used to establish best practices for the broader governance system. As the protocol matures and the attestation registry plays a more significant role in decision-making, these attestations will become increasingly important.
 
