@@ -54,7 +54,7 @@ By incorporating a pre-determined and agreed-upon Critical Factor, the Adaptive 
 
 The initial governance structure of Verax is designed as a multi-layered system to ensure a balanced and inclusive decision-making process. Each layer has specific roles, responsibilities, and mechanisms for interaction, creating a dynamic yet structured governance model.
 
-<figure><img src="https://lh7-us.googleusercontent.com/R8kjY3KJ_zYBVyi-qLDFX6tnWIPP30zVFxg2PY3fBNghwdeePRxBPV_2ukYR5J7FM5hIumGh3ruCJk6Io7FTjxLgmLom8MgNTCN781Icid_A1ux-mQ8bmsuVo_3m9c5YShN6oHy5CpsvaEtXzszJTBc" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/core_council_and_stakeholders.drawio.png" alt=""><figcaption></figcaption></figure>
 
 The Core Council serves as the apex decision-making body, responsible for setting the strategic direction of the protocol, approving major upgrades, and overseeing the other governance layers. Comprised of representatives from required stakeholder groups, namely Networks and Core Contributors, the council utilizes the Adaptive Quorum for rapid yet balanced decisions. Meetings are bi-weekly or as needed, can be based on Critical Factor C, and the council's composition includes a fixed number of decided seats with rotating members.
 
