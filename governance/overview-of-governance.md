@@ -82,7 +82,7 @@ For example, Attestations provided by contributors, the Core Council, and Adviso
 
 #### 2.5 The Future of Verax Governance
 
-<figure><img src="https://lh7-us.googleusercontent.com/YKr5Xt4ZP_QQdLv9dt2EYVkDokN7Sr3OIQ-wYfsTHK6ZhL_mOTq3vaHllHJvw1XC3uIq9layf5GpiM89IVWhXmtjpShIuQ4MBvQ4IFAOCR2l4Vzf7YY2GnWqoozBfPlQqRZjR0JfZ5WZ2LS8YY1SWF0" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/future_governance.drawio.png" alt=""><figcaption></figcaption></figure>
 
 \
 \
