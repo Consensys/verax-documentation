@@ -40,5 +40,6 @@
 * [Contribute to Development](get-involved/contribute-to-development.md)
 * [Governance](get-involved/governance/README.md)
   * [Governance Charter](get-involved/governance/governance-charter.md)
-  * [Overview of Governance](get-involved/governance/overview-of-governance.md)
   * [Governance Parameters](get-involved/governance/governance-parameters.md)
+  * [Overview of Governance](get-involved/governance/overview-of-governance.md)
+  * [Proposal Templates](get-involved/governance/proposal-templates.md)
