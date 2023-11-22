@@ -54,7 +54,7 @@ By incorporating a pre-determined and agreed-upon Critical Factor, the Adaptive 
 
 The initial governance structure of Verax is designed as a multi-layered system to ensure a balanced and inclusive decision-making process. Each layer has specific roles, responsibilities, and mechanisms for interaction, creating a dynamic yet structured governance model.
 
-<figure><img src="../.gitbook/assets/core_council_and_stakeholders.drawio.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/core_council_and_stakeholders.drawio.png" alt=""><figcaption></figcaption></figure>
 
 The Core Council serves as the apex decision-making body, responsible for setting the strategic direction of the protocol, approving major upgrades, and overseeing the other governance layers. Comprised of representatives from required stakeholder groups, namely Networks and Core Contributors, the council utilizes the Adaptive Quorum for rapid yet balanced decisions. Meetings are bi-weekly or as needed, can be based on Critical Factor C, and the council's composition includes a fixed number of decided seats with rotating members.
 
@@ -74,7 +74,7 @@ This approach is aligned with the protocol's broader goals of rapid development 
 
 Custom ERC-721 tokens enable a "one person, one vote" system within the Core Council. These NFTs are time-bound, enabling voting only within specific blocks determined by the (broader governance structure). The broader Core Council and Advisory Committee will determine and control the time-bound variable. The core council and advisory Committee can also control the minting and burning of NFTs, but this control mechanism must be reevaluated based on the size of the council. Using NFTs ensures that each voter represents a core identified stakeholder, adding a layer of verification and accountability to the voting process.
 
-<figure><img src="../.gitbook/assets/NFT_issuance.drawio.png" alt=""><figcaption><p>Governing body governs the time-bound ability to vote and the addition or removal of NFTs</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/NFT_issuance.drawio.png" alt=""><figcaption><p>Governing body governs the time-bound ability to vote and the addition or removal of NFTs</p></figcaption></figure>
 
 The participation of the Core Council and the broader community is documented within the attestation registry. This registry records contributions and activities, providing a transparent and verifiable record that can be used to establish best practices for the broader governance system. As the protocol matures and the attestation registry plays a more significant role in decision-making, these attestations will become increasingly important.
 
@@ -82,7 +82,7 @@ For example, Attestations provided by contributors, the Core Council, and Adviso
 
 #### 2.5 The Future of Verax Governance
 
-<figure><img src="../.gitbook/assets/future_governance.drawio.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/future_governance.drawio.png" alt=""><figcaption></figcaption></figure>
 
 \
 \

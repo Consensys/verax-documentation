@@ -22,5 +22,9 @@ Writing technical docs is hard!  Documentation can always be improved on, so thi
 {% tab title="General Coding" %}
 We still need to build out our web explorer, so we need UI engineering skills, and we would like to build an open source indexer to allow compute-heavy reputation protocols to index all the attestation data into a graph DB, so that they can run compute locally.
 {% endtab %}
+
+{% tab title="Indexer" %}
+A valuable contribution to the project woudl be an open source indexer that would work as an alternative to the subgraph that we currently use.  This would run on a server and would listen for events fired fron the attestation registry and record new attestations, schemas, portals etc. and index them into a graph DB or vecotr DB so that computationally intensive algorithms (such as ML algorithms) can be run over the data.
+{% endtab %}
 {% endtabs %}
 
