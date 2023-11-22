@@ -34,8 +34,8 @@ Outline the technical aspects of deploying Verax, including any specific challen
 
 #### Expected Timeline
 
-* Governance Vote: Nov 21, 2023
-* Deployment Target: Nov 21, 2023
+* Governance Vote: {date}
+* Deployment Target: {date}
 
 #### Design Considerations
 
@@ -87,8 +87,8 @@ Explain the relevance and potential benefits of onboarding this issuer to Veraxâ
 
 #### Expected Timeline
 
-* Governance Vote: Nov 21, 2023
-* Deployment Target: Nov 21, 2023
+* Governance Vote: {date}
+* Deployment Target: {date}
 
 #### Technical
 
@@ -143,8 +143,8 @@ Outline the technical aspects and requirements of executing the upgrade, discuss
 
 #### Expected Timeline
 
-* Governance Vote: Nov 21, 2023
-* Deployment Target: Nov 21, 2023
+* Governance Vote: {date}
+* Deployment Target: {date}
 
 #### Design Considerations
 
