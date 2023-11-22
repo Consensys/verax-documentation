@@ -16,7 +16,7 @@ import { AttestationPayload } from "../types/Structs.sol";
 
 contract MyNFTPortal is AbstractPortal, ERC721 {
   /// @notice Creaes an attestation with the given attestationPayload and validationPayload
-  /// @dev Calls the inhertied contract's attest function first, and then runs custom NFT logic
+  /// @dev Calls the inherited contract's attest function first, and then runs custom NFT logic
   function attest(
     AttestationPayload memory attestationPayload,
     bytes[] memory validationPayload

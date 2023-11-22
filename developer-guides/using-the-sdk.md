@@ -98,12 +98,12 @@ console.log(myAttestation);
 
 ### 3. Read content (list / many objects) <a href="#user-content-3-read-content-list--many-objects" id="user-content-3-read-content-list--many-objects"></a>
 
-Each DataMapper comes with the method `findBy` to get objects by criterias.
+Each DataMapper comes with the method `findBy` to get objects by criteria.
 
 ```javascript
 //
 // args:
-// 	- criterias: object {property1: value1, property2: value2, ...}
+// 	- criteria: object {property1: value1, property2: value2, ...}
 // 	- page: integer (optional, default 0)
 // 	- offset: integer (optional, default 50, max= 500)
 // 	- orderBy: string (optional, default createdAt)

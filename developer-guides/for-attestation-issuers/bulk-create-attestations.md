@@ -15,10 +15,10 @@ This function is very similar to the normal `attest` function but with a couple 
 
 ## Bulk Revocation of Attestations
 
-Revoking attestations in bulk is basically the same as revoking a single attestion. This is the funtion that does it:
+Revoking attestations in bulk is basically the same as revoking a single attestion. This is the function that does it:
 
 ```solidity
 function bulkRevoke(bytes32[] memory attestationIds, bytes32[] memory replacedBy);
 ```
 
-The two arrays obviously need to be the same size, with each element in the `replacedBy` parameter corresponding to the element in the same position in the `attestationIds` parameter.  After that, the exact same verification checks are performed by the attestation regsitry.
+The two arrays obviously need to be the same size, with each element in the `replacedBy` parameter corresponding to the element in the same position in the `attestationIds` parameter.  After that, the exact same verification checks are performed by the attestation registry.
