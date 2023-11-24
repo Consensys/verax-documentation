@@ -1,6 +1,6 @@
 # Contribute to Development
 
-Verax is an open source project, and is community maintained, which means it is depedent on contributions from the teams that use it.  Contributions are very welcome, and it is easy to open a pull request for development you wish to do.
+Verax is an open source project, and is community maintained, which means it is dependent on contributions from the teams that use it.  Contributions are very welcome, and it is easy to open a pull request for development you wish to do.
 
 The community would love to hear your ideas and support your efforts to contribute, so feel free to get in touch with us and tell us about how you'd like to get involved.
 
