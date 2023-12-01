@@ -49,6 +49,6 @@ The arguments that this function accepts are:
 
 ***
 
-To dive deeper on exactly how the `ModuleRegistry` contract works, you can check out the [source code on GitHub](https://github.com/Consensys/linea-attestation-registry/blob/dev/src/ModuleRegistry.sol).
+To dive deeper on exactly how the `ModuleRegistry` contract works, you can check out the [source code on GitHub](https://github.com/Consensys/linea-attestation-registry/blob/dev/contracts/src/ModuleRegistry.sol).
 
 Once you have deployed one or more schemas and optionally also deployed one or more modules, you ready to register a [portal](create-a-portal.md) and tie them all together so that you can issue your first attestations.

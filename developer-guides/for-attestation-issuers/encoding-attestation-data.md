@@ -3,7 +3,7 @@
 Attestation data is encoded according to the schema the attestation is associated with. The schema is parsed by the client reading the attestation, in a way that results in a series of data types that can be used to `abi.decode` the attestation data. In order this to happen, the attestation data must first be encoded using `abi.encode`.
 
 {% hint style="warning" %}
-We are currently developing an SDK which will make it much easier to encode a JSON object into attestation data.  Until the SDK is completed you can use the following approach:
+The SDK offers a much easier to encode a JSON object into attestation data.  However, this information outlines the low-level steps required to encode attestation data.
 {% endhint %}
 
 ## Modelling a Schema as a Solidity Struct
