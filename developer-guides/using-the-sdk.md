@@ -31,30 +31,39 @@ var VeraxSdk = require("@verax-attestation-registry/verax-sdk");
 
 ```
 // ES6
-import VeraxSdk from "@verax-attestation-registry/verax-sdk";
+import { VeraxSdk } from "@verax-attestation-registry/verax-sdk";
 ```
 
 ### 2. Instantiate VeraxSdk <a href="#user-content-2-instantiate-veraxsdk" id="user-content-2-instantiate-veraxsdk"></a>
 
-```javascript
-// Default configuration for Linea Testnet
-const veraxSdk = new VeraxSdk(VeraxSdk.LineaConfTestnet);
-```
+<pre class="language-javascript"><code class="lang-javascript">// Default configuration for Linea Testnet
+
+// Frontend
+const veraxSdk = new VeraxSdk(VeraxSdk.DEFAULT_LINEA_TESTNET_FRONTEND);
+// Backend
+<strong>const veraxSdk = new VeraxSdk(VeraxSdk.DEFAULT_LINEA_TESTNET);
+</strong></code></pre>
 
 or:
 
 ```javascript
 // Default configuration for Linea Mainnet
-const veraxSdk = new VeraxSdk(VeraxSdk.LineaConfMainnet);
+// Frontend
+const veraxSdk = new VeraxSdk(VeraxSdk.DEFAULT_LINEA_MAINNET_FRONTEND);
+// Backend
+const veraxSdk = new VeraxSdk(VeraxSdk.DEFAULT_LINEA_MAINNET);
 ```
 
 or:
 
 ```javascript
 // Custom configuration
+
+import { optimism } from "viem/chains";
+
 const myVeraxConfiguration = {
-  rpcUrl: "https://my.rpc.url",
-  chain: 12345,
+  chain: optimism,
+  mode: SDKMode.BACKEND,
   subgraphUrl: "https://my.subgraph.url",
   portalRegistryAddress: "0xMyPortalRegistryAddress",
   moduleRegistryAddress: "0xMyModuleRegistryAddress",
@@ -72,103 +81,76 @@ const veraxSdk = new VeraxSdk(myVeraxConfiguration);
 ### 1. Get DataMappers <a href="#user-content-1-get-datamappers" id="user-content-1-get-datamappers"></a>
 
 ```javascript
-// Each Verax classes has its DataMapper
+// Each Verax class has its corresponding DataMapper
 // Get them from the SDK instance
-const portalDataMapper = veraxSdk.portalDataMapper; // RW Portals
-const schemaDataMapper = veraxSdk.schemaDataMapper; // RW Schemas
-const moduleDataMapper = veraxSdk.moduleDataMapper; // RW Modules
-const attestationDataMapper = veraxSdk.attestationDataMapper; // RW Attestations
+const portalDataMapper = veraxSdk.portal; // RW Portals
+const schemaDataMapper = veraxSdk.schema; // RW Schemas
+const moduleDataMapper = veraxSdk.module; // RW Modules
+const attestationDataMapper = veraxSdk.attestation; // RW Attestations
+const utilsDataMapper = veraxSdk.utils; // Utils
 ```
 
 ### 2. Read content (one object) <a href="#user-content-2-read-content-one-object" id="user-content-2-read-content-one-object"></a>
 
 Each DataMapper comes with the method `findOneById` to get one object by Id.
 
+{% code fullWidth="true" %}
 ```javascript
-const myAttestation = await attestationDataMapper.findOneById("12345");
-console.log(myAttestation);
+const myPortal = await portalDataMapper.findOneById("0x34798a866f52949208e67fb57ad36244024c50c0");
 
-//
-// id: "12345"
-// schemaId: "99AE34"
-// portalId: "37773"
-// data: decoded payload {...}
-// ...
+const mySchema = await schemaDataMapper.findOneById("0xce2647ed39aa89e6d1528a56deb6c30667ed2aae1ec2378ec3140c0c5d98a61e");
+
+const myModule = await moduleDataMapper.findOneById("0x4bb8769e18f1518c35be8405d43d7cc07ecf501c");
+
+const mySchema = await schemaDataMapper.findOneById("0xce2647ed39aa89e6d1528a56deb6c30667ed2aae1ec2378ec3140c0c5d98a61e");
+
+const myAttestation = await attestationDataMapper.findOneById("0x000000000000000000000000000000000000000000000000000000000000109b");
 ```
+{% endcode %}
 
 ### 3. Read content (list / many objects) <a href="#user-content-3-read-content-list--many-objects" id="user-content-3-read-content-list--many-objects"></a>
 
-Each DataMapper comes with the method `findBy` to get objects by criterias.
+Each DataMapper comes with the method `findBy` to get objects by criteria.
 
-```javascript
-//
+<pre class="language-javascript" data-full-width="true"><code class="lang-javascript">//
 // args:
-// 	- criterias: object {property1: value1, property2: value2, ...}
-// 	- page: integer (optional, default 0)
-// 	- offset: integer (optional, default 50, max= 500)
-// 	- orderBy: string (optional, default createdAt)
-// 	- order(property?): enum string "ASC", "DESC" (optional, default "DESC")
-//
-const myAttestations = await attestationDataMapper.findBy(
-  { portalId: "37773", subject: "John" },
-  4,
-  30,
-  "schemaId",
-  "ASC",
-);
+<strong>// 	- first: number (e.g first 50 records)
+</strong>// 	- skip: number (e.g skip 1st record)
+// 	- where: object {property1: value1, property2: value2, ...} (filter object e.g {name: "Msg Sender Module"})
+// 	- orderBy: string (e.g "id")
+// 	- orderDirection string (e.g "asc" or "desc")
 
-console.log(myAttestations);
-//
-// totalNumber: 147,
-// page: 0,
-// objects: [
-// 	{id: "12345", schemaId: "99AE34", portalId: "37773", subject: "Florian", ...},
-// 	{id: "2221E", schemaId: "AAF77E", portalId: "37773", subject: "Florian", ...},
-// 	...
-// ]
-//
-```
+const filter = { ownerName: "John" };
+const myPortals = await this.veraxSdk.portal.findBy(5, 1, filter, "name", "desc");
+
+const filter = { description: "Gitcoin Passport Score" };
+const mySchemas = await this.veraxSdk.schema.findBy(2, 0, filter, "name", "asc");
+
+const filter = { name_contains: "Msg" };
+const myModules = await this.veraxSdk.module.findBy(1, 0, filter, "name", "desc");
+
+const filter = { attester_not: "0x809e815596AbEB3764aBf81BE2DC39fBBAcc9949" };
+const myAttestations = await this.veraxSdk.attestation.findBy(10, 0, filter, "attestedDate", "desc");
+
+</code></pre>
 
 ### 4. Write content <a href="#user-content-4-write-content" id="user-content-4-write-content"></a>
 
-\[WORK IN PROGRESS] Each dataMapper comes with write methods, that may vary depending on the class. See the detail of write method per class dataMapper.
+Each dataMapper comes with write methods, that may vary depending on the class. See the detail of write method per class dataMapper.
 
+{% code fullWidth="true" %}
 ```javascript
-const result = await attestationDataMapper.attest({
-  schemaId: "muhpoih"
-  portalId: "OJOJ43432"
-  expirationDate: null
-  subject: "florian.demiramon@..."
-  data: {
-    foo: "bar",
-    zee: "plop"
-  }
-}, signer);
-
-console.log(result);
-//
-// txReceipt: ....
-// object: {
-//		{
-//		id: "0XAZFZF"
-//		schemaId: "muhpoih"
-//		portalId: "OJOJ43432"
-//		expirationDate: null
-//		subject: "florian.demiramon@..."
-//		attestationData: {
-//				foo: "bar",
-//				zee: "plop"
-//			}
-//		attestationRawData: "1234234124124FAAZC"
-//		replacedBy: null
-//		attester: "0x1111"
-//		attestedDate: "today"
-//		revocationDate: null
-//		version: 1
-//		revoked: false
-//		}
-//
+const portalAddress = "0xeea25bc2ec56cae601df33b8fc676673285e12cc";
+const attestationPayload = {
+        schemaId: "0x9ba590dd7fbd5bd1a7d06cdcb4744e20a49b3520560575cd63de17734a408738",
+        expirationDate: 1693583329,
+        subject: "0x828c9f04D1a07E3b0aBE12A9F8238a3Ff7E57b47",
+        attestationData: [{ isBuidler: true }],
+      };
+const validationPayloads = [];
+const newAttestation = await this.veraxSdk.portal.attest(portalAddress, attestationPayload, validationPayloads));
 ```
+{% endcode %}
 
 ***
 
