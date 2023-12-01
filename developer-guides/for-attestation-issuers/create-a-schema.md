@@ -19,7 +19,9 @@ The four parameters are defined as follows:
 
 A schema string is a comma separated list of data type / field name tuples, for example:
 
-`string firstName, string lastName`
+`(string firstName, string lastName)`
+
+**Note:**  the schema _should be_ wrapped in outter round brackets.  This is essential but it is best practice as it will make it easier for different clients to parse the schema.
 
 The data types can be any valid solidity datatype:
 
