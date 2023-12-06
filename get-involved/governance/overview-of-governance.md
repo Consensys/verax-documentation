@@ -82,6 +82,16 @@ For example, Attestations provided by contributors, the Core Council, and Adviso
 
 #### 2.5 The Future of Verax Governance
 
+Goverance is not meant to be a static, but rather evolve over time as the community grows.  Therefore, the governance process will be reviewed on an ongoing basis, and feedback is welcome from the community an how the protocol is governed.
+
+While the core protocol and infrastructure is still under development, the core council will retain veto power, but this will be reviewed in the future.  To start with, voting will take place off-chain using snapshot, and votes will be based on NFTs issued to any dapp that has completed an end-to-end integration to issue attestations, or has been a core contributor of the project.
+
+At the start of the second quarter of 2024, we plan to move to on-chain voting, at which stage the time-decay function will kick in.  This will mean that any NFT holder that doesn't participate in voting for a specific amount of time will lose their voting rights.
+
+On an ongoing basis we will continue to research how we can leverage attestations for reputation weighted voting.  Whie there have been a number of promising pieces of research into how this coudl be achieved (e.g. [DAO Decentralization: Voting-Bloc Entropy, Bribery, and Dark DAOs](https://arxiv.org/abs/2311.03530), or Beyond [Collusion Resistance: Leveraging Social Information for Plural Funding and Voting](https://papers.ssrn.com/sol3/papers.cfm?abstract\_id=4311507)), it will require a significant amount of attestations from diverse sources in order to create a system that is robusst enough to safely govern a protocol.  the object is that this is what governance will evolve into over time.
+
+As well as the voting mechanism, the actual structure of governance will likely evolve over time as well.  The diargram belows illustrates some of the various concerns that governance will need to address over time and how they could potentially be structured.
+
 <figure><img src="../../.gitbook/assets/future_governance.drawio.png" alt=""><figcaption></figcaption></figure>
 
 \
