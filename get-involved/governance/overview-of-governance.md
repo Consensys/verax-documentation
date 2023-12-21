@@ -44,9 +44,9 @@ C represents the "Critical Factor," ranging from 0 to 1. At C=0, the quorum defa
 
 The Critical Factor C is not arbitrary but is based on a pre-determined set of categorizations that are agreed upon by the core stakeholder group. These categorizations could range from "Routine" to "Critical," each corresponding to a specific numerical value of U. For example:
 
-* Routine (): C=0
-* Moderate (): C=0.5
-* Critical (): C=1
+* Routine: C=0
+* Moderate: C=0.5
+* Critical: C=1
 
 By incorporating a pre-determined and agreed-upon Critical Factor, the Adaptive Quorum provides a governance mechanism that is both flexible and structured. It allows for rapid decision-making while ensuring that such decisions are made with broad stakeholder input, making it a uniquely effective tool for governance in a fast-paced environment.
 
@@ -62,7 +62,7 @@ The Advisory Board acts as a specialized committee that focuses on various aspec
 
 Stakeholders are any dapp or protocol that hsa integrated with registry, either by issuing attestations, or by depending on attestations within their dapp.  These stakeholders are issued NFTs and can vote on proposals.  NFTs are issued to stakeholders by the core council.
 
-In the initial stages of the project, the core council will have veto power over proposals that have been voted for, to guard against governance attacks or any other unforeseen issues.  As the project and protocol matures, these “training wheels” will be removed in order to further decentralize control over the protocol.  Furthermore, as the community of stakeholders is limited in size initially, core council votes will hold double weight within the protocol, which will be revised as more stakeholders join the project.  This is to ensure safety of the protocol in the very early stages of its development, and broadly aligns with the idea of progressive decentralization.
+In the initial stages of the project, the core council will have veto power over proposals that have been voted for, to guard against governance attacks or any other unforeseen issues.  As the project and protocol matures, these “training wheels” will be removed in order to further decentralize control over the protocol.  This is to ensure safety of the protocol in the very early stages of its development, and broadly aligns with the idea of progressive decentralization.
 
 By employing this multi-tiered governance structure, the protocol ensures that decision-making is both agile and inclusive. It accommodates a wide range of perspectives while maintaining the ability to act swiftly when needed. This layered approach provides the flexibility to adapt to changing conditions, ensuring the protocol's long-term stability and success.
 
