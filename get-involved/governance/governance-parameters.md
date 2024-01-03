@@ -32,7 +32,7 @@
 
 5. **Time decay on NFTs**\
    \
-   If an NFT has not been used to vote on anything in a month, it will become inactive and can not be used for voting.  This is to encourage participation in the voting process. \
+   If an NFT has not been used to vote on anything in three months, it will become inactive and can not be used for voting.  This is to encourage participation in the voting process. \
 
 6. **Cadence of meeting for core council**\
    \
