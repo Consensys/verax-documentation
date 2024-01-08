@@ -30,8 +30,14 @@
 
 ## Discover
 
-* [📚 Standard Library](discover/standard-library/README.md)
-  * [NFT Portal](discover/standard-library/nft-portal.md)
+* [📚 Modules Standard Library](discover/modules-standard-library/README.md)
+  * [ECDSAModule](discover/modules-standard-library/ecdsamodule.md)
+  * [ERC1271Module](discover/modules-standard-library/erc1271module.md)
+  * [FeeModule](discover/modules-standard-library/feemodule.md)
+  * [IndexerModule](discover/modules-standard-library/indexermodule.md)
+  * [IssuersModule](discover/modules-standard-library/issuersmodule.md)
+  * [SchemaModule](discover/modules-standard-library/schemamodule.md)
+  * [SenderModule](discover/modules-standard-library/sendermodule.md)
 * [🤝 Integrations](discover/integrations.md)
 
 ## Get Involved
