@@ -19,6 +19,6 @@ Even if you can publish your own modules, there is scope to add them here if you
 * [erc1271module.md](erc1271module.md "mention")(WIP)
 * [feemodule.md](feemodule.md "mention")(WIP)
 * [indexermodule.md](indexermodule.md "mention")(WIP)
-* [issuersmodule.md](issuersmodule.md "mention")(WIP)
-* [schemamodule.md](schemamodule.md "mention")(WIP)
+* [issuersmodule.md](issuersmodule.md "mention")
+* [schemamodule.md](schemamodule.md "mention")
 * [sendermodule.md](sendermodule.md "mention")
