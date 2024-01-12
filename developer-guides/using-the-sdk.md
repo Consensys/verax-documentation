@@ -1,7 +1,7 @@
 # 🛠 Using the SDK
 
 {% hint style="danger" %}
-Please be advised that the SDK is currently under development is not currently available.  This documentation is a work in progress and is being continually revised.
+Please be advised that the SDK is currently under development and is not currently available.  This documentation is a work in progress and is being continually revised.
 {% endhint %}
 
 ## Installation
