@@ -11,7 +11,7 @@ We welcome ideas and suggestions, so please get in touch if you'd like to be inv
 If on-chain attestation registries see the level of adoption that we think they will, then a number of dapps will be using them to store public data.  This will make shared public registries an important  part of a network's infrastructure.  For this reason, governance is something that we need to get right.  Any governance mechanism that we adopt will need to meet three crucial requirements:
 
 * **Transparency** - decisions should be made in the open and the rationale for the decisions should be clearly and widely understood.
-* **Inclusivity** - governance should be open to everyone to have their say, and people should not be locked out from participating.
+* **Inclusivity** - governance should be open to everyone to have their say, and people should not be locked out from partcipating.
 * **Fairness** - the governance mechanism should not be dominated by large, influential actors and should recognize the interests of minority stakeholders, and at the same time the governance mechanism should recognise the relative level of contribution made by stakeholders.
 
 ## Directions of Exploration
