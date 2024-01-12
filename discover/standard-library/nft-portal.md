@@ -1,6 +1,6 @@
 # NFT Portal
 
-The NFT Portal is an example of how you can deploy a portal that remains compatible with the [ERC-721 standard](https://eips.ethereum.org/EIPS/eip-721).  This means that your portal will be compatible with any dapp or protocol that is already set up to read NFTs.  Many dapps and protocols leverage NFTs for membership gating or to unlock certain features, or to allow voting etc.  With an ERC-721 compatible portal, those dapps can now consume your attestations without having to change a single line of their code.
+The NFT Portal is an example of how you can deploy a portal that remains compatible with the [ERC-721 standard](https://eips.ethereum.org/EIPS/eip-721).  This means that your portal will compatible will any dapp or protocol that is already set up to read NFTs.  Many dapps and protocols leverage NFTs for membership gating or to unlock certain features, or to allow voting etc.  With an ERC-721 compatible portal, those dapps can now consume your attestations without having to change a single line of their code.
 
 ## How it works
 
@@ -16,7 +16,7 @@ import { AttestationPayload } from "../types/Structs.sol";
 
 contract MyNFTPortal is AbstractPortal, ERC721 {
   /// @notice Creaes an attestation with the given attestationPayload and validationPayload
-  /// @dev Calls the inherited contract's attest function first, and then runs custom NFT logic
+  /// @dev Calls the inhertied contract's attest function first, and then runs custom NFT logic
   function attest(
     AttestationPayload memory attestationPayload,
     bytes[] memory validationPayload
@@ -63,7 +63,7 @@ interface ERC721Metadata {
 }
 ```
 
-In case the tokenURI could point to an indexer that would return the decoded attestation data.  Bear in mind that you will need to publish your schema in a way that adheres to the "ERC721 Metadata JSON Schema", [which is defined in the standard](https://eips.ethereum.org/EIPS/eip-721) as so:
+In case the tokenURI ould point to an indexer that would return the decoded attestation data.  Bear in mind that you will need to publish your schema in a way that adheres to the "ERC721 Metadata JSON Schema", [which is defined in the standard](https://eips.ethereum.org/EIPS/eip-721) as so:
 
 ```json
 {
