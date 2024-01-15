@@ -91,6 +91,7 @@ const utilsDataMapper = veraxSdk.utils; // Utils
 Each DataMapper comes with the method `findOneById` to get one object by Id.
 
 {% code fullWidth="true" %}
+
 ```javascript
 const myPortal = await portalDataMapper.findOneById("0x34798a866f52949208e67fb57ad36244024c50c0");
 
@@ -102,6 +103,7 @@ const mySchema = await schemaDataMapper.findOneById("0xce2647ed39aa89e6d1528a56d
 
 const myAttestation = await attestationDataMapper.findOneById("0x000000000000000000000000000000000000000000000000000000000000109b");
 ```
+
 {% endcode %}
 
 ### 3. Read content (list / many objects) <a href="#user-content-3-read-content-list--many-objects" id="user-content-3-read-content-list--many-objects"></a>
@@ -139,9 +141,11 @@ console.log(myAttestations);
 
 ### 4. Write content <a href="#user-content-4-write-content" id="user-content-4-write-content"></a>
 
-Each dataMapper comes with write methods, that may vary depending on the class. See the detail of write method per class dataMapper.
+Each dataMapper comes with write methods, that may vary depending on the class. See the detail of write method per class
+dataMapper.
 
 {% code fullWidth="true" %}
+
 ```javascript
 const portalAddress = "0xeea25bc2ec56cae601df33b8fc676673285e12cc";
 const attestationPayload = {
@@ -153,6 +157,7 @@ const attestationPayload = {
 const validationPayloads = [];
 const newAttestation = await this.veraxSdk.portal.attest(portalAddress, attestationPayload, validationPayloads));
 ```
+
 {% endcode %}
 
 ***
