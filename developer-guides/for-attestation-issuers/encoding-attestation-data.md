@@ -1,6 +1,6 @@
 # Encoding Attestation Data
 
-Attestation data is encoded according to the schema the attestation is associated with. The schema is parsed by the client reading the attestation, in a way that results in a series of data types that can be used to `abi.decode` the attestation data. In order this to happen, the attestation data must first be encoded using `abi.encode`.
+Attestation data is encoded according to the schema the attestation is associated with. The schema is parsed by the client reading the attestation, in a way that results in a series of data types that can be used to `abi.decode` the attestation data. In order for this to happen, the attestation data must first be encoded using `abi.encode`.
 
 {% hint style="warning" %}
 The SDK offers a much easier to encode a JSON object into attestation data.  However, this information outlines the low-level steps required to encode attestation data.
@@ -62,7 +62,7 @@ contract StructDecodingExample {
 
 ## Encoding Nested Data
 
-Sometime a schema is a bit more complicated, in that it contains more than just a flat data structure, and may contain nested data structure like so:
+Sometimes a schema is a bit more complicated, in that it contains more than just a flat data structure, and may contain nested data structure like so:
 
 {% code overflow="wrap" %}
 ```
@@ -87,7 +87,7 @@ struct Profile {
 }
 ```
 
-Again, encoding the attestation for this sort of schema using a client side library such as ethers would like this:
+Again, encoding the attestation for this sort of schema using a client side library such as ethers would look like this:
 
 ```javascript
 const encodedStruct = ethers.utils.defaultAbiCoder.encode(
@@ -123,7 +123,7 @@ struct Profile {
 }
 ```
 
-Again, encoding the attestation for this sort of schema using a client side library such as ethers would like this:
+Again, encoding the attestation for this sort of schema using a client side library such as ethers would look like this:
 
 ```javascript
 const encodedStruct = ethers.utils.defaultAbiCoder.encode(

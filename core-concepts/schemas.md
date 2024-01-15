@@ -128,7 +128,7 @@ Schemas can also inherit from other schemas, which is another way that Verax red
 
 `@extends 0xa1b2c3... string firstName, string lastName`
 
-This will tell indexers to look up the schema referenced by the `extends` keyword, and concatenate it's schema string with the schema string in this schema.  Note that any conflicting field names will be overridden by the last previous definition, so for example, if a field name exist in a parent schema and a child schema, the field definition from the child schema will be used.  Also, schemas can only inherit from one parent at a time.
+This will tell indexers to look up the schema referenced by the `extends` keyword, and concatenate its schema string with the schema string in this schema.  Note that any conflicting field names will be overridden by the last previous definition, so for example, if a field name exists in a parent schema and a child schema, the field definition from the child schema will be used.  Also, schemas can only inherit from one parent at a time.
 
 </details>
 

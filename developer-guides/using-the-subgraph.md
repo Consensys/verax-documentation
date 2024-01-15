@@ -12,11 +12,11 @@ If you want to access the public subgraph on the Linea testnet, you can access i
 Public subgraph on Linea testnet
 {% endembed %}
 
-You can use this default web interface to write queries in GraphQL in order to serarch through the attestation registry.  Alternatively you can use a tool such as Postman, or use the subgraph's API to query the regsitry directly from your own dapp.
+You can use this default web interface to write queries in GraphQL in order to search through the attestation registry.  Alternatively you can use a tool such as Postman, or use the subgraph's API to query the registry directly from your own dapp.
 
 Examples of queries that you can make using the subgraph:
 
-1. Get all attestations, along the respective schema string and the decoded attestation data:
+1. Get all attestations, along with the respective schema string and the decoded attestation data:
 
 ```graphql
 query MyQuery {

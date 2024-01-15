@@ -46,7 +46,7 @@ Even if both attestation issuers are using fields that have the same semantic me
 
 ### Contexts to the rescue
 
-Verax borrows a concept from [JSON-LD](https://json-ld.org) called the "_context_".  Every schema that is registered has a field in it's metadata called `context` which has a string value that is either a URL or an attestation id.  The `context` field tells consumers how to interpret the fields in the schema / attestation, and they can point to well known shared vocabularies such as [schema.org](https://schema.org) so that consumers can easily understand the attestations they're consuming.
+Verax borrows a concept from [JSON-LD](https://json-ld.org) called the "_context_".  Every schema that is registered has a field in its metadata called `context` which has a string value that is either a URL or an attestation id.  The `context` field tells consumers how to interpret the fields in the schema / attestation, and they can point to well known shared vocabularies such as [schema.org](https://schema.org) so that consumers can easily understand the attestations they're consuming.
 
 Let's look at the example above but this time both attestations are based on schemas that have the same context value:
 

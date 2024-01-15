@@ -23,11 +23,11 @@ If you are a dapp that offers credentials / attestations, you can choose to issu
 
 **For consumers of attestations:**
 
-Your dapp can now compose attestations from multiple sources, meaning you now longer have to choose between issuer A or issuer B.  You can be sure that users of dapp can prove they are not a bot without being tied to a specific provider.  You can start to discover what type of users are interacting with your dapp, and start incentivizing them to onboard with your dapp through issuing attestations yourself!
+Your dapp can now compose attestations from multiple sources, meaning you no longer have to choose between issuer A or issuer B.  You can be sure that users of dapp can prove they are not a bot without being tied to a specific provider.  You can start to discover what type of users are interacting with your dapp, and start incentivizing them to onboard with your dapp through issuing attestations yourself!
 
 **For reputation protocols:**
 
-Start leveraging linked data and shared ontologies to easily create rich and powerful semantic graphs in order to provide your users with valuable insights and information.  Cut down hours of development of scraping data from disparate heterogenous sources and give your users fine-grained, nuanced and holistic reputation scores that have real meaning.
+Start leveraging linked data and shared ontologies to easily create rich and powerful semantic graphs in order to provide your users with valuable insights and information.  Cut down hours of development of scraping data from disparate heterogeneous sources and give your users fine-grained, nuanced and holistic reputation scores that have real meaning.
 
 ***
 
