@@ -32,7 +32,7 @@ In order for an attestation to reference a schema, that schema needs to be regis
 
 ***
 
-To get more of an overview of how the attestation registry is used and how it fits into the ecosystem, see the [**ecosystem page**](ecosystem.md) for information of the various actors and the roles they play.
+To get more of an overview of how the attestation registry is used and how it fits into the ecosystem, see the [**ecosystem page**](ecosystem.md) for information on the various actors and the roles they play.
 
 ***
 

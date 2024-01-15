@@ -107,35 +107,28 @@ const myAttestation = await attestationDataMapper.findOneById("0x000000000000000
 ### 3. Read content (list / many objects) <a href="#user-content-3-read-content-list--many-objects" id="user-content-3-read-content-list--many-objects"></a>
 
 Each DataMapper comes with the method `findBy` to get objects by criteria.
-Each DataMapper comes with the method `findBy` to get objects by criteria.
 
 <pre class="language-javascript" data-full-width="true"><code class="lang-javascript">//
 // args:
-// 	- criteria: object {property1: value1, property2: value2, ...}
-// 	- page: integer (optional, default 0)
-// 	- offset: integer (optional, default 50, max= 500)
-// 	- orderBy: string (optional, default createdAt)
-// 	- order(property?): enum string "ASC", "DESC" (optional, default "DESC")
-//
-const myAttestations = await attestationDataMapper.findBy(
-  { portalId: "37773", subject: "John" },
-  4,
-  30,
-  "schemaId",
-  "ASC",
-);
+<strong>// 	- first: number (e.g first 50 records)
+</strong>// 	- skip: number (e.g skip 1st record)
+// 	- where: object {property1: value1, property2: value2, ...} (filter object e.g {name: "Msg Sender Module"})
+// 	- orderBy: string (e.g "id")
+// 	- orderDirection string (e.g "asc" or "desc")
 
-console.log(myAttestations);
-//
-// totalNumber: 147,
-// page: 0,
-// objects: [
-// 	{id: "12345", schemaId: "99AE34", portalId: "37773", subject: "Florian", ...},
-// 	{id: "2221E", schemaId: "AAF77E", portalId: "37773", subject: "Florian", ...},
-// 	...
-// ]
-//
-```
+const filter = { ownerName: "John" };
+const myPortals = await this.veraxSdk.portal.findBy(5, 1, filter, "name", "desc");
+
+const filter = { description: "Gitcoin Passport Score" };
+const mySchemas = await this.veraxSdk.schema.findBy(2, 0, filter, "name", "asc");
+
+const filter = { name_contains: "Msg" };
+const myModules = await this.veraxSdk.module.findBy(1, 0, filter, "name", "desc");
+
+const filter = { attester_not: "0x809e815596AbEB3764aBf81BE2DC39fBBAcc9949" };
+const myAttestations = await this.veraxSdk.attestation.findBy(10, 0, filter, "attestedDate", "desc");
+
+</code></pre>
 
 ### 4. Write content <a href="#user-content-4-write-content" id="user-content-4-write-content"></a>
 

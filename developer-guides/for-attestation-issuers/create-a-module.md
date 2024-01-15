@@ -2,7 +2,7 @@
 
 Modules are smart contracts that are registered in the registry that perform specific validation logic on attestations before they are issued into the registry.
 
-Modules are intended to perform a single specific function, and should be designed in a minimal way so as to be atomic and reusable.  Modules can be chained together in series so that they are executed in order, with any module in the chain being able to prevent an attestation being issued to the registry by simply reverting if it's verification checks fail.
+Modules are intended to perform a single specific function, and should be designed in a minimal way so as to be atomic and reusable.  Modules can be chained together in series so that they are executed in order, with any module in the chain being able to prevent an attestation being issued to the registry by simply reverting if it's verification cehcks fail.
 
 To create a module, you must deploy a smart contract that inherits the `AbstractModule` abstract contract, which looks like this:
 
