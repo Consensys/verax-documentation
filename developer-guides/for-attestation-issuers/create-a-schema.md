@@ -32,7 +32,11 @@ The data types can be any valid solidity datatype:
 5. **Bytes**: Represents a fixed-size array of bytes. For example, `bytes32` represents a 32-byte array, and `bytes` represents a dynamic-sized byte array.
 6. **String**: Represents a sequence of characters, similar to strings in other programming languages. Identified by the keyword `string`.
 7. **Array**: Represents a fixed-size or dynamic-size array of elements of the same type, e.g. `string[]`.
+<<<<<<< HEAD
 8. **Struct**: Represents a user-defined data structure that can hold multiple variables of different types. To define a struct, simply include the field name, followed by the struct definition in curly braces, see below for an example.
+=======
+8. **Struct**: Represents a user-defined data structure that can hold multiple variables of different types. To define a struct, simply include the field name, following by the struct definition in curly braces, see below for an example.
+>>>>>>> 2a8a6b2 (fix typos)
 
 The only Solidity data types that aren't supported are `mapping` and `enum`.  If you want to store a mapping, you can instead choose to store an array of key <> value pairs, e.g. `mapping(address => uint32) points` becomes `` (address user, uint32 score)[] points` ``
 
