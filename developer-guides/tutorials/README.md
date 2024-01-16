@@ -1,4 +1,4 @@
-# 🧑‍Tutorials
+# 🧑🏫 Tutorials
 
 To simplify onboarding of developers to integrate with Verax, we have created a series of tutorials that walk you through the process of common operations with Verax.
 
