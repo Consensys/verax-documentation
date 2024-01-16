@@ -157,7 +157,7 @@ rewarded, ensuring that the most active and valuable members are retained in dec
 
 #### 2.5 The Future of Verax Governance
 
-Goverance is not meant to be a static, but rather evolve over time as the community grows. Therefore, the governance
+Governance is not meant to be a static, but rather evolve over time as the community grows. Therefore, the governance
 process will be reviewed on an ongoing basis, and feedback is welcome from the community an how the protocol is
 governed.
 
@@ -171,7 +171,7 @@ will kick in. This will mean that any NFT holder that doesn't participate in vot
 lose their voting rights.
 
 On an ongoing basis we will continue to research how we can leverage attestations for reputation weighted voting. Whie
-there have been a number of promising pieces of research into how this coudl be achieved (
+there have been a number of promising pieces of research into how this could be achieved (
 e.g. [DAO Decentralization: Voting-Bloc Entropy, Bribery, and Dark DAOs](https://arxiv.org/abs/2311.03530), or
 Beyond [Collusion Resistance: Leveraging Social Information for Plural Funding and Voting](https://papers.ssrn.com/sol3/papers.cfm?abstract\_id=4311507)),
 it will require a significant amount of attestations from diverse sources in order to create a system that is robusst

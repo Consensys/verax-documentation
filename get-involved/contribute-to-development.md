@@ -37,7 +37,7 @@ run compute locally.
 {% endtab %}
 
 {% tab title="Indexer" %}
-A valuable contribution to the project woudl be an open source indexer that would work as an alternative to the subgraph
+A valuable contribution to the project would be an open source indexer that would work as an alternative to the subgraph
 that we currently use. This would run on a server and would listen for events fired fron the attestation registry and
 record new attestations, schemas, portals etc. and index them into a graph DB or vecotr DB so that computationally
 intensive algorithms (such as ML algorithms) can be run over the data.
