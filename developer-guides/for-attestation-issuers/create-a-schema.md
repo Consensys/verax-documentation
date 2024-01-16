@@ -15,7 +15,7 @@ function createSchema(
 
 The four parameters are defined as follows:
 
-<table><thead><tr><th width="158">Parameter</th><th>Description</th></tr></thead><tbody><tr><td>name</td><td>A on-chain descriptive name for the schema.</td></tr><tr><td>description</td><td>The location of documentation for the schema (URL, IPFS hash etc.), which describes its intended use and any relationships.</td></tr><tr><td>context</td><td>A link to a description of the fields of the schema. This can be a URL that links to some shared ontology or the attestation id of a custom context.</td></tr><tr><td>schemaString</td><td>The actual schema string that describes the data structure of the attestations.</td></tr></tbody></table>
+<table><thead><tr><th width="158">Parameter</th><th>Description</th></tr></thead><tbody><tr><td>name</td><td>An on-chain descriptive name for the schema.</td></tr><tr><td>description</td><td>The location of documentation for the schema (URL, IPFS hash etc.), which describes its intended use and any relationships.</td></tr><tr><td>context</td><td>A link to a description of the schema's fields. You have two options: a URL linking to some shared ontology, or the attestation ID of a custom context.</td></tr><tr><td>schemaString</td><td>The actual schema string that describes the data structure of the attestations.</td></tr></tbody></table>
 
 ## The Schema String Syntax
 
@@ -23,8 +23,8 @@ A schema string is a comma separated list of data type / field name tuples, for 
 
 `(string firstName, string lastName)`
 
-**Note:**  the schema _should be_ wrapped in outter round brackets. This is essential but it is best practice as it will
-make it easier for different clients to parse the schema.
+**Note:** the schema _should be_ wrapped in outer round brackets.
+This is essential, but it is best practice as it will make it easier for different clients to parse the schema.
 
 The data types can be any valid solidity datatype:
 
@@ -36,15 +36,13 @@ The data types can be any valid solidity datatype:
    Identified by the keyword `address`.
 5. **Bytes**: Represents a fixed-size array of bytes. For example, `bytes32` represents a 32-byte array, and `bytes`
    represents a dynamic-sized byte array.
-6. **String**: Represents a sequence of characters, similar to strings in other programming languages. Identified by the
-   keyword `string`.
-7. **Array**: Represents a fixed-size or dynamic-size array of elements of the same type, e.g. `string[]`.
-<<<<<<< HEAD
-8. **Struct**: Represents a user-defined data structure that can hold multiple variables of different types. To define a
-   struct, simply include the field name, followed by the struct definition in curly braces, see below for an example.
-=======
-8. **Struct**: Represents a user-defined data structure that can hold multiple variables of different types. To define a struct, simply include the field name, following by the struct definition in curly braces, see below for an example.
->>>>>>> 2a8a6b2 (fix typos)
+6. **String**: Represents a sequence of characters, like strings in other programming languages.
+   Identified by the keyword `string`.
+7. **Array**: Represents a fixed-size or dynamic-size array containing elements that share the same type,
+   e.g. `string[]`.
+8. **Struct**: Represents a user-defined data structure that can hold multiple variables of different types.
+   To define a struct, include the field name, followed by the struct definition in curly braces, see below for
+   an example.
 
 The only Solidity data types that aren't supported are `mapping` and `enum`. If you want to store a mapping, you can
 instead choose to store an array of key <> value pairs, e.g. `mapping(address => uint32) points`
@@ -64,11 +62,11 @@ Arrays of structs can be defined using square brackets, e.g.:
 
 ## Getting a schema id from a schema string
 
-Schema ids can be created counterfactually from schema strings, as ids are simply the keccak hash of the schema string.
-In order to deterministically calculate what the schema id is, you can call the function `getIdFromSchemaString`
+Schema IDs can be created counter-factually from schema strings, as IDs are simply the keccak hash of the schema string.
+To deterministically calculate what the schema ID is, you can call the function `getIdFromSchemaString`
 function on the `SchemaRegistry` smart contract. &#x20;
 
-This function is defined as:
+This function is as follows:
 
 ```solidity
 function getIdFromSchemaString(string memory schema) public pure returns (bytes32) {
