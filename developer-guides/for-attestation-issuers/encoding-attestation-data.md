@@ -11,7 +11,7 @@ low-level steps required to encode attestation data.
 
 ## Modelling a Schema as a Solidity Struct
 
-The easiest way to think of a schema is like a Solidity struct. Take for example a very simple schema:
+The easiest way to think of a schema is like a Solidity struct. Let's consider a simple schema:
 
 `string username, string teamname, uint16 points, bool active`
 
@@ -26,7 +26,7 @@ struct Profile {
 }
 ```
 
-If we were to encode an attestation that references this schema, we could do it client side using the ethers library (or
+If we were to encode an attestation that references this schema, we could do it client side using the **ethers** library (or
 equivalent):
 
 ```javascript
@@ -77,7 +77,7 @@ string username, string teamname, uint16 points, bool active, ( string gametype,
 
 {% endcode %}
 
-Which can be thought of as this sort of nested struct:
+Which can be thought of as this nested struct:
 
 ```solidity
 struct Preferences {
@@ -94,7 +94,7 @@ struct Profile {
 }
 ```
 
-Again, encoding the attestation for this sort of schema using a client side library such as ethers would look like this:
+Again, encoding the attestation for this schema using a client side library such as ethers would look like this:
 
 ```javascript
 const encodedStruct = ethers.utils.defaultAbiCoder.encode(
@@ -105,7 +105,7 @@ const encodedStruct = ethers.utils.defaultAbiCoder.encode(
 
 ## Encoding Arrays
 
-Encoding arrays within attestation data is also very straightforward, lets use the example before, but with arrays:
+Encoding arrays within attestation data is also straightforward, let's use the example before, but with arrays:
 
 {% code overflow="wrap" %}
 
@@ -115,7 +115,7 @@ string username, string teamname, uint16 points, bool active, ( string[] gametyp
 
 {% endcode %}
 
-Which can be thought of as this sort of nested struct:
+Which can be thought of as this nested struct:
 
 ```solidity
 struct Preferences {
@@ -132,12 +132,12 @@ struct Profile {
 }
 ```
 
-Again, encoding the attestation for this sort of schema using a client side library such as ethers would look like this:
+Again, encoding the attestation for this schema using a client side library such as ethers would look like this:
 
-```javascript
+```typescript
 const encodedStruct = ethers.utils.defaultAbiCoder.encode(
-  ['string', 'string', 'uint16', 'bool', 'tuple(string gametype, string gamemode)'],
-  ['bojo','torries', 3, false, {gametype: ['RPG', 'first-person-shooter', 'racing', gamemode: ['multiplayer', 'singleplayer'] }]
+  ['string', 'string', 'uint16', 'bool', 'tuple(string[] gametype, string[] gamemode)'],
+  ['bojo','torries', 3, false, {gametype: ['RPG', 'first-person-shooter', 'racing'], gamemode: ['multiplayer', 'singleplayer'] }]
 );
 ```
 

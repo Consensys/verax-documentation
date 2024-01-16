@@ -14,23 +14,23 @@ url="https://github.com/Consensys/linea-attestation-registry/blob/dev/contracts/
 
 ## When to use this module?
 
-An Issuer might want to restrict the use of his portal to only Issuers. In other words, his portal will only be able to
-attest Issuers as subjects (attestees) of the future attestations.
+An Issuer might want to restrict his portal to only Issuers. In other words, his portal will only be able to
+attest Issuers as subjects (entities being attested) of the future attestations.
 
 Once this module is set for a portal, any attestation request going through the portal will need to be destined to an
-Issuer as subject.
+Issuer as a subject.
 
 The list of Issuers changes over time, but is not controlled by this module. It is managed at the `PortalRegistry`
 level.
 
 ## When not to use this module?
 
-This Module probably serves its purpose in only a few cases, so make sure your use case really requires to only
+This Module probably serves its purpose in only a few cases, so make sure your use case requires to only issue
 attestations to Issuers.
 
 ## How to use this module?
 
-This Module doesn't require any preliminary setup, you just need to pass its address registering your Portal.
+This Module doesn't require any preliminary setup, you need to pass its address registering your Portal.
 
 ## How to check the list of Issuers?
 

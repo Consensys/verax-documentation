@@ -5,7 +5,7 @@
 
 ## Core Concepts
 
-* [High Level Overview](core-concepts/high-level-overview.md)
+* [High-Level Overview](core-concepts/high-level-overview.md)
 * [Attestations](core-concepts/attestations.md)
 * [Schemas](core-concepts/schemas.md)
 * [Linked Data](core-concepts/linked-data.md)

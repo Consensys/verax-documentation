@@ -1,10 +1,10 @@
 # NFT Portal
 
-The NFT Portal is an example of how you can deploy a portal that remains compatible with the [ERC-721 standard](https://eips.ethereum.org/EIPS/eip-721).  This means that your portal will compatible will any dapp or protocol that is already set up to read NFTs.  Many dapps and protocols leverage NFTs for membership gating or to unlock certain features, or to allow voting etc.  With an ERC-721 compatible portal, those dapps can now consume your attestations without having to change a single line of their code.
+The NFT Portal is an example of how you can deploy a portal that remains compatible with the [ERC-721 standard](https://eips.ethereum.org/EIPS/eip-721). This means that your portal will be compatible with any dApp or protocol that is already set up to read NFTs. Many dApps and protocols leverage NFTs for membership gating or to unlock certain features, or to allow voting etc. With an ERC-721 compatible portal, those dApps can now consume your attestations without having to change a single line of their code.
 
 ## How it works
 
-To create an NFT/SBT compatible portal, you can just copy the [default portal](https://github.com/Consensys/linea-attestation-registry/blob/dev/src/portal/DefaultPortal.sol) but add in the implementation of the erc-721 interface, or even simpler, inherit from[ OpenZeppellin's implementation](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.9.3/contracts/token/ERC721/ERC721.sol):
+To create an NFT/SBT compatible portal, you can copy the [default portal](https://github.com/Consensys/linea-attestation-registry/blob/dev/src/portal/DefaultPortal.sol) but add in the implementation of the erc-721 interface, or even simpler, inherit from[ OpenZeppellin's implementation](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.9.3/contracts/token/ERC721/ERC721.sol):
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -15,7 +15,7 @@ import { AbstractPortal } from "../interface/AbstractPortal.sol";
 import { AttestationPayload } from "../types/Structs.sol";
 
 contract MyNFTPortal is AbstractPortal, ERC721 {
-  /// @notice Creaes an attestation with the given attestationPayload and validationPayload
+  /// @notice Creates an attestation with the given attestationPayload and validationPayload
   /// @dev Calls the inherited contract's attest function first, and then runs custom NFT logic
   function attest(
     AttestationPayload memory attestationPayload,
@@ -27,7 +27,7 @@ contract MyNFTPortal is AbstractPortal, ERC721 {
     AttestationRegistry attestationRegistry = AttestationRegistry(_attestationRegistryAddress);
     
     uint256 = attestationIdCounter = attestationRegistry.getAttestationIdCounter();
-    bytes32 attestionId = bytes32(abi.encode(attestationIdCounter));
+    bytes32 attestationId = bytes32(abi.encode(attestationIdCounter));
     
     _safeMint(address(attestationPayload.subject), attestationRegistry);
   }
@@ -48,7 +48,7 @@ function balanceOf(address _owner) external view returns (uint256);
 function ownerOf(uint256 _tokenId) external view returns (address);
 ```
 
-If you want to, you can even implement some of the extensions, such as the [IERC721Enumerable](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.9.3/contracts/token/ERC721/extensions/IERC721Enumerable.sol) contract.  Another extension that Openzepellin implements by default is the `ERC721Metadata` standard:
+If you want to, you can even implement some extensions, such as the [IERC721Enumerable](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.9.3/contracts/token/ERC721/extensions/IERC721Enumerable.sol) contract. Another extension that OpenZeppelin implements by default is the `ERC721Metadata` standard:
 
 ```solidity
 interface ERC721Metadata {
@@ -63,7 +63,7 @@ interface ERC721Metadata {
 }
 ```
 
-In case the tokenURI ould point to an indexer that would return the decoded attestation data.  Bear in mind that you will need to publish your schema in a way that adheres to the "ERC721 Metadata JSON Schema", [which is defined in the standard](https://eips.ethereum.org/EIPS/eip-721) as so:
+If the tokenURI points to an indexer returning the decoded attestation data, bear in mind that you need to publish your schema in a way that adheres to the "ERC721 Metadata JSON Schema", [defined in the standard](https://eips.ethereum.org/EIPS/eip-721) as so:
 
 ```json
 {
@@ -98,7 +98,7 @@ title string, type string, properties {
 
 ## Future Work
 
-Verax is currently exploring if we can add native support for the ERC-1155 standard in the future, so that dapps and protocols can leverage erc-1155 for interacting with the registry, without the individual issuers being required to add any custom functionality in to their portal.  This will probably involve overloading the erc-1155 `balanceOf` function with the following implementation (in the `AttestationRegistry` contract):
+Verax is exploring if we can add native support for the ERC-1155 standard in the future. This way, dApps and protocols could leverage ERC-1155 for interacting with the registry, without the individual issuers being required to add any custom functionality in to their portal. This would probably involve overloading the ERC-1155 `balanceOf` function with the following implementation (in the `AttestationRegistry` contract):
 
 ```solidity
 /**
@@ -110,4 +110,4 @@ Verax is currently exploring if we can add native support for the ERC-1155 stand
 function balanceOf(address _owner, uint256 _id) external view returns (uint256);
 ```
 
-The erc-1155 token standard is also seeing widespread adoption, and is implemented widely, especially in the gaming sector. This standard aligns more with the attestation registry, as the addition of the `_id` parameter will allow us to specify a schema id (when cast from `bytes32` to `uint256`) which effectively allows a dapp to query if a user has been given an attestation on a specific schema.
+The erc-1155 token standard is also seeing widespread adoption, and is implemented widely, especially in the gaming sector. This standard aligns more with the attestation registry, as the addition of the `_id` parameter will allow us to specify a schema ID (when cast from `bytes32` to `uint256`) which effectively allows a dApp to query if a user has been given an attestation on a specific schema.

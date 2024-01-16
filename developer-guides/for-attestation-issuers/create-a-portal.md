@@ -2,11 +2,10 @@
 
 ## Creating a Portal
 
-In order to create a portal, you must first deploy a contract which inherits
+To create a portal, you must first deploy a contract that inherits
 the [`AbstractPortal`](https://github.com/Consensys/linea-attestation-registry/blob/cd8f14463d5e96718b021bb3f66a9467e7c0ea3a/src/interface/AbstractPortal.sol)
 abstract contract. This portal contract is where you create attestations in the registry. You have full control over the
-logic in this contract, so long as it inherits the base `AbstractPortal` contract. The function that you will call in
-order to issue an attestation is:
+logic in this contract, so long as it inherits the base `AbstractPortal` contract. The function that you will call to issue an attestation is:
 
 ```solidity
 function attest(
@@ -16,8 +15,8 @@ function attest(
 ```
 
 This function allows you to actually create attestations, you can call the various modules and/or apply any other logic
-you need to. The convention is to keep as much logic as possible in modules, but it's up to you how you implement your
-own domain logic. You can choose to override this function and add your own logic, or simply use the function as defined
+you need to. The convention is to keep as much logic as possible in modules, but it is up to you how you implement your
+own domain logic. You can choose to override this function and add your own logic, or use the function as defined
 in `AbstractPortal`.\
 \
 The `AttestationPayload` struct is specified as follows:
@@ -46,9 +45,9 @@ function deployDefaultPortal(
 )
 ```
 
-Descriptions for each of the parameters are as follows:
+Descriptions for the parameters are as follows:
 
-<table><thead><tr><th width="149.33333333333331">Parameter</th><th width="114">Datatype</th><th>Description</th></tr></thead><tbody><tr><td>modules</td><td>address[]</td><td>address of the modules to execute for all attestations</td></tr><tr><td>name</td><td>string</td><td>a descriptive name for the portal</td></tr><tr><td>description</td><td>string</td><td>a description of the portal's functionality</td></tr><tr><td>isRevocable</td><td>bool</td><td>whether attestations issued by the portal can be revoked</td></tr><tr><td>ownerName</td><td>string</td><td>The name of the owner of the portal</td></tr></tbody></table>
+<table><thead><tr><th width="149.33333333333331">Parameter</th><th width="114">Datatype</th><th>Description</th></tr></thead><tbody><tr><td>modules</td><td>address[]</td><td>Address of the modules to execute for all attestations</td></tr><tr><td>name</td><td>string</td><td>A descriptive name for the portal</td></tr><tr><td>description</td><td>string</td><td>A description of the portal's functionality</td></tr><tr><td>isRevocable</td><td>bool</td><td>Whether attestations issued by the portal can be revoked</td></tr><tr><td>ownerName</td><td>string</td><td>The portal owner's name</td></tr></tbody></table>
 
 It is recommended to deploy and registry at least the `MsgSenderModule` module contract and pass its address in the
 first parameter. This module will allow you to lock down the portal so that only you can issue attestations through it.
@@ -71,8 +70,8 @@ additional logic and specific points in the lifecycle of an attestation.
 
 ## Registering the Portal
 
-Once you have deployed your portal contract, you simply call the `registerPortal` function on the registry contract,
-providing the portal contract address, as well as the portal name and description. Note however that any modules you
+Once you have deployed your portal contract, you call the `registerPortal` function on the registry contract,
+providing the portal contract address, as well as the portal name and description. Note how that any modules you
 specify on the module chain will need to be deployed and registered first. For more details on the smart contract calls
 and the required arguments, see the [Create a Portal](create-a-portal.md) page.
 
@@ -82,8 +81,8 @@ as modular as possible, which means keeping your logic in modules. In the future
 which have no contract, and which simply execute a specific chain of modules!
 {% endhint %}
 
-One important caveat is that initially creating a portal requires that you need to be listed as an "issuer" in the
-registry. To be listed as an issuer, you simply need to reach out to any of the core contributors. In the early stages
+One important warning is that initially creating a portal requires that you need to be listed as an "issuer" in the
+registry. To be listed as an issuer, you need to reach out to any of the core contributors. In the early stages
 of the project, we will be in a closed beta, which means you'll need to get listed before deploying a portal or
 registering a schema. Getting listed as an issuer is as easy as getting in touch using any of
 our [communication channels](../../get-involved/get-in-touch.md).

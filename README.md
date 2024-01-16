@@ -10,7 +10,7 @@ Attestations are usually statements made by an attestation issuer about somethin
 * Contract at address `0x666bea5f…` is a malicious erc-20 token
 * Owner of address `0xd00daa…` is a human being (i.e. not a bot)
 * Owner of address `0xdeadbeef…` is a member of DimSumDAO
-* Attestation `0xa2345` is a (in)valid attestation
+* Attestation `0xa2345` is an (in)valid attestation
 * Attestation `0x98765` is a “like” for content stored at `0xa1b2c3d4…`
 
 ***
@@ -19,15 +19,15 @@ Attestations are usually statements made by an attestation issuer about somethin
 
 **For issuers of attestations:**
 
-If you are a dApp that offers credentials / attestations, you can choose to issue them to an existing Verax instance on a network. Issuing to Verax gives access to your attestations to any dApp that reads from Verax. Your attestation data becomes widely discoverable and easily consumed, as well as being easily composed with other attestations. Your attestations can start receiving attestations themselves, allowing you to accrue reputation as a trusted datasource.
+If you are a dApp that offers credentials / attestations, you can choose to issue them to an existing Verax instance on a network. Issuing to Verax gives access to your attestations to any dApp that reads from Verax. Your attestation data becomes widely discoverable and easily consumed, as well as being easily composed with other attestations. Your attestations can start receiving attestations themselves, allowing you to add to your reputation as a trusted datasource.
 
 **For consumers of attestations:**
 
-Your dApp can now compose attestations from multiple sources, meaning you no longer have to choose between issuer A or issuer B. You can be sure that users of dApp can prove they are not a bot without being tied to a specific provider. You can start to discover what type of users are interacting with your dApp, and start incentivizing them to onboard with your dApp through issuing attestations yourself!
+Your dApp can now compose attestations from multiple sources, meaning you no longer have to choose between issuer A or issuer B. You can be sure that users of dApp can prove they are not a bot without being tied to a specific provider. You can start to discover what kind of users are interacting with your dApp, and start incentivizing them to onboard with your dApp through issuing attestations yourself!
 
 **For reputation protocols:**
 
-Start leveraging linked data and shared ontologies to easily create rich and powerful semantic graphs in order to provide your users with valuable insights and information. Cut down hours of development of scraping data from disparate heterogeneous sources and give your users fine-grained, nuanced and holistic reputation scores that have real meaning.
+Start leveraging linked data and shared ontologies to easily create rich and powerful semantic graphs to provide your users with valuable insights and information. Cut down hours of development of scraping data from disparate heterogeneous sources and give your users fine-grained, nuanced and holistic reputation scores that have real meaning.
 
 ***
 

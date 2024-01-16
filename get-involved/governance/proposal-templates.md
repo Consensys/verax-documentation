@@ -5,7 +5,7 @@ The following proposal templates should be used when submitting a proposal to th
 reviewed and discussed. These templates are embedded into the forums themselves, and so these are simply for reference.
 {% endhint %}
 
-## 1. New Chain Deployment Proposal - Deploy Verax on {Chain}
+## 1. New Chain Deployment Proposal — Deploy Verax on {Chain}
 
 Author\[s]: @ Forum name
 
@@ -15,7 +15,7 @@ Type: Cross Chain Deployment Proposal
 
 ### Abstract
 
-The Verax protocol governance is centered around principles of transparency, inclusivity, and fairness to avoid
+The Verax protocol governance is centered around principles of transparency, inclusivity and fairness to avoid
 bureaucratic delays. This adaptive governance system allows the protocol to evolve and adapt rapidly within a dynamic
 ecosystem. This proposal encompasses a request for new chain deployment as specified in the Verax governance
 documentation found here. As such, It will follow the socially accepted procedures outlined.
@@ -33,7 +33,7 @@ intends to achieve.
 ### Motivation
 
 Explain the proposal’s relevance and potential impact on Verax’s adoption and integration within the target ecosystem.
-Highlight the unique advantages of the proposed chain for Verax and the specific user needs or problems it addresses.
+Highlight the unique advantages of the proposed chain for Verax, and the specific user needs or problems it addresses.
 
 ### Technical considerations
 
@@ -62,12 +62,12 @@ integrity.
 
 ### Next Steps
 
-Outline the immediate actions and steps following the proposal’s submission, providing a clear roadmap for subsequent
+Outline the immediate actions and steps after the proposal’s submission, providing a clear roadmap for subsequent
 phases.
 
 ### References and Links
 
-List all relevant sources, documents, and references that support your proposal and provide additional context.
+List all relevant sources, documents and references that support your proposal and provide additional context.
 
 ***
 
@@ -81,7 +81,7 @@ Type: New Issuer Onboarding
 
 ### Abstract
 
-The Verax protocol governance is centered around principles of transparency, inclusivity, and fairness to avoid
+The Verax protocol governance is centered around principles of transparency, inclusivity and fairness to avoid
 bureaucratic delays. This adaptive governance system allows the protocol to evolve and adapt rapidly within a dynamic
 ecosystem. This proposal encompasses a request for new issuer onboarding to the Verax Protocol as specified in the Verax
 governance documentation found here. As such, It will follow the socially accepted procedures outlined.
@@ -93,11 +93,11 @@ Provide a one-sentence summary of the proposal's main objective and approach.
 ### Provider Overview
 
 Detail the issuer's background, onboarding objectives, the expected timeline, the team involved, and benefits to the
-Verax community. Clarify the issuer’s role and how it aligns with Verax’s broader goals.
+Verax community. Clarify the issuer's role and how it aligns with Verax's broader goals.
 
 ### Provider Motivation
 
-Explain the relevance and potential benefits of onboarding this issuer to Verax’s ecosystem. Highlight the issuer's
+Explain the relevance and potential benefits of onboarding this issuer to Verax' ecosystem. Highlight the issuer's
 advantages to Verax and how it addresses specific needs within the ecosystem.
 
 ### Provider Integration Technical Considerations
@@ -111,10 +111,10 @@ advantages to Verax and how it addresses specific needs within the ecosystem.
 
 Outline the steps and technical requirements for issuer onboarding, which include:
 
-* Designing and registering a schema and specifying the data structure for attestations​​.
-* Optionally creating modules smart contracts with specific validation logic for attestations​​​​.
-* A portal contract is deployed, allowing the issuer to create attestations in the registry​​​​.
-* Ensuring adherence to Verax’s standards for smart contracts and attestation data​​.
+* Designing and registering a schema and specifying the data structure for attestations.
+* Optionally creating modules smart contracts with specific validation logic for attestations.
+* A portal contract is deployed, allowing the issuer to create attestations in the registry.
+* Ensuring adherence to Verax’s standards for smart contracts and attestation data.
 
 ### Conflict of Interest
 
@@ -123,12 +123,12 @@ integrity.
 
 ### Next Steps
 
-Outline the immediate actions and steps following the proposal’s submission, providing a clear roadmap for the issuer
+Outline the immediate actions and steps after the proposal’s submission, providing a clear roadmap for the issuer
 onboarding process.
 
 ### References and Links
 
-List all relevant sources, documents, and references that support your proposal and provide additional context.
+List all relevant sources, documents and references that support your proposal and provide additional context.
 
 ***
 
@@ -143,7 +143,7 @@ Type: Verax Improvement Proposal
 ### Abstract
 
 This proposal focuses on an upgrade to the Verax protocol, aligning with the governance principles of transparency,
-inclusivity, and fairness. As the Verax governance documentation specifies, the upgrade proposal process is designed to
+inclusivity and fairness. As the Verax governance documentation specifies, the upgrade proposal process is designed to
 enhance the Verax ecosystem and follows established timelines.
 
 ### Proposal Summary
@@ -198,7 +198,4 @@ the upgrade process.
 
 ### References and Links
 
-List all relevant sources, documents, and references that support your proposal and provide additional context.
-
-\
-\
+List all relevant sources, documents and references that support your proposal and provide additional context.

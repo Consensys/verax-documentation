@@ -80,7 +80,7 @@ These features are advanced and experimental schema features that allow you to c
 
 <summary>How to create related schemas</summary>
 
-Sometimes you may wish the consumers of your attestation to know how the attestations relate to other attestations, to do this you create a relationship. So for example, to create an attestation of a "_player_" that is a member of a "_team_", one would first create a \*\*Team \*\* schema, and then you would create a **Player** schema with a _canonical relationship field_, denoted by curly braces:
+Sometimes, you may wish the consumers of your attestation to know how the attestations relate to other attestations. To do this, you create a relationship. So, for example, to create an attestation of a _player_ that is a member of a _team_, one would first create a `Team` schema, and then you would create a `Player` schema with a _canonical relationship field_, denoted by curly braces:
 
 `string pseudonym, string dateJoined, { isMemberOf Team 0xa1b2c3 }`
 

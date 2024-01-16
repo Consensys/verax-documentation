@@ -11,8 +11,7 @@ coverY: -369.4459724950884
 
 There will be more modules added here over time as more integrations come online.
 
-Even if you can publish your own modules, there is scope to add them here if you feel there are re-usable, please get in
-touch!
+Even though you can publish your own modules, if you believe they are reusable and could be added here, please [contact us](get-involved/get-in-touch.md)!
 
 ## List of Standard Modules
 

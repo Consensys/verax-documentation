@@ -19,7 +19,7 @@ re-developing this feature for each portal, Verax proposes a standard module to 
 Once this module is set for a portal, any attestation request going through the portal will need to use an authorized
 Schema.
 
-The list of authorized Schema may change over time, that's why the issuer can add and/or remove authorized Schemas
+The list of authorized Schemas may change over time, that's why the issuer can add and/or remove authorized Schemas
 easily via this module.
 
 {% hint style="info" %}
@@ -28,7 +28,7 @@ Only the address identified as the 'owner' of a portal can edit the list of auth
 
 ## When not to use this module?
 
-If the logic of your authorization mechanism goes beyond "Schema 0x... is/isn't authorized", you'll probably need a
+If the logic of your authorization mechanism goes beyond "Schema 0x… is/isn't authorized", you'll probably need a
 custom module to enforce your rules.
 
 ## How to use this module?

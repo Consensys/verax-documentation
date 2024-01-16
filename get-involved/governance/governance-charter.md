@@ -5,10 +5,11 @@ on-chain. This allows those attestations to be easily discovered, consumed, link
 attestations. It can be used to complement other attestation methods such as NFTs/SBTs/Verifiable Credentials etc.
 
 Verax is developed as a collaboration between multiple teams within the ecosystem. It is developed as an open-source,
-community maintained project. It is free to use for any dApps that wish to integrate with it and issue attestations.
+community-maintained project. It is free to use for any dApps that wish to integrate with it and issue attestations.
 
-As Verax is developed by the community, one of the goals of the project is to develop an open and transparent decision
-making process, whereby important decisions involve input from all stakeholders, and conversations and voting is held in
+As Verax is developed by the community, one of the goals of the project is to develop an open and transparent
+decision-making process, whereby important decisions involve input from all stakeholders, with conversations and voting
+held in
 a public forum. As the Verax community grows, governance will naturally evolve, and all stakeholders should have a say
 in this process.
 
@@ -25,14 +26,14 @@ built for use by dApps, governance should give dApps that have fully integrated 
 
 The governance system will establish a series of processes that will help to maintain transparency in how Verax is
 developed and how it evolves. It recognises that governance will need to evolve as the community grows. One of the core
-values that governance adheres to, is to give all stakeholders a say in how the project develops over time. As Verax is
+values that governance adheres to is to give all stakeholders a say in how the project develops over time. As Verax is
 built for use by dApps, governance should give dApps that have fully integrated with Verax a say in how it is developed.
 As attestation registries will likely play an important role within a network’s ecosystem, representatives of networks
 that Verax is deployed to will also be invited to participate in governance.
 
 ### Adaptability and Evolution
 
-The governance structure will evolve with the growth of the Verax community and adaptability is a key principle. Other
+The governance structure will evolve with the growth of the Verax community, and adaptability is a key principle. Other
 methods of voting and governance design have been explored, including proof-of-contribution, reputation weighted voting,
 quadratic voting, connection oriented cluster matching and Voting-Bloc Entropy. These are complex designs that will take
 to evolve towards, and we welcome contributions from the community in researching these governance ideas.
@@ -46,10 +47,10 @@ ideas, pose questions, raise concerns and generally share their thoughts.
 
 ### Responsibility
 
-There are a number of teams that are actively contributing to the development of the project. In the initial stages of
+Several teams that are actively contributing to the development of the project. In the initial stages of
 the project, development efforts will be significant as the core infrastructure is built out. Once the core
-infrastructure has been developed to a sufficient standard, including the contract, subgraph, SDK, explorer dApp, and
-the various public forums etc. the project will need to be maintained by all core contributors equally.\
+infrastructure has been developed to a sufficient standard, including the contracts, subgraphs, SDK, explorer dApp, and
+the various public forums, etc., the project will need to be maintained by all core contributors equally.\
 \
 The various responsibilities will include:
 
@@ -63,4 +64,3 @@ The various responsibilities will include:
 
 This charter can be reviewed and amended through the improvement proposal process. Amendments can be tabled via the
 public forum, and can be discussed and voted on in the normal manner.
-

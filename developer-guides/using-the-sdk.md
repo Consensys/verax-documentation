@@ -40,7 +40,7 @@ const veraxSdk = new VeraxSdk(VeraxSdk.DEFAULT_LINEA_TESTNET_FRONTEND);
 <strong>const veraxSdk = new VeraxSdk(VeraxSdk.DEFAULT_LINEA_TESTNET);
 </strong></code></pre>
 
-or:
+Or:
 
 ```javascript
 // Default configuration for Linea Mainnet
@@ -50,7 +50,7 @@ const veraxSdk = new VeraxSdk(VeraxSdk.DEFAULT_LINEA_MAINNET_FRONTEND);
 const veraxSdk = new VeraxSdk(VeraxSdk.DEFAULT_LINEA_MAINNET);
 ```
 
-or:
+Or:
 
 ```javascript
 // Custom configuration
@@ -88,7 +88,7 @@ const utilsDataMapper = veraxSdk.utils; // Utils
 
 ### 2. Read content (one object) <a href="#user-content-2-read-content-one-object" id="user-content-2-read-content-one-object"></a>
 
-Each DataMapper comes with the method `findOneById` to get one object by Id.
+Each DataMapper comes with the method `findOneById` to get one object by ID.
 
 {% code fullWidth="true" %}
 
@@ -137,11 +137,11 @@ console.log(myAttestations);
 // 	...
 // ]
 //
-```
+</code></pre>
 
 ### 4. Write content <a href="#user-content-4-write-content" id="user-content-4-write-content"></a>
 
-Each dataMapper comes with write methods, that may vary depending on the class. See the detail of write method per class
+Each dataMapper comes with methods to write data that may vary depending on the class. See the detail of write method per class
 dataMapper.
 
 {% code fullWidth="true" %}
@@ -155,7 +155,7 @@ const attestationPayload = {
         attestationData: [{ isBuidler: true }],
       };
 const validationPayloads = [];
-const newAttestation = await this.veraxSdk.portal.attest(portalAddress, attestationPayload, validationPayloads));
+const newAttestation = await this.veraxSdk.portal.attest(portalAddress, attestationPayload, validationPayloads);
 ```
 
 {% endcode %}
@@ -166,7 +166,7 @@ const newAttestation = await this.veraxSdk.portal.attest(portalAddress, attestat
 
 \[Work in progress] The class `veraxSdk.utils` extends the capabilities:
 
-* precompute the id of an attestation
+* precompute the ID of an attestation
 * encode decode payload
 
 ***
@@ -177,7 +177,7 @@ const newAttestation = await this.veraxSdk.portal.attest(portalAddress, attestat
 
 <summary>Portal examples</summary>
 
-```
+```bash
 pnpm portal findonebyid '0x34798a866f52949208e67fb57ad36244024c50c0'
 
 pnpm portal findby '{\"ownerName\": \"Tester\"}'
@@ -226,7 +226,7 @@ pnpm portal getPortalsCount
 
 <summary>Attestation examples</summary>
 
-```
+```bash
 pnpm attestation findonebyid "0x000000000000000000000000000000000000000000000000000000000000109b"
 
 pnpm attestation findby '{\"portal\": \"0x34798a866f52949208e67fb57ad36244024c50c0\"}'
@@ -268,7 +268,7 @@ pnpm attestation balanceOfBatch '{\"accounts\": [\"0x828c9f04D1a07E3b0aBE12A9F82
 
 <summary>Module examples</summary>
 
-```
+```bash
 pnpm module findonebyid "0x4bb8769e18f1518c35be8405d43d7cc07ecf501c"
 
 pnpm module findby '{\"name\": \"Msg Sender Module\"}'
@@ -306,7 +306,7 @@ pnpm module getModule "0x8DcC1F7e746D6071Eb3ee9012aFB6c707bFf82a5"
 
 <summary>Schema examples</summary>
 
-```
+```bash
 pnpm schema findonebyid "0xce2647ed39aa89e6d1528a56deb6c30667ed2aae1ec2378ec3140c0c5d98a61e"
 
 pnpm schema findby '{\"description\": \"Gitcoin Passport Score\"}'

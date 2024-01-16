@@ -28,7 +28,7 @@ Only the address identified as the 'owner' of a portal can edit the list of auth
 
 ## When not to use this module?
 
-If the logic of your authorization mechanism goes beyond "address 0x... is/isn't authorized", you'll probably need a
+If the logic of your authorization mechanism goes beyond "address 0x… is/isn't authorized", you'll probably need a
 custom module to enforce your rules.
 
 ## How to use this module?

@@ -59,7 +59,7 @@ and the subgraph GraphQL API).
 
 ## Create a Schema
 
-First, we need to define the Schema representing the content that will be attested by our dApp.  
+First, we need to define the Schema representing the content our dApp will attest. 
 A Schema is a Solidity-typed string defining a structure. We strongly encourage the developers to follow the
 format `(type fieldName)` where `type` is a Solidity type and `fieldName` is a name for the field.
 
@@ -109,7 +109,7 @@ const alreadyExists = (await veraxSdk.schema.getSchema(schemaId)) as boolean;
 
 ## Create a Portal
 
-Now that we have a Schema, we need to create a Portal, which will be the gateway to issue attestations.  
+With a Schema in place, we need to create a Portal, serving as the gateway to issue attestations. 
 We have two ways to do so:
 
 1. Create a custom Portal (a smart contract), deploy it and register it on the `PortalRegistry` contract.
@@ -140,7 +140,7 @@ transaction that was emitted.
 
 ## Issue an Attestation
 
-Now that we have a Schema and a Portal, we can finally issue an Attestation!
+With a Schema and a Portal in place, we can finally issue an Attestation!
 
 ```typescript
 const hash = await veraxSdk.portal.attest(
