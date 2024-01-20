@@ -7,10 +7,12 @@ To go through this tutorial, you must be allow-listed as an Issuer.
 You can reach out to us via our [**Discord server**](https://discord.gg/Sq4EmYdBEk).
 {% endhint %}
 
+## Introduction
+
 For this tutorial, we will aim to issue an attestation that the user has completed … the tutorial.
 To that end, we'll go with a basic Vite/React setup.
 
-The 5 steps of the tutorial are as follows:
+The 6 steps of the tutorial are as follows:
 
 1. Connect a wallet
 2. Instantiate the Verax SDK
@@ -57,7 +59,7 @@ Let's break down the different parts of this code:
 We can now use the `veraxSdk` object to interact with the Verax SDK (and behind the scenes, the Verax smart contracts
 and the subgraph GraphQL API).
 
-## Create a Schema
+## 3. Create a Schema
 
 First, we need to define the Schema representing the content our dApp will attest. 
 A Schema is a Solidity-typed string defining a structure. We strongly encourage the developers to follow the
@@ -95,19 +97,19 @@ Two important things to note:
 1. It is possible to pre-compute the Schema ID.
 2. It is impossible to define the same Schema twice. If you try to do so, the transaction will revert.
 
-### Pre-compute the Schema ID
+### 3.1. Pre-compute the Schema ID
 
 ```typescript
 const schemaId = (await veraxSdk.schema.getIdFromSchemaString(SCHEMA)) as Hex;
 ```
 
-### Check if the Schema already exists
+### 3.2. Check if the Schema already exists
 
 ```typescript
 const alreadyExists = (await veraxSdk.schema.getSchema(schemaId)) as boolean;
 ```
 
-### Wait for the Schema to be created
+### 3.3. Wait for the Schema to be created
 
 If you have just sent the transaction to create and register the Schema,
 you need to wait for the network to confirm the corresponding transaction.
@@ -121,7 +123,7 @@ const receipt = await waitForTransactionReceipt(getPublicClient(), {
 const schemaId = receipt.logs[0].topics[1];
 ```
 
-## Create a Portal
+## 4. Create a Portal
 
 With a Schema in place, we need to create a Portal, serving as the gateway to issue attestations. 
 We have two ways to do so:
@@ -152,7 +154,7 @@ The `deployDefaultPortal` method takes five arguments:
 This method will register the Portal on-chain, on the `PortalRegistry` contract and return the hash of the corresponding
 transaction that was emitted.
 
-### Wait for the Portal to be created
+### 4.1 Wait for the Portal to be created
 
 If you have just sent the transaction to create and register the Portal,
 you need to wait for the network to confirm the corresponding transaction.
@@ -172,7 +174,7 @@ const decodedLogs = decodeEventLog({
 const portalId = decodedLogs.args.portalAddress;
 ```
 
-## Issue an Attestation
+## 5. Issue an Attestation
 
 With a Schema and a Portal in place, we can finally issue an Attestation!
 
@@ -202,7 +204,7 @@ The `attest` method takes three arguments:
 This method will register the Attestation on-chain, on the `AttestationRegistry` contract and return the hash of the
 corresponding transaction that was emitted.
 
-### Wait for the Attestation to be created
+### 5.1. Wait for the Attestation to be created
 
 If you have just sent the transaction to create and register the Attestation,
 you need to wait for the network to confirm the corresponding transaction.
@@ -217,7 +219,7 @@ const receipt = await waitForTransactionReceipt(getPublicClient(), {
 const attestationID = receipt.logs[0].topics[1];
 ```
 
-## Display the Attestation
+## 6. Display the Attestation
 
 Once the Attestation is issued, we can display it to the user.
 
