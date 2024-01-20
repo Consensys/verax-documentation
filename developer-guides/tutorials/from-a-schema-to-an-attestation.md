@@ -72,7 +72,7 @@ const SCHEMA = '(bool hasCompletedTutorial)';
 Let's use Verax's SDK to create a Schema on-chain:
 
 ```typescript
-await veraxSdk.schema.create(
+const txHash = await veraxSdk.schema.create(
     "Tutorial Schema",
     "This Schema is used for the tutorial",
     "https://ver.ax/#/tutorials",
@@ -98,13 +98,27 @@ Two important things to note:
 ### Pre-compute the Schema ID
 
 ```typescript
-const schemaId = (await veraxSdk.schema.getIdFromSchemaString(SCHEMA)) as `0x${string}`;
+const schemaId = (await veraxSdk.schema.getIdFromSchemaString(SCHEMA)) as Hex;
 ```
 
 ### Check if the Schema already exists
 
 ```typescript
 const alreadyExists = (await veraxSdk.schema.getSchema(schemaId)) as boolean;
+```
+
+### Wait for the Schema to be created
+
+If you have just sent the transaction to create and register the Schema,
+you need to wait for the network to confirm the corresponding transaction.
+
+You can then find the Schema ID in the transaction receipt:
+
+```typescript
+const receipt = await waitForTransactionReceipt(getPublicClient(), {
+    hash: txHash,
+});
+const schemaId = receipt.logs[0].topics[1];
 ```
 
 ## Create a Portal
@@ -118,7 +132,7 @@ We have two ways to do so:
 We are going to use the second option, as it is the simplest and fastest one.
 
 ```typescript
-const hash = await veraxSdk.portal.deployDefaultPortal(
+const txHash = await veraxSdk.portal.deployDefaultPortal(
     [],
     "Tutorial Portal",
     "This Portal is used for the tutorial",
@@ -138,12 +152,32 @@ The `deployDefaultPortal` method takes five arguments:
 This method will register the Portal on-chain, on the `PortalRegistry` contract and return the hash of the corresponding
 transaction that was emitted.
 
+### Wait for the Portal to be created
+
+If you have just sent the transaction to create and register the Portal,
+you need to wait for the network to confirm the corresponding transaction.
+
+You can then find the Portal ID (the corresponding smart contract's address) in the transaction receipt,
+via the event that was emitted:
+
+```typescript
+const receipt = await waitForTransactionReceipt(getPublicClient(), {
+   hash: txHash,
+});
+const decodedLogs = decodeEventLog({
+   abi: parseAbi(["event PortalRegistered(string name, string description, address portalAddress)"]),
+   data: receipt.logs[0].data,
+   topics: receipt.logs[0].topics,
+});
+const portalId = decodedLogs.args.portalAddress;
+```
+
 ## Issue an Attestation
 
 With a Schema and a Portal in place, we can finally issue an Attestation!
 
 ```typescript
-const hash = await veraxSdk.portal.attest(
+const txHash = await veraxSdk.portal.attest(
     portalId,
     {
         schemaId,
@@ -166,8 +200,22 @@ The `attest` method takes three arguments:
 3. The payload to validate the attestation through the Modules (empty in our case, as we don't use any)
 
 This method will register the Attestation on-chain, on the `AttestationRegistry` contract and return the hash of the
-corresponding
-transaction that was emitted.
+corresponding transaction that was emitted.
+
+### Wait for the Attestation to be created
+
+If you have just sent the transaction to create and register the Attestation,
+you need to wait for the network to confirm the corresponding transaction.
+
+You can then find the Attestation ID in the transaction receipt,
+via the event that was emitted:
+
+```typescript
+const receipt = await waitForTransactionReceipt(getPublicClient(), {
+   hash: txHash,
+});
+const attestationID = receipt.logs[0].topics[1];
+```
 
 ## Display the Attestation
 
@@ -186,8 +234,7 @@ SDK.
 
 ## Conclusion
 
-This example is basic, but it shows how easy it is to integrate Verax into your dApp thanks to the Verax
-SDK.
+This example is basic, but it shows how easy it is to integrate Verax into your dApp thanks to the Verax SDK.
 
 The webapp created for this tutorial can be found [on our website](https://ver.ax/#/tutorials).
 The code for this web application can be
