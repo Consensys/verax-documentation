@@ -11,7 +11,6 @@
    \
    \- Clique\
    \- Consensys\
-   \- PADO Labs\
    \- Hapi\
    \- Aspecta
 3. **Voting Weights**\
@@ -28,7 +27,7 @@
    \- Initial grant distribution C = 0 (routine)
 5. **Time decay on NFTs**\
    \
-   If an NFT has not been used to vote on anything in three months, it will become inactive and cannot be used for voting. This is to encourage participation in the voting process.&#x20;
+   If an NFT has not been used to vote on anything in three months, it will become inactive and cannot be used for voting. This is to encourage participation in the voting process.
 6. **Cadence of meeting for core council**\
    \
    Meetings of the core council will be held bi-weekly initially, subject to review to adjust the cadence. Meeting notes will be published to the community forum.
