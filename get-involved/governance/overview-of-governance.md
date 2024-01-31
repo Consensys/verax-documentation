@@ -111,7 +111,7 @@ matters. Decision-making on the board generally employs a simple majority vote, 
 Core Council. Meetings are held monthly or as required, and the boards are composed of subject-matter experts, which may
 include external advisors.
 
-Stakeholders are any dApp or protocol that hsa integrated with registry, either by issuing attestations, or by depending
+Stakeholders are any dApp or protocol that has integrated with registry, either by issuing attestations, or by depending
 on attestations within their dApp. These stakeholders are issued NFTs and can vote on proposals. NFTs are issued to
 stakeholders by the core council.
 
