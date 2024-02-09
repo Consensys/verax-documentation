@@ -27,6 +27,7 @@
   * [Bulk Create Attestations](developer-guides/for-attestation-issuers/bulk-create-attestations.md)
 * [🧑🏫 Tutorials](developer-guides/tutorials/README.md)
   * [From a Schema to an Attestation](developer-guides/tutorials/from-a-schema-to-an-attestation.md)
+  * [Using Ceramic to store the Attestation Payload](developer-guides/tutorials/using-ceramic-to-store-the-attestation-payload.md)
 * [🌐 Using the Subgraph](developer-guides/using-the-subgraph.md)
 * [🛠 Using the SDK](developer-guides/using-the-sdk.md)
 
