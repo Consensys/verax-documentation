@@ -11,9 +11,7 @@ function attest(
 ) public payable;
 ```
 
-The two arguments are separated into 1) the actual attestation you wish to create, and 2) any extra data that is
-required to create an attestation. For example, the `validationPayload` could be a zero-knowledge-proof that verifies
-the attestationPayload.\
+The two arguments are separated into 1) the actual attestation you wish to create, and 2) any extra data that is required to create an attestation. For example, the `validationPayload` could be a zero-knowledge-proof that verifies the attestationPayload.\
 \
 The `AttestationPayload` struct is specified as follows:
 
@@ -26,8 +24,7 @@ struct AttestationPayload {
 }
 ```
 
-The attestation subject can be an EVM address, a DID, a URL or anything that you are issuing your attestation to.
-The `attestationData` is the raw bytes that will be `abi.decode`d according to the schema ID.
+The attestation subject can be an EVM address, a DID, a URL or anything that you are issuing your attestation to. The `attestationData` is the raw bytes that will be `abi.decode`d according to the schema ID.
 
 ## Constraints on Creating Attestations
 
@@ -39,13 +36,10 @@ When calling the `attest` function, the registry performs certain integrity chec
 
 ## Attestation Metadata
 
-When creating an attestation, you simply need to specify four properties, as outlined above, however, the attestation
-registry itself automatically populates the other fields in the attestation metadata at the point at which it is
-created. The full list of attestation metadata is included below:
+When creating an attestation, you simply need to specify four properties, as outlined above, however, the attestation registry itself automatically populates the other fields in the attestation metadata at the point at which it is created. The full list of attestation metadata is included below:
 
-<table><thead><tr><th width="169">Property</th><th width="114.33333333333331">Datatype</th><th>Description</th></tr></thead><tbody><tr><td>attestationId</td><td>bytes32</td><td>The unique identifier of the attestation</td></tr><tr><td>schemaId</td><td>bytes32</td><td>The identifier of the <a href="../../core-concepts/schemas.md">schema</a> this attestation adheres to</td></tr><tr><td>replacedBy</td><td>uint256</td><td>The attestation ID that replaces this attestation</td></tr><tr><td>attester</td><td>address</td><td>The address issuing the attestation to the subject</td></tr><tr><td>portal</td><td>address</td><td>The address of the <a href="../../core-concepts/portals.md">portal</a> that created the attestation</td></tr><tr><td>attestedDate</td><td>uint64</td><td>The date the attestation is issued</td></tr><tr><td>expirationDate</td><td>uint64</td><td>The expiration date of the attestation</td></tr><tr><td>revocationDate</td><td>uint64</td><td>The date when the attestation was revoked</td></tr><tr><td>version</td><td>uint16</td><td>Version of the registry when the attestation was created</td></tr><tr><td>revoked</td><td>bool</td><td>Whether the attestation is <a href="revoke-an-attestation.md">revoked</a> or not</td></tr><tr><td>revocationDate</td><td>uint64</td><td>If revoked, the date it was revoked / replaced</td></tr><tr><td>subject</td><td>bytes</td><td>The ID of the attestee e.g. an EVM address, DID, URL etc.</td></tr><tr><td>attestationData</td><td>bytes</td><td>The raw attestation data</td></tr></tbody></table>
+<table><thead><tr><th width="180.54206896551727">Property</th><th width="114.33333333333331">Datatype</th><th>Description</th></tr></thead><tbody><tr><td>attestationId</td><td>bytes32</td><td>The unique identifier of the attestation</td></tr><tr><td>schemaId</td><td>bytes32</td><td>The identifier of the <a href="../../core-concepts/schemas.md">schema</a> this attestation adheres to</td></tr><tr><td>replacedBy</td><td>uint256</td><td>The attestation ID that replaces this attestation</td></tr><tr><td>attester</td><td>address</td><td>The address issuing the attestation to the subject</td></tr><tr><td>portal</td><td>address</td><td>The address of the <a href="../../core-concepts/portals.md">portal</a> that created the attestation</td></tr><tr><td>attestedDate</td><td>uint64</td><td>The date the attestation is issued</td></tr><tr><td>expirationDate</td><td>uint64</td><td>The expiration date of the attestation</td></tr><tr><td>revocationDate</td><td>uint64</td><td>The date when the attestation was revoked</td></tr><tr><td>version</td><td>uint16</td><td>Version of the registry when the attestation was created</td></tr><tr><td>revoked</td><td>bool</td><td>Whether the attestation is <a href="revoke-an-attestation.md">revoked</a> or not</td></tr><tr><td>revocationDate</td><td>uint64</td><td>If revoked, the date it was revoked / replaced</td></tr><tr><td>subject</td><td>bytes</td><td>The ID of the attestee e.g. an EVM address, DID, URL etc.</td></tr><tr><td>attestationData</td><td>bytes</td><td>The raw attestation data</td></tr></tbody></table>
 
 The attestationId is derived from an internal auto-incremented counter, converted from uint32 to byte32. This corresponds to the total attestations issued.
 
-Once the attestation is successfully created in the registry, an `AttestationRegistered` event is emitted with the
-attestation ID, and subsequently picked up by indexers.
+Once the attestation is successfully created in the registry, an `AttestationRegistered` event is emitted with the attestation ID, and subsequently picked up by indexers.

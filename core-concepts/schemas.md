@@ -54,7 +54,7 @@ You can consider this schema as corresponding to the following Solidity structs:
 
 As well as the schema string, schemas have some metadata stored with them:
 
-<table><thead><tr><th width="154.45301542776997">Property</th><th width="113">Datatype</th><th>Description</th></tr></thead><tbody><tr><td>name</td><td>string</td><td><em>(required)</em> The name of schema, stored on-chain</td></tr><tr><td>description</td><td>string</td><td>A link to off-chain description / documentation</td></tr><tr><td>context</td><td>string</td><td>A link to some shared vocabulary / ontology</td></tr><tr><td>schema</td><td>string</td><td><em>(required)</em> The raw schema string as described above</td></tr></tbody></table>
+<table><thead><tr><th width="156.1496636603119">Property</th><th width="113">Datatype</th><th>Description</th></tr></thead><tbody><tr><td>name</td><td>string</td><td><em>(required)</em> The name of schema, stored on-chain</td></tr><tr><td>description</td><td>string</td><td>A link to off-chain description / documentation</td></tr><tr><td>context</td><td>string</td><td>A link to some shared vocabulary / ontology</td></tr><tr><td>schema</td><td>string</td><td><em>(required)</em> The raw schema string as described above</td></tr></tbody></table>
 
 ### Schema Contexts / Shared Vocabularies
 

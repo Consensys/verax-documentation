@@ -27,6 +27,12 @@ For a more thorough dive on Ceramic's qualities, read [Data Provenance in Compos
 
 This tutorial uses a simple example of a Developer Profile. Therefore, we will swap out several sections of [this Verax tutorial](https://docs.ver.ax/verax-documentation/developer-guides/tutorials/from-a-schema-to-an-attestation) to meet our custom use case.
 
+This tutorial will also utilize an example demo application meant to run locally. We recommend cloning the repository to your device and following along in your text editor of choice:
+
+```bash
+git clone https://github.com/ceramicstudio/verax-tutorial && cd verax-tutorial
+```
+
 Follow the instructions in the tutorial linked above (using Linea Testnet) until you reach the section labeled "3. Create a Schema" (you can do so in a separate repository, or by creating a dummy file in this repository to follow the steps).
 
 The Verax schema we will be using for this tutorial will be intended to point to a Ceramic Stream ID. Therefore, to keep things simple, we will define our Verax schema as follows:
@@ -92,7 +98,7 @@ nvm use 20
 
 ### Observe Our Data Models
 
-As mentioned above, we will be using the paradigm of a developer profile for this tutorial. As such, we've defined a very simple ComposeDB schema to meet this requirement:
+As mentioned above, we will be using the paradigm of a developer profile for this tutorial. As such, we've defined a very simple ComposeDB schema to meet this requirement.  The following loosely based on the developer profile in the attestations available from [Aspecta](https://aspecta.id/home):
 
 ```typescript
 enum Proficiency {
