@@ -8,15 +8,13 @@ Public subgraph on Linea mainnet
 
 If you want to access the public subgraph on the Linea testnet, you can access it here:
 
-{% embed url="https://graph-query.goerli.linea.build/subgraphs/name/Consensys/linea-attestation-registry/graphql?query=query+MyQuery+{++attestations+{++++attestationData++++id++++expirationDate++++portal++++replacedBy++++revocationDate++}}" %}
-Public subgraph on Linea testnet
-{% endembed %}
+{% embed url="https://api.goldsky.com/api/public/project_clqghnrbp9nx201wtgylv8748/subgraphs/verax/subgraph-testnet/gn" %}
 
 You can use this default web interface to write queries in GraphQL to search through the attestation registry. Alternatively, you can use a tool such as Postman, or use the subgraph's API to query the registry directly from your own dApp.
 
 Examples of queries that you can make using the subgraph:
 
-1. Get all attestations, along with the respective schema string, and the decoded attestation data:
+1.  Get all attestations, along with the respective schema string, and the decoded attestation data:
 
     ```graphql
     query MyQuery {
@@ -27,8 +25,7 @@ Examples of queries that you can make using the subgraph:
       }
     }
     ```
-
-2. Give me all attestations related issued to a specific address:
+2.  Give me all attestations related issued to a specific address:
 
     ```graphql
     query MyQuery {
@@ -39,8 +36,7 @@ Examples of queries that you can make using the subgraph:
       }
     }
     ```
-
-3. Give me all attestations issued to a specific address, related to a specific schema ID, that have not been revoked.
+3.  Give me all attestations issued to a specific address, related to a specific schema ID, that have not been revoked.
 
     ```graphql
     query MyQuery {
