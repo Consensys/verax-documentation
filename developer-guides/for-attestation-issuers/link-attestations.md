@@ -8,10 +8,6 @@ The `Relationship` schema looks like the following:
 
 `(bytes subject, string predicate, bytes32 object)`
 
-The schema ID for the relationship schema is:
-
-`0x41b8c81288eebbf173b2f54b9fb2f1d37f2caca51ef39e8f99299b53c2599a3a`
-
 This `Relationship` schema exists as a first-class citizen of the registry, and attestations that are based on this schema are used for linking other attestations together. The `subject` field is the attestation that is being linked to another attestation, the `predicate` field is a name that describes the _type_ of relationship, and the `subject` is the attestation being linked to.
 
 Examples of relationship attestations are:
@@ -26,6 +22,8 @@ Anyone can create any type of relationship between any attestation and any other
 The schema ID for the relationship schema is:
 
 `0x41b8c81288eebbf173b2f54b9fb2f1d37f2caca51ef39e8f99299b53c2599a3a`
+
+It can be found on the [Explorer](https://explorer.ver.ax/linea/schemas/0x41b8c81288eebbf173b2f54b9fb2f1d37f2caca51ef39e8f99299b53c2599a3a).
 {% endhint %}
 
 ## One-to-One, One-to-Many, Many-to-Many
@@ -46,4 +44,6 @@ Certain use cases may require relationships to be grouped together into a "named
 The schema ID for the named graph relationship schema is:
 
 `0x8f83a0ef7871f63455a506f6bca0db98a88721764ae6dbde2afddd8e12e442b8`
+
+It can be found on the [Explorer](https://explorer.ver.ax/linea/schemas/0x8f83a0ef7871f63455a506f6bca0db98a88721764ae6dbde2afddd8e12e442b8).
 {% endhint %}
