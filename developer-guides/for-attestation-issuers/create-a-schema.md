@@ -21,7 +21,7 @@ A schema string is a comma separated list of data type / field name tuples, for 
 
 `(string firstName, string lastName)`
 
-**Note:** the schema _should be_ wrapped in outer round brackets. This is essential, but it is best practice as it will make it easier for different clients to parse the schema.
+**Note:** the schema _should be_ wrapped in outer round brackets. It is best practice as it will make it easier for different clients to parse the schema.
 
 The data types can be any valid solidity datatype:
 
@@ -38,17 +38,17 @@ The only Solidity data types that aren't supported are `mapping` and `enum`. If 
 
 Defining a **struct** in a schema string is done using round braces. For example, defining a struct that contains `Street` and `City` properties can be done like so:
 
-`string firstName, string lastName, (string Street, string City) isResidentAt`
+`(string firstName, string lastName, (string Street, string City) isResidentAt)`
 
 Note that the name of the field in the attestation is `isResidentAt` but the name of the actual struct isn't defined in the schema string.
 
 Arrays of structs can be defined using square brackets, e.g.:
 
-`string firstName, string lastName, (string Street, string City)[] homeAddress`
+`(string firstName, string lastName, (string Street, string City)[] homeAddress)`
 
-## Getting a schema id from a schema string
+## Getting a schema ID from a schema string
 
-Schema IDs can be created counter-factually from schema strings, as IDs are simply the keccak hash of the schema string. To deterministically calculate what the schema ID is, you can call the function `getIdFromSchemaString` function on the `SchemaRegistry` smart contract.
+[Schema IDs can be created counter-factually from schema strings, as IDs are simply the keccak hash of the schema string.](#user-content-fn-1)[^1] To deterministically calculate what the schema ID is, you can call the function `getIdFromSchemaString` function on the `SchemaRegistry` smart contract.
 
 This function is as follows:
 
@@ -63,3 +63,5 @@ function getIdFromSchemaString(string memory schema) public pure returns (bytes3
 To understand more about the schema creation process, you can view the `SchemaRegistry` smart contract [source code](https://github.com/Consensys/linea-attestation-registry/blob/dev/contracts/src/SchemaRegistry.sol).
 
 Once you've created one or more schemas, you can optionally create a [module](create-a-module.md) to enforce any constraints or business logic that are associated with those schemas.
+
+[^1]: This may change in the future, following VIP-4: [https://community.ver.ax/t/make-schemas-definition-not-unique/50/2](https://community.ver.ax/t/make-schemas-definition-not-unique/50/2)

@@ -6,7 +6,7 @@ A schema is a blueprint for an attestation. It describes the various fields an a
 
 Schemas are stored in the registry as a string value that describes the various fields. For example, to create attestations that describe a person, we can create a schema as follows:
 
-`(string username, string teamname, uint16 points, bool active)`
+`(string username, string teamName, uint16 points, bool active)`
 
 This describes a schema with four fields. Any attestation based on this schema can be decoded in Solidity as follows:
 
@@ -27,30 +27,30 @@ Many schemas will involve some kind of nested data. To create a schema with nest
 
 {% code overflow="wrap" %}
 ```
-(string username, string teamname, uint16 points, bool active, ( string gametype, string gamemode )[] setup)
+(string username, string teamName, uint16 points, bool active, (string gametype, string gamemode)[] setup)
 ```
 {% endcode %}
 
 You can consider this schema as corresponding to the following Solidity structs:
 
 ```solidity
-    struct Preferences {
+struct Preferences {
     string gameType;
     string gameMode;
 }
 
-    struct Profile {
-        string userName;
-        string teamName;
-        uint16 points;
-        bool active;
-        Preferences[] setup;
-    }
+struct Profile {
+    string username;
+    string teamName;
+    uint16 points;
+    bool active;
+    Preferences[] setup;
+}
 ```
 
 ***
 
-## Schema MetaData
+## Schema Metadata
 
 As well as the schema string, schemas have some metadata stored with them:
 
@@ -64,7 +64,7 @@ For more information on this property and how important it is, see the [Linked D
 
 ### Counterfactual Schemas
 
-Schema IDs are unique to the schema content, and are created from the keccak hash of the schema string. This means that schemas can be created counter-factually, allowing for things like circular relationships between schemas. It also means that two people can't create the same schema, which, in turn, promotes re-usability within the registry.
+Schema IDs are unique to the schema content, and are created from the keccak hash of the schema string. This means that schemas can be created counter-factually, allowing for things like circular relationships between schemas. [It also means that two people can't create the same schema, which, in turn, promotes re-usability within the registry.](#user-content-fn-1)[^1]
 
 ***
 
@@ -104,7 +104,7 @@ See the page on [Linking Attestations](../developer-guides/for-attestation-issue
 
 The examples above use what is called a "_relationship attestation_", meaning any attestation based on the special `Relationship` schema. The relationship schema conforms to the following structure:
 
-`bytes32 subject, string predicate, bytes32 object`
+`(bytes32 subject, string predicate, bytes32 object)`
 
 This `Relationship` schema exists as a first-class citizen of the registry, and attestations that are based on this schema are used for linking other attestations together. The `subject` field is the attestation that is being linked to another attestation, the `predicate` field is a name that describes the _typing_ of the relationship, and the `subject` is the attestation being linked to.
 
@@ -131,3 +131,5 @@ Schemas can also inherit from other schemas, another way that Verax reduces redu
 This will tell indexers to look up the schema referenced by the `extends` keyword, and concatenate its schema string with the schema string in this schema. Note that any conflicting field names will be overridden by the last previous definition. So, for example, if a field name exists in a parent schema and a child schema, the field definition from the child schema will be used. Also, schemas can only inherit from one parent at a time.
 
 </details>
+
+[^1]: This might change in the future, following VIP-4: [https://community.ver.ax/t/make-schemas-definition-not-unique/50/2](https://community.ver.ax/t/make-schemas-definition-not-unique/50/2)
