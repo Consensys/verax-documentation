@@ -16,7 +16,6 @@
 ## Developer Guides
 
 * [♒ For Attestation Issuers](developer-guides/for-attestation-issuers/README.md)
-  * [Walkthrough using Remix](developer-guides/for-attestation-issuers/walkthrough-using-remix.md)
   * [Create a Schema](developer-guides/for-attestation-issuers/create-a-schema.md)
   * [Create a Module](developer-guides/for-attestation-issuers/create-a-module.md)
   * [Create a Portal](developer-guides/for-attestation-issuers/create-a-portal.md)
@@ -25,6 +24,7 @@
   * [Revoke an Attestation](developer-guides/for-attestation-issuers/revoke-an-attestation.md)
   * [Link Attestations](developer-guides/for-attestation-issuers/link-attestations.md)
   * [Bulk Create Attestations](developer-guides/for-attestation-issuers/bulk-create-attestations.md)
+  * [Walkthrough using Remix](developer-guides/for-attestation-issuers/walkthrough-using-remix.md)
 * [🧑‍🏫 Tutorials](developer-guides/tutorials/README.md)
   * [From a Schema to an Attestation](developer-guides/tutorials/from-a-schema-to-an-attestation.md)
   * [Using Ceramic to store the Attestation Payload](developer-guides/tutorials/using-ceramic-to-store-the-attestation-payload.md)
