@@ -12,7 +12,7 @@ The overall steps for getting up and running include the following:
 All these steps can be done in three different ways:
 
 * manually calling the smart contracts
-* using a blockchain explorer such as Lineascan
+* using a blockchain explorer such as [Lineascan](https://lineascan.build/)
 * using the official Verax SDK
 
 We will go over the three ways in the following sections.

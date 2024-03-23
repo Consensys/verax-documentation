@@ -4,9 +4,9 @@ Before you can issue attestations into the registry, you will need a [Schema](..
 
 Schema creation takes 4 parameters, defined as follows:
 
-<table><thead><tr><th width="159.12290502793297">Parameter</th><th>Description</th></tr></thead><tbody><tr><td>name</td><td>An on-chain descriptive name for the schema.</td></tr><tr><td>description</td><td>The location of documentation for the schema (URL, IPFS hash etc.), which describes its intended use and any relationships.</td></tr><tr><td>context</td><td>A link to a description of the schema's fields. You have two options: a URL linking to some shared ontology, or the attestation ID of a custom context.</td></tr><tr><td>schemaString</td><td>The actual schema string that describes the data structure of the attestations.</td></tr></tbody></table>
+<table><thead><tr><th width="159.12290502793297">Parameter</th><th>Description</th></tr></thead><tbody><tr><td>name</td><td>An on-chain descriptive name for the schema.</td></tr><tr><td>description</td><td>The location of documentation for the schema (can be a URL, an IPFS hash, etc.), which describes its intended use and any relationships.</td></tr><tr><td>context</td><td>A link to a description of the schema's fields. You have two options: a URL linking to some shared ontology, or the attestation ID of a custom context.</td></tr><tr><td>schemaString</td><td>The actual schema string that describes the data structure of the attestations.</td></tr></tbody></table>
 
-## Manually calling the SchemaRegistry smart contract
+## Manually calling the `SchemaRegistry` smart contract
 
 To create a Schema, you must call the `createSchema` function on the `SchemaRegistry` contract. The function takes the following four parameters:
 
@@ -18,6 +18,8 @@ function createSchema(
     string memory schemaString
 )
 ```
+
+## Using a blockchain explorer
 
 ## The Schema String Syntax
 
