@@ -1,6 +1,6 @@
 # Create a Module
 
-[Modules](../../core-concepts/modules.md) are smart contracts that are registered in the registry that perform specific validation logic on attestations before they are issued into the registry.
+[Modules](../../core-concepts/modules.md) are smart contracts that are registered in the "Module Registry" and that perform specific validation logic on attestations before they are issued into the registry.
 
 {% hint style="info" %}
 The Module mechanism may change in the future, following [Verax Improvement Proposal #5](https://community.ver.ax/t/allow-variable-modules-in-portals/51/2) and what we call "[Modules V2](https://github.com/Consensys/linea-attestation-registry/pull/562)".
@@ -37,6 +37,7 @@ As well as implementing the `AbstractModule` interface, the module contract must
 ```solidity
 function supportsInterface(bytes4 interfaceID) public pure override returns (bool) {
   return interfaceID == type(AbstractModule).interfaceId || interfaceID == type(IERC165Upgradeable).interfaceId;
+}
 ```
 
 ## Module registration

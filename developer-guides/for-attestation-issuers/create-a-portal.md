@@ -1,8 +1,12 @@
 # Create a Portal
 
-## Creating a Portal
+[Portals](../../core-concepts/portals.md) are smart contracts that are registered in the "Portal Registry" and that you can consider as the entrypoint to the Verax Attestation Registry. This is where the payloads to be attested start their journey.
 
-To create a portal, you must first deploy a contract that inherits the [`AbstractPortal`](https://github.com/Consensys/linea-attestation-registry/blob/cd8f14463d5e96718b021bb3f66a9467e7c0ea3a/src/interface/AbstractPortal.sol) abstract contract. This portal contract is where you create attestations in the registry. You have full control over the logic in this contract, so long as it inherits the base `AbstractPortal` contract. The function that you will call to issue an attestation is:
+## Portal creation
+
+To create a Portal, you must first deploy a contract that inherits the [`AbstractPortal`](https://github.com/Consensys/linea-attestation-registry/blob/cd8f14463d5e96718b021bb3f66a9467e7c0ea3a/src/interface/AbstractPortal.sol) abstract contract. This portal contract is where you create attestations in the registry. You have full control over the logic in this contract, so long as it inherits the base `AbstractPortal` contract.\
+\
+The function that you will call to issue an attestation is:
 
 ```solidity
 function attest(
@@ -11,20 +15,65 @@ function attest(
   ) public payable;
 ```
 
-This function allows you to actually create attestations, you can call the various modules and/or apply any other logic you need to. The convention is to keep as much logic as possible in modules, but it is up to you how you implement your own domain logic. You can choose to override this function and add your own logic, or use the function as defined in `AbstractPortal`.\
-\
-The `AttestationPayload` struct is specified as follows:
+{% hint style="info" %}
+We are also introducing an `attestV2` function with the same signature, to cover the new "[Modules V2](https://github.com/Consensys/linea-attestation-registry/pull/562)" feature.
+{% endhint %}
+
+The `attest` function accepts 2 arguments:
+
+1. `attestationPayload`, the raw attestation data that will be stored in the registry
+2. `validationPayload`, validation logic that the module needs to execute its verification logic
+
+This function allows you to actually create attestations, you can call the various modules and/or apply any other logic you need to. The convention is to keep as much logic as possible in modules, but it is up to you how you implement your own domain logic. You can choose to override this function and add your own logic, or use the function as defined in `AbstractPortal`.
+
+{% hint style="warning" %}
+While you can put whatever logic you want to in your portal contracts, it is strongly advised that you keep your portal as modular as possible, which means keeping your logic in modules. In the future, we _may_ pivot to no-code portals, which have no contract, and which simply execute a specific chain of modules!
+{% endhint %}
+
+As well as implementing the `AbstractPortal` interface, the Portal contract must also implement the [IERC165Upgradeable](https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/master/contracts/utils/introspection/IERC165Upgradeable.sol) interface, which involves including this function:
 
 ```solidity
-struct AttestationPayload {
-  bytes32 schemaId; // The identifier of the schema this attestation adheres to
-  uint64 expirationDate; // The expiration date of the attestation
-  bytes subject; // The identifier of the attestee e.g. EVM address, DID, URL etc.
-  bytes attestationData; // The raw attestation data
+function supportsInterface(bytes4 interfaceID) public pure override returns (bool) {
+  return interfaceID == type(AbstractPortal).interfaceId || interfaceID == type(IERC165Upgradeable).interfaceId;
 }
 ```
 
-## Deploying the Portal
+## Lifecycle Hooks
+
+The `AbstractPortal` contract defines the following life cycle hooks:
+
+* onAttest
+* onReplace
+* onBulkAttest
+* onBulkReplace
+* onRevoke
+* onBulkRevoke
+
+These lifecycle hooks can be overridden in the concrete implementation of the Portal, and can be used to implement additional logic and specific points in the lifecycle of an attestation.
+
+## Portal registration
+
+Portal registration takes 5 parameters, defined as follows:
+
+<table><thead><tr><th width="155.08201438848917">Parameter</th><th width="114">Datatype</th><th>Description</th></tr></thead><tbody><tr><td>id</td><td>address</td><td>Address of the Portal</td></tr><tr><td>name</td><td>string</td><td>A descriptive name for the Portal</td></tr><tr><td>description</td><td>string</td><td>A description of the Portal's functionality</td></tr><tr><td>isRevocable</td><td>bool</td><td>Whether attestations issued by the portal can be revoked</td></tr><tr><td>ownerName</td><td>string</td><td>The portal owner's name</td></tr></tbody></table>
+
+## Manually registering a deployed Portal in the `PortalRegistry` contract
+
+Once you have deployed your Portal contract, you can then register it in the `PortalRegistry` contract using the `register` function:
+
+```solidity
+function register(
+    address id,
+    string memory name,
+    string memory description,
+    bool isRevocable,
+    string memory ownerName
+  );
+```
+
+**A few caveats**: a Portal contract must be first deployed and cannot be registered twice under different names. Also, the name, description and owner name must not be empty.
+
+## Deploying a default Portal
 
 It is possible to deploy a portal without writing a single line of code, by simply calling the `deployDefaultPortal` function on the Portal Registry contract. This function accepts the following parameters:
 
@@ -42,29 +91,4 @@ Descriptions for the parameters are as follows:
 
 <table><thead><tr><th width="155.08201438848917">Parameter</th><th width="114">Datatype</th><th>Description</th></tr></thead><tbody><tr><td>modules</td><td>address[]</td><td>Address of the modules to execute for all attestations</td></tr><tr><td>name</td><td>string</td><td>A descriptive name for the portal</td></tr><tr><td>description</td><td>string</td><td>A description of the portal's functionality</td></tr><tr><td>isRevocable</td><td>bool</td><td>Whether attestations issued by the portal can be revoked</td></tr><tr><td>ownerName</td><td>string</td><td>The portal owner's name</td></tr></tbody></table>
 
-It is recommended to deploy and registry at least the `MsgSenderModule` module contract and pass its address in the first parameter. This module will allow you to lock down the portal so that only you can issue attestations through it. Alternatively, you can create a module that checks a signature, or a module that checks that the attestations coming through your portal are based on specific schemas.
-
-## Lifecycle Hooks
-
-The `AbstractPortal` contract defines the following life cycle hooks:
-
-* onAttest
-* onReplace
-* onBulkAttest
-* onBulkReplace
-* onRevoke
-* onBulkRevoke
-
-These lifecycle hooks can be overridden in the concrete implementation of the Portal, and can be used to implement additional logic and specific points in the lifecycle of an attestation.
-
-## Registering the Portal
-
-Once you have deployed your portal contract, you call the `registerPortal` function on the registry contract, providing the portal contract address, as well as the portal name and description. Note how that any modules you specify on the module chain will need to be deployed and registered first. For more details on the smart contract calls and the required arguments, see the [Create a Portal](create-a-portal.md) page.
-
-{% hint style="warning" %}
-While you can put whatever logic you want to in your portal contracts, it is strongly advised that you keep your portal as modular as possible, which means keeping your logic in modules. In the future, we _may_ pivot to no-code portals, which have no contract, and which simply execute a specific chain of modules!
-{% endhint %}
-
-One important warning is that initially creating a portal requires that you need to be listed as an "issuer" in the registry. To be listed as an issuer, you need to reach out to any of the core contributors. In the early stages of the project, we will be in a closed beta, which means you'll need to get listed before deploying a portal or registering a schema. Getting listed as an issuer is as easy as getting in touch using any of our [communication channels](../../get-involved/get-in-touch.md).
-
-Once you have deployed your portal, you are ready to issue your first attestation!
+Once you have created, deployed and registered your portal, you are ready to issue your first attestation!
