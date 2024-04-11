@@ -29,7 +29,7 @@ Instead of crafting the smart contract call by hand, you can benefit from a chai
 
 1. Retrieve the `SchemaRegistry` contract address from the [project README](https://github.com/Consensys/linea-attestation-registry?tab=readme-ov-file#contracts-addresses)
 2. Access the `SchemaRegistry` contract on [Lineascan](https://goerli.lineascan.build/address/0xB2c4Da1f8F08A0CA25862509E5431289BE2b598B)
-3. Go to ["Contract" tab](https://goerli.lineascan.build/address/0xB2c4Da1f8F08A0CA25862509E5431289BE2b598B#code)
+3. Go to the ["Contract" tab](https://goerli.lineascan.build/address/0xB2c4Da1f8F08A0CA25862509E5431289BE2b598B#code)
 4. Go to the ["Write as Proxy" tab](https://goerli.lineascan.build/address/0xB2c4Da1f8F08A0CA25862509E5431289BE2b598B#writeProxyContract)
 5. Connect your allow-listed wallet and fill the `createSchema` form with the parameters described above
 6. Send the transaction and watch the details of this transaction

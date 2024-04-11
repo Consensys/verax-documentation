@@ -68,7 +68,7 @@ Instead of crafting the smart contract call by hand, you can benefit from a chai
 
 1. Retrieve the `ModuleRegistry` contract address from the [project README](https://github.com/Consensys/linea-attestation-registry?tab=readme-ov-file#contracts-addresses)
 2. Access the `ModuleRegistry` contract on[ ](https://goerli.lineascan.build/address/0x1a20b2CFA134686306436D2c9f778D7eC6c43A43#writeProxyContract)[Lineascan](https://goerli.lineascan.build/address/0x1a20b2CFA134686306436D2c9f778D7eC6c43A43)
-3. Go to ["Contract" tab](https://goerli.lineascan.build/address/0x1a20b2CFA134686306436D2c9f778D7eC6c43A43#code)
+3. Go to the ["Contract" tab](https://goerli.lineascan.build/address/0x1a20b2CFA134686306436D2c9f778D7eC6c43A43#code)
 4. Go to the ["Write as Proxy" tab](https://goerli.lineascan.build/address/0x1a20b2CFA134686306436D2c9f778D7eC6c43A43#writeProxyContract)
 5. Connect your allow-listed wallet and fill the `register` form with the parameters described above
 6. Send the transaction
