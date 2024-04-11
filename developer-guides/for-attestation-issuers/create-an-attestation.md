@@ -1,8 +1,29 @@
 # Create an Attestation
 
-After determining the schemas and/or modules for use (or creating your own), and after the deployment and registration of a portal, you can begin creating attestations.
+After determining the Schema and potential Modules to use, and after the deployment and registration of your Portal, you can begin creating [Attestations](../../core-concepts/attestations.md).
 
-To create an attestation, you can call the `attest` function on your portal contract directly:
+## Attestation registration
+
+Attestation registration at the Portal level takes 2 parameters, defined as follows:
+
+<table><thead><tr><th width="190.54206896551727">Property</th><th>Description</th></tr></thead><tbody><tr><td>attestationPayload</td><td>The payload to attest</td></tr><tr><td>validationPayload</td><td>The payloads to validate via the modules to issue the attestation</td></tr></tbody></table>
+
+`attestationPayload` is defined in Solidity as follows:
+
+```solidity
+struct AttestationPayload {
+  bytes32 schemaId;
+  uint64 expirationDate;
+  bytes subject;
+  bytes attestationData;
+}
+```
+
+<table><thead><tr><th width="190.54206896551727">Property</th><th>Description</th></tr></thead><tbody><tr><td>schemaId</td><td>The identifier of the schema this attestation adheres to</td></tr><tr><td>expirationDate</td><td>The expiration date of the attestation</td></tr><tr><td>subject</td><td>The ID of the attestee, EVM address, DID, URL etc</td></tr><tr><td>attestationData</td><td>The attestation data</td></tr></tbody></table>
+
+## Manually registering an Attestation in the `AttestationRegistry` contract
+
+To register an Attestation into the `AttestationRegistry` contract, you need to go through the Portal you have previously deployed an registered, using the attest function:
 
 ```solidity
 function attest(
@@ -11,28 +32,17 @@ function attest(
 ) public payable;
 ```
 
-The two arguments are separated into 1) the actual attestation you wish to create, and 2) any extra data that is required to create an attestation. For example, the `validationPayload` could be a zero-knowledge-proof that verifies the attestationPayload.\
-\
-The `AttestationPayload` struct is specified as follows:
-
-```solidity
-struct AttestationPayload {
-  bytes32 schemaId; // The identifier of the schema this attestation adheres to.
-  uint64 expirationDate; // The expiration date of the attestation.
-  bytes subject; // The ID of the attestee, EVM address, DID, URL etc.
-  bytes attestationData; // The attestation data.
-}
-```
-
-The attestation subject can be an EVM address, a DID, a URL or anything that you are issuing your attestation to. The `attestationData` is the raw bytes that will be `abi.decode`d according to the schema ID.
-
-## Constraints on Creating Attestations
-
-When calling the `attest` function, the registry performs certain integrity checks on the new attestation:
+When attesting, the registry performs a set of integrity checks on the new attestation:
 
 * verifies the `schemaId` exists
 * verifies the `subject` field is not blank
 * verifies the `attestationData` field is not blank
+
+## Using a blockchain explorer
+
+Instead of drafting the csmart contract call by hand, you can benefit from a chai explorer interface. Let's use the Linea testnet explorer, [Lineascan](https://goerli.lineascan.build/).
+
+
 
 ## Attestation Metadata
 
