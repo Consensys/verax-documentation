@@ -16,9 +16,11 @@
 ## Developer Guides
 
 * [♒ For Attestation Issuers](developer-guides/for-attestation-issuers/README.md)
-  * [Create a Schema](developer-guides/for-attestation-issuers/create-a-schema.md)
-  * [Create a Module](developer-guides/for-attestation-issuers/create-a-module.md)
-  * [Create a Portal](developer-guides/for-attestation-issuers/create-a-portal.md)
+  * [Create and register a Schema](developer-guides/for-attestation-issuers/create-a-schema.md)
+  * [Create a Module \[WIP\]](developer-guides/for-attestation-issuers/create-a-module.md)
+  * [Register a Module](developer-guides/for-attestation-issuers/create-a-module-1.md)
+  * [Create a Portal \[WIP\]](developer-guides/for-attestation-issuers/create-a-portal-wip.md)
+  * [Register a Portal](developer-guides/for-attestation-issuers/create-a-portal.md)
   * [Create an Attestation](developer-guides/for-attestation-issuers/create-an-attestation.md)
   * [Encoding Attestation Data](developer-guides/for-attestation-issuers/encoding-attestation-data.md)
   * [Revoke an Attestation](developer-guides/for-attestation-issuers/revoke-an-attestation.md)
