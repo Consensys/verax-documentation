@@ -26,4 +26,4 @@ It is worth noting that the portal contract is entirely under the issuer's contr
 
 ***
 
-To find out how to create a portal, see the [Create a Portal](../developer-guides/for-attestation-issuers/create-a-portal.md) page for more information.
+To find out how to create a portal, see the [Create a Portal](../developer-guides/for-attestation-issuers/create-a-portal-1.md) page for more information.

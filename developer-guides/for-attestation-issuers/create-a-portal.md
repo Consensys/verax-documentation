@@ -1,112 +1,10 @@
 # Create a Portal
 
-[Portals](../../core-concepts/portals.md) are smart contracts that are registered in the "Portal Registry" and that you can consider as the entrypoint to the Verax Attestation Registry. This is where the payloads to be attested start their journey.
+[Portals](../../core-concepts/portals.md) are smart contracts that are registered in the "Portal Registry" and that you can consider as the entry point to the Verax Attestation Registry. This is where the payloads to be attested start their journey.
 
-## Portal creation
+There are two ways of creating a Portal: use a default Portal or create your own custom Portal. I you just need an entry point to the Verax Attestation Registry, go for the [default Portal](create-a-portal.md#using-a-default-portal). But if you want to add your own custom logic to this entry point, go for a [custom Portal.](create-a-portal.md#using-a-custom-portal)
 
-To create a Portal, you must first deploy a contract that inherits the [`AbstractPortal`](https://github.com/Consensys/linea-attestation-registry/blob/cd8f14463d5e96718b021bb3f66a9467e7c0ea3a/src/interface/AbstractPortal.sol) abstract contract. This portal contract is where you create attestations in the registry. You have full control over the logic in this contract, so long as it inherits the base `AbstractPortal` contract.\
-\
-The function that you will call to issue an attestation is:
-
-```solidity
-function attest(
-    AttestationPayload memory attestationPayload,
-    bytes[] memory validationPayload
-  ) public payable;
-```
-
-{% hint style="info" %}
-We are also introducing an `attestV2` function with the same signature, to cover the new "[Modules V2](https://github.com/Consensys/linea-attestation-registry/pull/562)" feature.
-{% endhint %}
-
-The `attest` function accepts 2 arguments:
-
-1. `attestationPayload`, the raw attestation data that will be stored in the registry
-2. `validationPayload`, validation logic that the module needs to execute its verification logic
-
-This function allows you to actually create attestations, you can call the various modules and/or apply any other logic you need to. The convention is to keep as much logic as possible in modules, but it is up to you how you implement your own domain logic. You can choose to override this function and add your own logic, or use the function as defined in `AbstractPortal`.
-
-{% hint style="warning" %}
-While you can put whatever logic you want to in your portal contracts, it is strongly advised that you keep your portal as modular as possible, which means keeping your logic in modules. In the future, we _may_ pivot to no-code portals, which have no contract, and which simply execute a specific chain of modules!
-{% endhint %}
-
-As well as implementing the `AbstractPortal` interface, the Portal contract must also implement the [IERC165Upgradeable](https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/master/contracts/utils/introspection/IERC165Upgradeable.sol) interface, which involves including this function:
-
-```solidity
-function supportsInterface(bytes4 interfaceID) public pure override returns (bool) {
-  return interfaceID == type(AbstractPortal).interfaceId || interfaceID == type(IERC165Upgradeable).interfaceId;
-}
-```
-
-## Lifecycle Hooks
-
-The `AbstractPortal` contract defines the following life cycle hooks:
-
-* onAttest
-* onReplace
-* onBulkAttest
-* onBulkReplace
-* onRevoke
-* onBulkRevoke
-
-These lifecycle hooks can be overridden in the concrete implementation of the Portal, and can be used to implement additional logic and specific points in the lifecycle of an attestation.
-
-## Portal registration
-
-Portal registration takes 5 parameters, defined as follows:
-
-<table><thead><tr><th width="155.08201438848917">Parameter</th><th width="114">Datatype</th><th>Description</th></tr></thead><tbody><tr><td>id</td><td>address</td><td>Address of the Portal</td></tr><tr><td>name</td><td>string</td><td>A descriptive name for the Portal</td></tr><tr><td>description</td><td>string</td><td>A description of the Portal's functionality</td></tr><tr><td>isRevocable</td><td>bool</td><td>Whether attestations issued by the portal can be revoked</td></tr><tr><td>ownerName</td><td>string</td><td>The portal owner's name</td></tr></tbody></table>
-
-## Manually registering a deployed Portal in the `PortalRegistry` contract
-
-Once you have deployed your Portal contract, you can then register it in the `PortalRegistry` contract using the `register` function:
-
-```solidity
-function register(
-    address id,
-    string memory name,
-    string memory description,
-    bool isRevocable,
-    string memory ownerName
-  );
-```
-
-**A few caveats**: a Portal contract must be first deployed and cannot be registered twice under different names. Also, the name, description and owner name must not be empty.
-
-## Using a blockchain explorer
-
-Instead of crafting the smart contract call by hand, you can benefit from a chain explorer interface. Let's use the Linea testnet explorer, [Lineascan](https://goerli.lineascan.build/).
-
-<figure><img src="../../.gitbook/assets/Capture d’écran 2024-04-10 à 10.52.14.png" alt="" width="190"><figcaption><p>The form generated by Lineascan to interact with the <code>PortalRegistry</code> contract</p></figcaption></figure>
-
-1. Retrieve the `PortalRegistry` contract address from the [project README](https://github.com/Consensys/linea-attestation-registry?tab=readme-ov-file#contracts-addresses)
-2. Access the `PortalRegistry` contract on[ ](https://goerli.lineascan.build/address/0x1a20b2CFA134686306436D2c9f778D7eC6c43A43#writeProxyContract)[Lineascan](https://goerli.lineascan.build/address/0x506f88a5Ca8D5F001f2909b029738A40042e42a6)
-3. Go to the ["Contract" tab](https://goerli.lineascan.build/address/0x506f88a5Ca8D5F001f2909b029738A40042e42a6#code)
-4. Go to the ["Write as Proxy" tab](https://goerli.lineascan.build/address/0x506f88a5Ca8D5F001f2909b029738A40042e42a6#writeProxyContract)
-5. Connect your allow-listed wallet and fill the `register` form with the parameters described above
-6. Send the transaction
-
-## Using the official Verax SDK
-
-We have seen rather manual ways to register a Portal, now let's focus on the easiest way: via the Verax SDK.
-
-{% hint style="info" %}
-Check [this page](https://docs.ver.ax/verax-documentation/developer-guides/tutorials/from-a-schema-to-an-attestation#id-2.-instantiate-the-verax-sdk) to discover how to instantiate the Verax SDK.
-{% endhint %}
-
-Once you have an SDK instance, you can register a Portal like this:
-
-```typescript
-await veraxSdk.portal.register(
-        id: "0xD39c439cD3Ae5E1F3c7d13985aDAC90846284904",
-        name: "ExamplePortal",
-        description: "This Portal is used as an example",
-        isRevocable: true,
-        ownerName: "Verax",
-);
-```
-
-## Deploying a default Portal
+## Using a default Portal
 
 It is possible to deploy a Portal without writing a single line of code, by simply calling the `deployDefaultPortal` function on the Portal Registry contract. This function accepts the following parameters:
 
@@ -122,7 +20,7 @@ function deployDefaultPortal(
 
 Descriptions for the parameters are as follows:
 
-<table><thead><tr><th width="155.08201438848917">Parameter</th><th width="114">Datatype</th><th>Description</th></tr></thead><tbody><tr><td>modules</td><td>address[]</td><td>Address of the modules to execute for all attestations</td></tr><tr><td>name</td><td>string</td><td>A descriptive name for the portal</td></tr><tr><td>description</td><td>string</td><td>A description of the portal's functionality</td></tr><tr><td>isRevocable</td><td>bool</td><td>Whether attestations issued by the portal can be revoked</td></tr><tr><td>ownerName</td><td>string</td><td>The portal owner's name</td></tr></tbody></table>
+<table><thead><tr><th width="160.08201438848917">Parameter</th><th width="114">Datatype</th><th>Description</th></tr></thead><tbody><tr><td>modules</td><td>address[]</td><td>Address of the modules to execute for all attestations</td></tr><tr><td>name</td><td>string</td><td>A descriptive name for the portal</td></tr><tr><td>description</td><td>string</td><td>A description of the portal's functionality</td></tr><tr><td>isRevocable</td><td>bool</td><td>Whether attestations issued by the portal can be revoked</td></tr><tr><td>ownerName</td><td>string</td><td>The portal owner's name</td></tr></tbody></table>
 
 Once you have created, deployed and registered your portal, you are ready to issue your first attestation!
 
@@ -137,3 +35,90 @@ await this.veraxSdk.portal.deployDefaultPortal(
         ownerName: "Verax",
 );
 ```
+
+## Using a custom Portal
+
+A Portal must implement the `AbstractPortal` contract to be considered as valid by Verax. Hopefully, we provide all the core contracts of the Verax platform as an npm package to help developers create their own custom implementations.
+
+* Install the dependency: `npm i @verax-attestation-registry/verax-contracts`
+*   Import the AbstractPortal contract:\
+
+
+    ```solidity
+    import {AbstractPortal} from "@verax-attestation-registry/verax-contracts/contracts/abstracts/AbstractPortal.sol";
+    ```
+*   Define your custom Portal:\
+
+
+    ```solidity
+    contract ExamplePortal is AbstractPortal { ... }
+    ```
+
+And now ... the floor is yours! You can add your custom functions, of course, but also use the hooks exposed by the `AbstractPortal`. They will help you add some custom logic in the main processes.
+
+## Hooks
+
+### `_onAttest`
+
+This hook is called during the attestation issuance process, _after_ the modules are run, and _before_ the payload is sent to the `AttestationRegistry`.
+
+### `_onReplace`
+
+This hook is called during the attestation replacement process, _after_ the modules are run, and _before_ the payload is sent to the `AttestationRegistry`.
+
+### `_onBulkAttest`
+
+This hook is called during the bulk attestation issuance process, _after_ the modules are run, and _before_ the payloads are sent to the `AttestationRegistry`.
+
+### `_onBulkreplace`
+
+This hook is called during the bulk attestation replacement process, _after_ the modules are run, and _before_ the payloads are sent to the `AttestationRegistry`.
+
+### `_onRevoke`
+
+This hook is called during the attestation revocation process, _before_ the revocation is registered at the `AttestationRegistry` level.
+
+### `_onBulkRevoke`
+
+This hook is called during the bulk attestation revocation process, _before_ the revocation are registered at the `AttestationRegistry` level.
+
+## Example
+
+Here is a simple custom Portal example:
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.21;
+
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import {AbstractPortal} from "@verax-attestation-registry/verax-contracts/contracts/abstracts/AbstractPortal.sol";
+import {AttestationPayload} from "@verax-attestation-registry/verax-contracts/contracts/types/Structs.sol";
+
+contract ExamplePortal is AbstractPortal, Ownable {
+
+    error InsufficientFee();
+    error WithdrawFail();
+
+    constructor(address[] memory modules, address router) AbstractPortal(modules, router) {
+    }
+
+    function _onAttest(
+        AttestationPayload memory attestationPayload,
+        address /*attester*/,
+        uint256 value
+    ) internal view override {
+        if (value < 0.001) revert InsufficientFee();
+    }
+
+    function withdraw(address payable to, uint256 amount) external override onlyOwner {
+        (bool s,) = to.call{value: amount}("");
+        if (!s) revert WithdrawFail();
+    }
+}
+```
+
+This `ExamplePortal` implements the `AbstractPortal` contract, but is also an `Ownable` contract. This means that you can clearly add a lot of features to your Portal, for example via the OpenZeppelin contracts.
+
+In this example, we are using the `_onAttest` hook to add some logic in the attestation issuance process. In this case, it verifies that the issuing transaction is paying a 0.001 ETH fee. If this condition is not met, an error is thrown.
+
+This example also implements the `withdraw` function, to be able to get the money from the fees out of the contract. Which is obviously a good idea...

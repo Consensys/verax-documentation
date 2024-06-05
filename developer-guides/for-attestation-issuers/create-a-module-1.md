@@ -95,4 +95,4 @@ await veraxSdk.module.register(
 
 To dive deeper on exactly how the `ModuleRegistry` contract works, you can check out the [source code on GitHub](https://github.com/Consensys/linea-attestation-registry/blob/dev/contracts/src/ModuleRegistry.sol).
 
-Once you have deployed one or more schemas and optionally also deployed one or more modules, you are ready to register a [portal](create-a-portal.md) and tie them all together so that you can issue your first attestations.
+Once you have deployed one or more schemas and optionally also deployed one or more modules, you are ready to register a [portal](create-a-portal-1.md) and tie them all together so that you can issue your first attestations.
