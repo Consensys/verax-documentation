@@ -41,7 +41,7 @@ await this.veraxSdk.portal.deployDefaultPortal(
 A Portal must implement the `AbstractPortal` contract to be considered as valid by Verax. Hopefully, we provide all the core contracts of the Verax platform as an npm package to help developers create their own custom implementations.
 
 * Install the dependency: `npm i @verax-attestation-registry/verax-contracts`
-*   Import the AbstractPortal contract:\
+*   Import the `AbstractPortal` contract:\
 
 
     ```solidity
