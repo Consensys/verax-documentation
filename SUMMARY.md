@@ -17,7 +17,7 @@
 
 * [♒ For Attestation Issuers](developer-guides/for-attestation-issuers/README.md)
   * [Create and register a Schema](developer-guides/for-attestation-issuers/create-a-schema.md)
-  * [Create a Module \[WIP\]](developer-guides/for-attestation-issuers/create-a-module.md)
+  * [Create a Module](developer-guides/for-attestation-issuers/create-a-module.md)
   * [Register a Module](developer-guides/for-attestation-issuers/create-a-module-1.md)
   * [Create a Portal](developer-guides/for-attestation-issuers/create-a-portal.md)
   * [Register a Portal](developer-guides/for-attestation-issuers/create-a-portal-1.md)
