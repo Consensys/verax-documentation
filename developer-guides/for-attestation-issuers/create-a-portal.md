@@ -103,11 +103,11 @@ contract ExamplePortal is AbstractPortal, Ownable {
     }
 
     function _onAttest(
-        AttestationPayload memory attestationPayload,
+        AttestationPayload memory /*attestationPayload*/,
         address /*attester*/,
         uint256 value
-    ) internal view override {
-        if (value < 0.001) revert InsufficientFee();
+    ) internal pure override {
+        if (value < 1000000000000000) revert InsufficientFee();
     }
 
     function withdraw(address payable to, uint256 amount) external override onlyOwner {
