@@ -36,6 +36,10 @@ await this.veraxSdk.portal.deployDefaultPortal(
 );
 ```
 
+{% hint style="danger" %}
+With a default Portal, the `withdraw` function is not implement. You won't be able to withdraw funds collected while issuing attestations!
+{% endhint %}
+
 ## Using a custom Portal
 
 A Portal must implement the `AbstractPortal` contract to be considered as valid by Verax. Hopefully, we provide all the core contracts of the Verax platform as an npm package to help developers create their own custom implementations.
@@ -55,6 +59,12 @@ A Portal must implement the `AbstractPortal` contract to be considered as valid 
     ```
 
 And now ... the floor is yours! You can add your custom functions, of course, but also use the hooks exposed by the `AbstractPortal`. They will help you add some custom logic in the main processes.
+
+
+
+{% hint style="danger" %}
+Don't forget to implement the `withdraw` function if you plan on collecting a fee to issue attestations!
+{% endhint %}
 
 ## Hooks
 
