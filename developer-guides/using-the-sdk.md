@@ -1,4 +1,4 @@
-# 🛠 Using the SDK
+# 🛠️ Using the SDK
 
 ## Installation
 
@@ -32,12 +32,12 @@ import { VeraxSdk } from "@verax-attestation-registry/verax-sdk";
 
 ### 2. Instantiate VeraxSdk <a href="#user-content-2-instantiate-veraxsdk" id="user-content-2-instantiate-veraxsdk"></a>
 
-<pre class="language-javascript"><code class="lang-javascript">// Default configuration for Linea Testnet
+<pre class="language-javascript"><code class="lang-javascript">// Default configuration for Linea Sepolia
 
 // Frontend
-const veraxSdk = new VeraxSdk(VeraxSdk.DEFAULT_LINEA_TESTNET_FRONTEND);
+const veraxSdk = new VeraxSdk(VeraxSdk.DEFAULT_LINEA_SEPOLIA_FRONTEND);
 // Backend
-<strong>const veraxSdk = new VeraxSdk(VeraxSdk.DEFAULT_LINEA_TESTNET);
+<strong>const veraxSdk = new VeraxSdk(VeraxSdk.DEFAULT_LINEA_SEPOLIA);
 </strong></code></pre>
 
 Or:
@@ -91,7 +91,6 @@ const utilsDataMapper = veraxSdk.utils; // Utils
 Each DataMapper comes with the method `findOneById` to get one object by ID.
 
 {% code fullWidth="true" %}
-
 ```javascript
 const myPortal = await portalDataMapper.findOneById("0x34798a866f52949208e67fb57ad36244024c50c0");
 
@@ -103,15 +102,15 @@ const mySchema = await schemaDataMapper.findOneById("0xce2647ed39aa89e6d1528a56d
 
 const myAttestation = await attestationDataMapper.findOneById("0x000000000000000000000000000000000000000000000000000000000000109b");
 ```
-
 {% endcode %}
 
 ### 3. Read content (list / many objects) <a href="#user-content-3-read-content-list--many-objects" id="user-content-3-read-content-list--many-objects"></a>
 
-Each DataMapper comes with the method `findBy` to get objects by criteria.
-Each DataMapper comes with the method `findBy` to get objects by criteria.
+Each DataMapper comes with the method `findBy` to get objects by criteria. Each DataMapper comes with the method `findBy` to get objects by criteria.
 
-<pre class="language-javascript" data-full-width="true"><code class="lang-javascript">//
+{% code fullWidth="true" %}
+```javascript
+//
 // args:
 // 	- criteria: object {property1: value1, property2: value2, ...}
 // 	- page: integer (optional, default 0)
@@ -137,15 +136,14 @@ console.log(myAttestations);
 // 	...
 // ]
 //
-</code></pre>
+```
+{% endcode %}
 
 ### 4. Write content <a href="#user-content-4-write-content" id="user-content-4-write-content"></a>
 
-Each dataMapper comes with methods to write data that may vary depending on the class. See the detail of write method per class
-dataMapper.
+Each dataMapper comes with methods to write data that may vary depending on the class. See the detail of write method per class dataMapper.
 
 {% code fullWidth="true" %}
-
 ```javascript
 const portalAddress = "0xeea25bc2ec56cae601df33b8fc676673285e12cc";
 const attestationPayload = {
@@ -157,7 +155,6 @@ const attestationPayload = {
 const validationPayloads = [];
 const newAttestation = await this.veraxSdk.portal.attest(portalAddress, attestationPayload, validationPayloads);
 ```
-
 {% endcode %}
 
 ***

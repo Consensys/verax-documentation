@@ -6,9 +6,11 @@ A public subgraph that is maintained by the Linea team, and can be accessed from
 Public subgraph on Linea mainnet
 {% endembed %}
 
-If you want to access the public subgraph on the Linea testnet, you can access it here:
+If you want to access the public subgraph on the Linea Sepolia, you can access it here:
 
-{% embed url="https://api.goldsky.com/api/public/project_clqghnrbp9nx201wtgylv8748/subgraphs/verax/subgraph-testnet/gn" %}
+{% embed url="https://api.studio.thegraph.com/proxy/67521/verax-v1-linea-sepolia/v0.0.12/graphql" %}
+Public subgraph on Linea Sepolia
+{% endembed %}
 
 You can use this default web interface to write queries in GraphQL to search through the attestation registry. Alternatively, you can use a tool such as Postman, or use the subgraph's API to query the registry directly from your own dApp.
 
