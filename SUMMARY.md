@@ -24,6 +24,7 @@
   * [Create an Attestation](developer-guides/for-attestation-issuers/create-an-attestation.md)
   * [Encoding Attestation Data](developer-guides/for-attestation-issuers/encoding-attestation-data.md)
   * [Revoke an Attestation](developer-guides/for-attestation-issuers/revoke-an-attestation.md)
+  * [Replace an Attestation](developer-guides/for-attestation-issuers/revoke-an-attestation-1.md)
   * [Link Attestations](developer-guides/for-attestation-issuers/link-attestations.md)
   * [Bulk Create Attestations](developer-guides/for-attestation-issuers/bulk-create-attestations.md)
   * [Walkthrough using Remix](developer-guides/for-attestation-issuers/walkthrough-using-remix.md)
