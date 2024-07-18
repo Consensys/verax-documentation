@@ -21,9 +21,9 @@ Anyone can create any type of relationship between any attestation and any other
 {% hint style="info" %}
 The schema ID for the relationship schema is:
 
-`0x41b8c81288eebbf173b2f54b9fb2f1d37f2caca51ef39e8f99299b53c2599a3a`
+`0x89bd76e17fd84df8e1e448fa1b46dd8d97f7e8e806552b003f8386a5aebcb9f0`
 
-It can be found on the [Explorer](https://explorer.ver.ax/linea/schemas/0x41b8c81288eebbf173b2f54b9fb2f1d37f2caca51ef39e8f99299b53c2599a3a).
+It can be found on the [Explorer](https://explorer.ver.ax/linea/schemas/0x89bd76e17fd84df8e1e448fa1b46dd8d97f7e8e806552b003f8386a5aebcb9f0).
 {% endhint %}
 
 ## One-to-One, One-to-Many, Many-to-Many
@@ -43,7 +43,7 @@ Certain use cases may require relationships to be grouped together into a "named
 {% hint style="info" %}
 The schema ID for the named graph relationship schema is:
 
-`0x8f83a0ef7871f63455a506f6bca0db98a88721764ae6dbde2afddd8e12e442b8`
+`0x5003a7832fa2734780a5bf6a1f3940b84c0c66a398e62dd4e7f183fdbc7da6ee`
 
-It can be found on the [Explorer](https://explorer.ver.ax/linea/schemas/0x8f83a0ef7871f63455a506f6bca0db98a88721764ae6dbde2afddd8e12e442b8).
+It can be found on the [Explorer](https://explorer.ver.ax/linea/schemas/0x5003a7832fa2734780a5bf6a1f3940b84c0c66a398e62dd4e7f183fdbc7da6ee).
 {% endhint %}
