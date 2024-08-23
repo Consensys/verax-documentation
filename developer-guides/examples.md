@@ -30,6 +30,6 @@ GitHub Repository: [https://github.com/alainncls/discord-attestation](https://gi
 
 Prove that a smart contract is actively monitored
 
-Webapp: _coming soon..._
+Webapp: [https://verax-security-attestations.netlify.app/](https://verax-security-attestations.netlify.app/)
 
-GitHub Repository: _coming soon_
+GitHub Repository: [https://github.com/satyajeetkolhapure/verax-security-attestations](https://github.com/satyajeetkolhapure/verax-security-attestations)
