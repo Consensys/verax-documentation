@@ -1,9 +1,11 @@
 # 🌐 Using the Subgraph
 
-A public subgraph that is maintained by the Linea team, and can be accessed from the following URL:
+All the on-chain data is indexed via a subgraph, deployed for all networks and hosted via The Graph.
 
-{% embed url="https://graph-query.linea.build/subgraphs/name/Consensys/linea-attestation-registry/graphql?query=query+MyQuery+{++attestations+{++++attestationData++++decodedData++++schemaString++}}" %}
-Public subgraph on Linea mainnet
+For example, the Linea mainnet subgraph can be found there:
+
+{% embed url="https://api.studio.thegraph.com/proxy/67521/verax-v2-linea/v0.0.1/graphql" %}
+Public subgraph on LInea mainnet
 {% endembed %}
 
 If you want to access the public subgraph on the Linea Sepolia, you can access it here:
@@ -11,6 +13,10 @@ If you want to access the public subgraph on the Linea Sepolia, you can access i
 {% embed url="https://api.studio.thegraph.com/proxy/67521/verax-v1-linea-sepolia/v0.0.12/graphql" %}
 Public subgraph on Linea Sepolia
 {% endembed %}
+
+You can also get access to all the subgraphs URLs from the project's Readme file:
+
+{% embed url="https://github.com/Consensys/linea-attestation-registry?tab=readme-ov-file#subgraphs-urls" %}
 
 You can use this default web interface to write queries in GraphQL to search through the attestation registry. Alternatively, you can use a tool such as Postman, or use the subgraph's API to query the registry directly from your own dApp.
 
