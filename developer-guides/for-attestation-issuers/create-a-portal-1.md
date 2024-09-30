@@ -83,7 +83,7 @@ Instead of crafting the smart contract call by hand, you can benefit from a chai
 2. Access the `PortalRegistry` contract on[ ](https://goerli.lineascan.build/address/0x1a20b2CFA134686306436D2c9f778D7eC6c43A43#writeProxyContract)[Lineascan](https://sepolia.lineascan.build/address/0xF35fe79104e157703dbCC3Baa72a81A99591744D)
 3. Go to the ["Contract" tab](https://sepolia.lineascan.build/address/0xF35fe79104e157703dbCC3Baa72a81A99591744D#code)
 4. Go to the ["Write as Proxy" tab](https://sepolia.lineascan.build/address/0xF35fe79104e157703dbCC3Baa72a81A99591744D#writeProxyContract)
-5. Connect your allow-listed wallet and fill the `register` form with the parameters described above
+5. Connect your wallet and fill the `register` form with the parameters described above
 6. Send the transaction
 
 ## Using the official Verax SDK

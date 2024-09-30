@@ -6,10 +6,6 @@ description: >-
 
 # From a Schema to an Attestation
 
-{% hint style="warning" %}
-To go through this tutorial, you must be allow-listed as an Issuer. You can reach out to us via our [**Discord server**](https://discord.gg/Sq4EmYdBEk).
-{% endhint %}
-
 ### Introduction
 
 For this tutorial, we will aim to issue an attestation that the user has completed … the tutorial. To that end, we'll go with a basic Vite/React setup.
