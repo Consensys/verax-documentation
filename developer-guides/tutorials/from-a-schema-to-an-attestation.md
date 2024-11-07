@@ -19,7 +19,7 @@ The 6 steps of the tutorial are as follows:
 5. Issue an Attestation
 6. Display the Attestation
 
-The code for this web application can be found [on GitHub](https://github.com/Consensys/linea-attestation-registry/tree/dev/tutorial).
+The code for this web application can be found [on GitHub](https://github.com/Verax-Attestation-Registry/verax-tutorial).
 
 The live version of this web application can be found [here](https://tutorial.examples.ver.ax/).
 
