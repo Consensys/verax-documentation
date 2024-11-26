@@ -60,10 +60,12 @@ A Portal must implement the `AbstractPortal` contract to be considered as valid 
 
 And now ... the floor is yours! You can add your custom functions, of course, but also use the hooks exposed by the `AbstractPortal`. They will help you add some custom logic in the main processes.
 
-
-
 {% hint style="danger" %}
 Don't forget to implement the `withdraw` function if you plan on collecting a fee to issue attestations!
+{% endhint %}
+
+{% hint style="warning" %}
+When multiple Modules are used in a workflow, ensure that at most one Module processes `msg.value` to avoid accounting issues, as the total `msg.value` is forwarded to all Modules.
 {% endhint %}
 
 ## Hooks

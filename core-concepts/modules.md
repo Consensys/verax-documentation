@@ -24,6 +24,10 @@ The function executes whatever logic it needs to, and reverts if the incoming tr
 
 As well as implementing the `Module` interface, a module must also implement [ERC-165](https://eips.ethereum.org/EIPS/eip-165) to ensure that it can be verified properly when being registered.
 
+{% hint style="warning" %}
+When multiple Modules are used in a workflow, ensure that at most one Module processes `msg.value` to avoid accounting issues, as the total `msg.value` is forwarded to all Modules.
+{% endhint %}
+
 ## Module Metadata
 
 Once the module smart contract is deployed, it can be registered with the following metadata:
