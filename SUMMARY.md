@@ -49,7 +49,7 @@
 ## Get Involved
 
 * [Get in Touch](get-involved/get-in-touch.md)
-* [Contribute to Development](get-involved/contribute-to-development.md)
+* [Contribute](get-involved/contribute.md)
 * [Governance](get-involved/governance/README.md)
   * [Governance Charter](get-involved/governance/governance-charter.md)
   * [Governance Parameters](get-involved/governance/governance-parameters.md)
