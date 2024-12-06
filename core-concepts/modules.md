@@ -1,6 +1,6 @@
 # Modules
 
-Modules are smart contracts that inherit the [`AbstractModule`](https://github.com/Consensys/linea-attestation-registry/blob/dev/src/interface/AbstractModule.sol) contract and are registered in the registry. They allow for attestation creators to run custom logic to do things like:
+Modules are smart contracts that inherit the [`AbstractModule`](https://github.com/Consensys/linea-attestation-registry/blob/dev/contracts/src/abstracts/AbstractModule.sol) contract and are registered in the registry. They allow for attestation creators to run custom logic to do things like:
 
 * verify that attestations conform to some business logic
 * verify a signature or a zk-snark
