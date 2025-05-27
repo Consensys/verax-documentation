@@ -4,15 +4,15 @@ All the on-chain data is indexed via a subgraph, deployed for all networks and h
 
 For example, the Linea mainnet subgraph can be found there:
 
-{% embed url="https://api.studio.thegraph.com/proxy/67521/verax-v2-linea/v0.0.1/graphql" %}
-Public subgraph on LInea mainnet
-{% endembed %}
+{% hint style="info" %}
+[https://api.studio.thegraph.com/query/67521/verax-v2-linea/v0.0.1](https://api.studio.thegraph.com/query/67521/verax-v2-linea/v0.0.1)
+{% endhint %}
 
-If you want to access the public subgraph on the Linea Sepolia, you can access it here:
+As for the Linea Sepolia subgraph, you can access it here:
 
-{% embed url="https://api.studio.thegraph.com/proxy/67521/verax-v1-linea-sepolia/v0.0.12/graphql" %}
-Public subgraph on Linea Sepolia
-{% endembed %}
+{% hint style="info" %}
+[https://api.studio.thegraph.com/query/67521/verax-v2-linea-sepolia/v0.0.2](https://api.studio.thegraph.com/query/67521/verax-v2-linea-sepolia/v0.0.2)
+{% endhint %}
 
 You can also get access to all the subgraphs URLs from the project's Readme file:
 
