@@ -16,7 +16,7 @@ Verax already offers a robust set of features and supports a variety of use case
 Feeling overwhelmed? Don’t worry—we’ve got you!
 
 * **Explore “**[**Good First Issues**](https://github.com/Consensys/linea-attestation-registry/issues?q=is%3Aopen+is%3Aissue+label%3A%22Good+first+issue%22)**”**: These are handpicked tasks that are simple, well-documented, and perfect for beginners.
-* **Need help?**: Ping us anytime on [Discord](https://discord.gg/VCdTuxCJ). We’re here to guide you.
+* **Need help?**: Ping us anytime on [Discord](https://discord.com/invite/Sq4EmYdBEk). We’re here to guide you.
 
 ### 🎨 Design, UX, and UI
 
@@ -31,7 +31,7 @@ Great design enhances usability, and we welcome your creativity!
 Our documentation is shaped by community feedback, but it’s always evolving.
 
 * **Need something new?**: [Open a GitHub issue](https://github.com/Consensys/verax-documentation/issues/new) to request a specific topic or tutorial.
-* **Ready to write?**: [Open a PR](https://github.com/Consensys/linea-attestation-registry/pulls) in the documentation repository.
+* **Ready to write?**: [Open a PR](https://github.com/Consensys/verax-documentation/pulls) in the documentation repository.
 * **Prefer a simpler approach?**: Draft your ideas in Notion, Google Docs, or your favorite tool and share the link. We’ll handle the Markdown and integration!
 
 ### 🐛 Bug Reports
@@ -62,7 +62,7 @@ Keeping our dependencies up-to-date ensures Verax remains modern and reliable.
 
 Not sure how to contribute or have an idea that doesn’t fit into these categories? Let’s talk!
 
-* Reach out on [Discord](https://discord.gg/VCdTuxCJ), [Twitter](https://x.com/VeraxRegistry), or [Lens](https://share.lens.xyz/u/lens/verax).
+* Reach out on [Discord](https://discord.com/invite/Sq4EmYdBEk) or [Twitter](https://x.com/VeraxRegistry).
 * Share your thoughts, and together, we’ll make the **Attestation world better**!
 
 Contributing to Verax isn’t just about code—it’s about building a better ecosystem together. So, jump in, share your ideas, and leave your mark. We can’t wait to collaborate with you!

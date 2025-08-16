@@ -14,9 +14,7 @@ As for the Linea Sepolia subgraph, you can access it here:
 [https://api.studio.thegraph.com/query/67521/verax-v2-linea-sepolia/v0.0.2](https://api.studio.thegraph.com/query/67521/verax-v2-linea-sepolia/v0.0.2)
 {% endhint %}
 
-You can also get access to all the subgraphs URLs from the project's Readme file:
-
-{% embed url="https://github.com/Consensys/linea-attestation-registry?tab=readme-ov-file#subgraphs-urls" %}
+You can also get access to all the subgraphs URLs from the project's [Readme file](https://github.com/Consensys/linea-attestation-registry?tab=readme-ov-file#subgraphs-urls).
 
 You can use this default web interface to write queries in GraphQL to search through the attestation registry. Alternatively, you can use a tool such as Postman, or use the subgraph's API to query the registry directly from your own dApp.
 
@@ -79,6 +77,4 @@ query SchemaQuery {
 
 To get more information on using the subgraph, please refer to [The Graph's documentation](https://thegraph.com/docs/en/).
 
-The source code for our subgraph is available in our monorepo, where you find info on deploying your own subgraph if you want to.
-
-{% embed url="https://github.com/Consensys/linea-attestation-registry/tree/dev/subgraph" %}
+The source code for our subgraph is available [in our monorepo](https://github.com/Consensys/linea-attestation-registry/tree/dev/subgraph), where you find info on deploying your own subgraph if you want to.

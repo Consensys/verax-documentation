@@ -6,9 +6,7 @@ description: >-
 
 # ECDSAModule
 
-## Link to the code
-
-{% embed url="https://github.com/Consensys/linea-attestation-registry/blob/dev/contracts/src/stdlib/ECDSAModule.sol" %}
+## [Link to the code](https://github.com/Consensys/linea-attestation-registry/blob/dev/contracts/src/stdlib/ECDSAModuleV2.sol)
 
 ## When to use this module?
 
