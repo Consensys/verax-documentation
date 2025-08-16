@@ -2,10 +2,6 @@
 
 [Modules](../../core-concepts/modules.md) are smart contracts that are registered in the "Module Registry" and that perform specific validation logic on attestations before they are issued into the registry.
 
-{% hint style="info" %}
-The Module mechanism may change in the future, following [Verax Improvement Proposal #5](https://community.ver.ax/t/allow-variable-modules-in-portals/51/2) and what we call "[Modules V2](https://github.com/Consensys/linea-attestation-registry/pull/562)".
-{% endhint %}
-
 ## Module creation
 
 Modules are intended to perform a single specific function. They should be designed to be minimalistic, atomic, and reusable. Modules can be chained together in series so that they are executed in order, with any module in the chain being able to prevent an attestation being issued to the registry by simply reverting if its verification checks fail.

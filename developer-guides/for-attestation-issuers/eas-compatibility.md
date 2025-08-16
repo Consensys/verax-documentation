@@ -4,7 +4,7 @@ Verax is designed to be compatible with the [Ethereum Attestation Service](https
 
 1. Emitting Attestations on Verax and EAS
 
-For projects that wish to emit attestations on both Verax and EAS, the [EASPortal contract](https://github.com/Consensys/linea-attestation-registry/blob/dev/contracts/src/examples/portals/EASPortal.sol) is used. This contract acts as a bridge, allowing attestations to be issued on both platforms simultaneously.
+For projects that wish to emit attestations on both Verax and EAS, the [EASPortal contract](https://github.com/Consensys/linea-attestation-registry/blob/dev/examples/src/portals/EASPortal.sol) is used. This contract acts as a bridge, allowing attestations to be issued on both platforms simultaneously.
 
 2. Reading Attestations from Verax and EAS
 

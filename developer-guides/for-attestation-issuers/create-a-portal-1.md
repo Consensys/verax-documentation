@@ -4,7 +4,7 @@
 
 ## Portal creation
 
-To create a Portal, you must first deploy a contract that inherits the [`AbstractPortal`](https://github.com/Consensys/linea-attestation-registry/blob/cd8f14463d5e96718b021bb3f66a9467e7c0ea3a/src/interface/AbstractPortal.sol) abstract contract. This portal contract is where you create attestations in the registry. You have full control over the logic in this contract, so long as it inherits the base `AbstractPortal` contract.\
+To create a Portal, you must first deploy a contract that inherits the [`AbstractPortal`](https://github.com/Consensys/linea-attestation-registry/blob/main/contracts/src/abstracts/AbstractPortalV2.sol) abstract contract. This portal contract is where you create attestations in the registry. You have full control over the logic in this contract, so long as it inherits the base `AbstractPortal` contract.\
 \
 The function that you will call to issue an attestation is:
 
@@ -14,10 +14,6 @@ function attest(
     bytes[] memory validationPayload
   ) public payable;
 ```
-
-{% hint style="info" %}
-We are also introducing an `attestV2` function with the same signature, to cover the new "[Modules V2](https://github.com/Consensys/linea-attestation-registry/pull/562)" feature.
-{% endhint %}
 
 The `attest` function accepts 2 arguments:
 
@@ -30,7 +26,7 @@ This function allows you to actually create attestations, you can call the vario
 While you can put whatever logic you want to in your portal contracts, it is strongly advised that you keep your portal as modular as possible, which means keeping your logic in modules. In the future, we _may_ pivot to no-code portals, which have no contract, and which simply execute a specific chain of modules!
 {% endhint %}
 
-As well as implementing the `AbstractPortal` interface, the Portal contract must also implement the [IERC165Upgradeable](https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/master/contracts/utils/introspection/IERC165Upgradeable.sol) interface, which involves including this function:
+As well as implementing the `AbstractPortalV2` interface, the Portal contract must also implement the [IERC165Upgradeable](https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/master/contracts/utils/introspection/IERC165Upgradeable.sol) interface, which involves including this function:
 
 ```solidity
 function supportsInterface(bytes4 interfaceID) public pure override returns (bool) {

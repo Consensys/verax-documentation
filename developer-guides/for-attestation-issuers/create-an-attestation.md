@@ -56,7 +56,7 @@ Instead of drafting the smart contract call by hand, you can benefit from a chai
 We have seen rather manual ways to create an Attestation, now let's focus on the easiest way: via the Verax SDK.
 
 {% hint style="info" %}
-Check this page to discover how to instantiate ethe Verax SDK.
+Check [this page](../using-the-sdk.md) to discover how to instantiate the Verax SDK.
 {% endhint %}
 
 Once you have an SDK instance, you can create an Attestation like this:
