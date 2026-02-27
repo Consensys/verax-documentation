@@ -38,23 +38,23 @@ await this.veraxSdk.portal.deployDefaultPortal(
 
 ## Using a custom Portal
 
-A Portal must implement the `AbstractPortal` contract to be considered as valid by Verax. Hopefully, we provide all the core contracts of the Verax platform as an npm package to help developers create their own custom implementations.
+A Portal must implement the `AbstractPortalV2` contract to be considered as valid by Verax. Hopefully, we provide all the core contracts of the Verax platform as an npm package to help developers create their own custom implementations.
 
 * Install the dependency: `npm i @verax-attestation-registry/verax-contracts`
-*   Import the `AbstractPortal` contract:\
+*   Import the `AbstractPortalV2` contract:\
 
 
     ```solidity
-    import {AbstractPortal} from "@verax-attestation-registry/verax-contracts/contracts/abstracts/AbstractPortal.sol";
+    import {AbstractPortalV2} from "@verax-attestation-registry/verax-contracts/contracts/abstracts/AbstractPortalV2.sol";
     ```
 *   Define your custom Portal:\
 
 
     ```solidity
-    contract ExamplePortal is AbstractPortal { ... }
+    contract ExamplePortal is AbstractPortalV2 { ... }
     ```
 
-And now ... the floor is yours! You can add your custom functions, of course, but also use the hooks exposed by the `AbstractPortal`. They will help you add some custom logic in the main processes.
+And now ... the floor is yours! You can add your custom functions, of course, but also use the hooks exposed by the `AbstractPortalV2`. They will help you add some custom logic in the main processes.
 
 {% hint style="warning" %}
 When multiple Modules are used in a workflow, ensure that at most one Module processes `msg.value` to avoid accounting issues, as the total `msg.value` is forwarded to all Modules.
@@ -74,7 +74,7 @@ This hook is called during the attestation replacement process, _after_ the modu
 
 This hook is called during the bulk attestation issuance process, _after_ the modules are run, and _before_ the payloads are sent to the `AttestationRegistry`.
 
-### `_onBulkreplace`
+### `_onBulkReplace`
 
 This hook is called during the bulk attestation replacement process, _after_ the modules are run, and _before_ the payloads are sent to the `AttestationRegistry`.
 
@@ -95,20 +95,20 @@ Here is a simple custom Portal example:
 pragma solidity 0.8.21;
 
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import {AbstractPortal} from "@verax-attestation-registry/verax-contracts/contracts/abstracts/AbstractPortal.sol";
+import {AbstractPortalV2} from "@verax-attestation-registry/verax-contracts/contracts/abstracts/AbstractPortalV2.sol";
 import {AttestationPayload} from "@verax-attestation-registry/verax-contracts/contracts/types/Structs.sol";
 
-contract ExamplePortal is AbstractPortal, Ownable {
+contract ExamplePortal is AbstractPortalV2, Ownable {
 
     error InsufficientFee();
     error WithdrawFail();
 
-    constructor(address[] memory modules, address router) AbstractPortal(modules, router) {
+    constructor(address[] memory modules, address router) AbstractPortalV2(modules, router) {
     }
 
     function _onAttest(
         AttestationPayload memory /*attestationPayload*/,
-        address /*attester*/,
+        bytes[] memory /*validationPayloads*/,
         uint256 value
     ) internal pure override {
         if (value < 1000000000000000) revert InsufficientFee();
@@ -121,7 +121,7 @@ contract ExamplePortal is AbstractPortal, Ownable {
 }
 ```
 
-This `ExamplePortal` implements the `AbstractPortal` contract, but is also an `Ownable` contract. This means that you can clearly add a lot of features to your Portal, for example via the OpenZeppelin contracts.
+This `ExamplePortal` implements the `AbstractPortalV2` contract, but is also an `Ownable` contract. This means that you can clearly add a lot of features to your Portal, for example via the OpenZeppelin contracts.
 
 In this example, we are using the `_onAttest` hook to add some logic in the attestation issuance process. In this case, it verifies that the issuing transaction is paying a 0.001 ETH fee. If this condition is not met, an error is thrown.
 

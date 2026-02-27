@@ -11,14 +11,14 @@ coverY: -369.4459724950884
 
 There will be more modules added here over time as more integrations come online.
 
-Even though you can publish your own modules, if you believe they are reusable and could be added here, please [contact us](get-involved/get-in-touch.md)!
+Even though you can publish your own modules, if you believe they are reusable and could be added here, please [contact us](../../get-involved/get-in-touch.md)!
 
 ## List of Standard Modules
 
-* [ecdsamodule.md](ecdsamodule.md "mention")(WIP)
-* [erc1271module.md](erc1271module.md "mention")(WIP)
-* [feemodule.md](feemodule.md "mention")(WIP)
-* [indexermodule.md](indexermodule.md "mention")(WIP)
+* [ecdsamodule.md](ecdsamodule.md "mention")
+* [erc1271module.md](erc1271module.md "mention")
+* [feemodule.md](feemodule.md "mention")
+* [indexermodule.md](indexermodule.md "mention")
 * [issuersmodule.md](issuersmodule.md "mention")
 * [schemamodule.md](schemamodule.md "mention")
 * [sendermodule.md](sendermodule.md "mention")

@@ -14,8 +14,16 @@ Replacing an Attestation is straightforward. To replace an Attestation that was 
     bytes32 attestationId,
     AttestationPayload memory attestationPayload,
     bytes[] memory validationPayloads
-  ) public payable {
-    moduleRegistry.runModules(modules, attestationPayload, validationPayloads, msg.value);
+  ) public payable onlyPortalOwner {
+    moduleRegistry.runModulesV2(
+      modules,
+      attestationPayload,
+      validationPayloads,
+      msg.value,
+      msg.sender,
+      getAttester(),
+      OperationType.Replace
+    );
     _onReplace(attestationId, attestationPayload, getAttester(), msg.value);
     attestationRegistry.replace(attestationId, attestationPayload, getAttester());
   }

@@ -6,9 +6,9 @@ The overall steps for getting up and running include the following:
 
 1. [Create and register a Schema](create-a-schema.md)
 2. [Optionally create one or more Module(s)](create-a-module.md)
-3. [Optionally register one or more Module(s)](create-a-module-1.md)
+3. [Optionally register one or more Module(s)](register-a-module.md)
 4. [Create a Portal contract](create-a-portal.md)
-5. [Register a Portal contract](create-a-portal-1.md)
+5. [Register a Portal contract](register-a-portal.md)
 6. [Start creating your attestations](create-an-attestation.md)
 
 All these steps can be done in three different ways:
