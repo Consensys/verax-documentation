@@ -13,14 +13,36 @@ Each module exposes a public function called `run`:
 
 ```solidity
 function run(
-    AttestationPayload memory attestationPayload,
-    bytes memory validationPayload,
-    address txSender,
-    uint256 value
-) public pure override {}
+    AttestationPayload calldata attestationPayload,
+    bytes calldata validationPayload,
+    address initialCaller,
+    uint256 value,
+    address attester,
+    address portal,
+    OperationType operationType
+) public virtual;
 ```
 
-The function executes whatever logic it needs to, and reverts if the incoming transaction doesn't conform to the required logic. The `attestationPayload` is the raw data of the incoming attestation, and the `validationPayload` is any qualifying data required for verification, but that doesn't make it into the on-chain attestation, e.g. a snark proof, merkle proof or signature etc.
+The function executes whatever logic it needs to, and reverts if the incoming transaction doesn't conform to the required logic. The parameters are:
+
+- `attestationPayload`: The raw data of the incoming attestation
+- `validationPayload`: Any qualifying data required for verification, but that doesn't make it into the on-chain attestation (e.g. a snark proof, merkle proof or signature)
+- `initialCaller`: The address of the initial transaction sender
+- `value`: The amount of ETH paid with the attestation transaction
+- `attester`: The address defined by the Portal as the attester for this payload
+- `portal`: The address of the Portal issuing the attestation
+- `operationType`: The type of operation being performed (see below)
+
+### OperationType Enum
+
+The `OperationType` parameter indicates what operation is being performed:
+
+- `Attest`: A new attestation is being created
+- `BulkAttest`: Multiple attestations are being created in a single transaction
+- `Replace`: An existing attestation is being replaced
+- `BulkReplace`: Multiple attestations are being replaced in a single transaction
+
+This allows modules to apply different validation logic depending on the operation type.
 
 As well as implementing the `Module` interface, a module must also implement [ERC-165](https://eips.ethereum.org/EIPS/eip-165) to ensure that it can be verified properly when being registered.
 

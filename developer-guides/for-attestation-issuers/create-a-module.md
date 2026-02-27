@@ -32,10 +32,11 @@ When multiple Modules are used in a workflow, ensure that at most one Module pro
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.21;
 
-import {AbstractModule} from "@verax-attestation-registry/verax-contracts/contracts/abstracts/AbstractModule.sol";
+import {AbstractModuleV2} from "@verax-attestation-registry/verax-contracts/contracts/abstracts/AbstractModuleV2.sol";
 import {AttestationPayload} from "@verax-attestation-registry/verax-contracts/contracts/types/Structs.sol";
+import {OperationType} from "@verax-attestation-registry/verax-contracts/contracts/types/Enums.sol";
 
-contract ExampleModule is AbstractModule {
+contract ExampleModule is AbstractModuleV2 {
 
     error InsufficientFee();
 

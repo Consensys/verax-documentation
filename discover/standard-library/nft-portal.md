@@ -4,17 +4,17 @@ The NFT Portal is an example of how you can deploy a portal that remains compati
 
 ## How it works
 
-To create an NFT/SBT compatible portal, you can copy the [default portal](https://github.com/Consensys/linea-attestation-registry/blob/dev/src/portal/DefaultPortal.sol) but add in the implementation of the erc-721 interface, or even simpler, inherit from[ OpenZeppellin's implementation](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.9.3/contracts/token/ERC721/ERC721.sol):
+To create an NFT/SBT compatible portal, you can copy the [default portal](https://github.com/Consensys/linea-attestation-registry/blob/dev/contracts/src/DefaultPortalV2.sol) but add in the implementation of the erc-721 interface, or even simpler, inherit from[ OpenZeppellin's implementation](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.9.3/contracts/token/ERC721/ERC721.sol):
 
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.21;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import { AbstractPortal } from "../interface/AbstractPortal.sol";
-import { AttestationPayload } from "../types/Structs.sol";
+import { AbstractPortalV2 } from "@verax-attestation-registry/verax-contracts/contracts/abstracts/AbstractPortalV2.sol";
+import { AttestationPayload } from "@verax-attestation-registry/verax-contracts/contracts/types/Structs.sol";
 
-contract MyNFTPortal is AbstractPortal, ERC721 {
+contract MyNFTPortal is AbstractPortalV2, ERC721 {
   /// @notice Creates an attestation with the given attestationPayload and validationPayload
   /// @dev Calls the inherited contract's attest function first, and then runs custom NFT logic
   function attest(

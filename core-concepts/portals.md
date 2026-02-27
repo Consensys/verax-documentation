@@ -18,6 +18,7 @@ Each portal can specify optional lifecycle hooks that are executed at specific p
 * **onReplace** - executed just before an attestation is replaced by another attestation
 * **onRevoke** - executed when an attestation is first revoked
 * **onBulkAttest** - executed when attestations are created in bulk
+* **onBulkReplace** - executed when attestations are replaced in bulk
 * **onBulkRevoke** - executed when attestations are revoked in bulk
 
 ## Customization
@@ -26,4 +27,4 @@ It is worth noting that the portal contract is entirely under the issuer's contr
 
 ***
 
-To find out how to create a portal, see the [Create a Portal](../developer-guides/for-attestation-issuers/create-a-portal-1.md) page for more information.
+To find out how to create a portal, see the [Create a Portal](../developer-guides/for-attestation-issuers/register-a-portal.md) page for more information.
